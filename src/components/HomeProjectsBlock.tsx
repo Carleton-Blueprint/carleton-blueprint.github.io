@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { HomeBlockProps } from '../interfaces/HomeBlockProps';
+import { ProjectCarouselBlockProps } from '../interfaces/ProjectCarouselBlockProps';
 
 import { Link } from 'react-router-dom';
 
@@ -37,7 +37,7 @@ const swiperConfig = {
   modules: [EffectCoverflow, Navigation, Pagination],
   className: 'projectsSwiper',
 };
-const HomeProjectsBlock = (props: HomeBlockProps) => (
+const HomeProjectsBlock = (props: ProjectCarouselBlockProps) => (
   <HomeProjectsBlockDiv>
     <Carousel>
       <Swiper {...swiperConfig}>

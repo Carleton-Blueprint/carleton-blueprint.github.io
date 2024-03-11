@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { HomeBlockProps } from '../interfaces/HomeBlockProps';
+import { ProjectCarouselBlockProps } from '../interfaces/ProjectCarouselBlockProps';
 import ProjectCard from './ProjectTextCard';
 
 import { Splide, SplideSlide, SplideTrack, Options } from '@splidejs/react-splide';
@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 
-const ProjectsTextMultiCarousel = ({ content }: HomeBlockProps) => {
+const ProjectsTextMultiCarousel = ({ content }: ProjectCarouselBlockProps) => {
 
   const [renderCarousel, setRenderCarousel] = useState<boolean>(false); 
   // if we don't use this state, the breakpoints don't take effect

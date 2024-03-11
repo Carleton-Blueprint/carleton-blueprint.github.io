@@ -1,12 +1,12 @@
-export interface HomeBlockProps {
+export interface TitleBlockProps {
   content: {
     title: string;
     subtitle: string;
     image: {
       picture: any;
       alt: string;
+      border?: boolean;
     };
-    style: string;
     buttons: {
       content: string;
       link: string;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import Button from './Button';
 
-import { HomeBlockProps } from '../interfaces/HomeBlockProps';
+import { TitleBlockProps } from '../interfaces/TitleBlockProps';
 
-const TitleBlock = (props: HomeBlockProps) => (
+const TitleBlock = (props: TitleBlockProps) => (
   <TitleBlockDiv>
     <Title>{props.content.title}</Title>
     <Description>{props.content.subtitle}</Description>
