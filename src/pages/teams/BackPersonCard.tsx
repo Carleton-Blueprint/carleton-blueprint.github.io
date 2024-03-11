@@ -122,8 +122,8 @@ const Socials = styled.div`
 const SocialIcon = styled.img`
   width: 30px;
   height: 30px;
-  :hover,
-  :active {
+  &:hover,
+  &:active {
     cursor: pointer;
     transform: scale(1.1);
   }
@@ -144,7 +144,7 @@ const Badge = styled.span<BadgeProps>`
   font-size: 0.7rem;
   width: fit-content;
   margin: 0 5px 5px 0;
-  :hover {
+  &:hover {
     transition: 0.3s;
     background-color: ${(props) =>
       projectInfo[props.projectName].color || '#888'};

@@ -65,7 +65,7 @@ const FooterTitle = styled(Link)`
   height: 35px;
   text-decoration: none;
   color: ${(props) => props.theme.colors.offWhite};
-  :hover {
+  &:hover {
     color: white;
   }
 `;
@@ -80,7 +80,7 @@ const SocialIcon = styled.img`
   margin-right: 10px;
   filter: invert(87%) sepia(70%) saturate(5510%) hue-rotate(177deg)
     brightness(106%) contrast(104%);
-  :hover {
+  &:hover {
     filter: invert(98%) sepia(6%) saturate(2%) hue-rotate(208deg)
       brightness(116%) contrast(100%);
   }

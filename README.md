@@ -1,8 +1,6 @@
-# CUBluePrint's New Website 
+# carletonblueprint.org
 
-Our new and updated website for CUBluePrint!
-
-You can find our live website available at: [link](enter link here thanks)
+Our new and updated website for CU Blueprint available at [carletonblueprint.org](https://carletonblueprint.org/)
 
 
 
@@ -34,16 +32,21 @@ The following is a visual map of how to navigate our website:
 
 ## How to run the website in Development
 
-To run the project in development mode on a local server, run the following command inside the project directory:
+First make sure you install [Node.js v16.20.2](https://nodejs.org/download/release/v16.20.2/). You can use nvm [(Node Version Manager)](https://github.com/nvm-sh/nvm) to switch between node versions.
+
+Next, to install dependencies run the following command inside the project directory ("cublueprint.github.io"):
+
+### `yarn install`
+
+Then to run the project in development mode on a local server, run the following command:
 
 ### `yarn start`
 
 This command will run the app on default [http://localhost:3000](http://localhost:3000). It can be accessed via a web browser. The page will reload if you make edits. You will also see any lint errors in the console.
 
-### `yarn test`
+## Deployment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+todo: add more specific steps here...
 
 ### `yarn build`
 
@@ -51,7 +54,6 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
@@ -63,3 +65,4 @@ Credits for the website go to:
 * [Meera](https://www.linkedin.com/in/meera-balsara/)
 * [Seneli](https://www.linkedin.com/in/seneliseneviratne/)
 * [Samee](https://www.linkedin.com/in/samee-shahood/)
+* todo: add others too

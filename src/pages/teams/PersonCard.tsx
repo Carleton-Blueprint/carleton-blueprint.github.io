@@ -63,8 +63,8 @@ const CardFace = styled.div<CardFaceProps>`
   -webkit-box-shadow: -1px 4px 14px -2px rgba(51, 51, 51, 0.66);
   -moz-box-shadow: -1px 4px 14px -2px rgba(51, 51, 51, 0.66);
   background-color: white;
-  :hover,
-  :active {
+  &:hover,
+  &:active {
     cursor: pointer;
     box-shadow: -1px 4px 14px -2px rgba(57, 136, 255, 0.66);
     -webkit-box-shadow: -1px 4px 14px -2px rgba(57, 136, 255, 0.66);

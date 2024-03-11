@@ -32,15 +32,16 @@ const ProjectsTextMultiCarousel = ({ content }: HomeBlockProps) => {
 
   useEffect(() => {
     const setBreakpoints = (options: Options): Options => {
-      if (content.slider!.length === 1){
+      const sliderLength = content.slider?.length;
+      if (sliderLength === 1){
         options["perPage"] = 1;
         setArrowRemoval(1);
-      } else if (content.slider!.length === 2){
+      } else if (sliderLength === 2){
         options["perPage"] = 2;
         setArrowRemoval(2);
       } else {
         options["perPage"] = 3;
-        if (content.slider!.length === 3){
+        if (sliderLength === 3){
           setArrowRemoval(3);
         }
       }
@@ -59,7 +60,7 @@ const ProjectsTextMultiCarousel = ({ content }: HomeBlockProps) => {
   return (
     <>
       <MobileProjects>
-        {content.slider!.map((project) => (
+        {content.slider?.map((project) => (
             <ProjectCard props={project} />
         ))}
       </MobileProjects>
@@ -67,7 +68,7 @@ const ProjectsTextMultiCarousel = ({ content }: HomeBlockProps) => {
       {renderCarousel &&
         <CustomSplide hasTrack={ false } tag={"section"} options={options}>
           <CustomSplideTrack>
-            {content.slider!.map((project) => (
+            {content.slider?.map((project) => (
               <SplideSlide>
                 <ProjectCard props={project} />
               </SplideSlide>

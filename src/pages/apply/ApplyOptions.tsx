@@ -26,7 +26,7 @@ const Container = styled.div`
   border: 1px solid ${(props) => props.theme.colors.primaryBlue};
   border-radius: 10px;
   padding: 20px;
-  :hover {
+  &:hover {
     -webkit-box-shadow: 2px 5px 18px 0px
       ${(props) => props.theme.colors.primaryBlue}80;
     box-shadow: 2px 5px 18px 0px ${(props) => props.theme.colors.primaryBlue}80;

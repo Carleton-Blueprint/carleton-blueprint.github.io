@@ -40,7 +40,7 @@ const BlueprintButton = styled.button`
     content: '>';
   }
   @media ${(props) => `${props.theme.viewport.hover}`} {
-    :hover {
+    &:hover {
       background: ${(props) => props.theme.colors.primaryBlue};
       color: ${(props) => props.theme.colors.lightBlue};
       transition: 0.2s ease-in-out;
