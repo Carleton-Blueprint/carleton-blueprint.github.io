@@ -2,7 +2,7 @@
 
 Our new and updated website for CU Blueprint available at [carletonblueprint.org](https://carletonblueprint.org/)
 
-
+This repository has been imported from our secondary GitHub, [CU Blueprint](https://github.com/cublueprint/cublueprint.github.io/tree/dev)
 
 ## Motivation for Project
 
