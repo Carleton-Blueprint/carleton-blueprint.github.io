@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 import blueprintIcon from '../../static/images/blueprint.png';
 import ApplicationText from './ApplyOptions';
+import UnderConstruction from '../../components/UnderConstruction';
 
 const Apply = () => {
   return (
     <Container>
-      <TitleContainer>
+    {/*<TitleContainer>
         <StyledBlueprintImage alt='Blueprint' src={blueprintIcon} />
         <Title>blueprint</Title>
         <Subtitle>Come work with us!</Subtitle>
-      </TitleContainer>
+    </TitleContainer>
 
-      <BodyContainer>
+    <BodyContainer>
         <SectionHeader>I am:</SectionHeader>
         <ApplicationTextContainer>
           <ApplicationText
@@ -31,7 +32,8 @@ const Apply = () => {
             linkText={'Learn more!'}
           />
         </ApplicationTextContainer>
-      </BodyContainer>
+    </BodyContainer> */}
+      <UnderConstruction></UnderConstruction>
     </Container>
   );
 };
