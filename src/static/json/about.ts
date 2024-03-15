@@ -8,7 +8,7 @@ import MissionImage from '../images/about-page/mission.svg';
 
 const aboutContent = {
     titleBlock: {
-        title:'About The Club',
+        title:'About The Club.',
         subtitle: 'We\'re a club at Carleton University that develops pro-bono apps for nonprofits and promotes tech for social good.',
         image: {
             picture: AboutTitleImage,
