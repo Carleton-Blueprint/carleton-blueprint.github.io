@@ -11,10 +11,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Authorize
-        run: |
-          git config user.email "$(git log -n 1 --pretty=format:%ae)"
-          git config user.name "$(git log -n 1 --pretty=format:%an)"
+      - name: Authorization - Email
+        run: git config user.email "$(git log -n 1 --pretty=format:%ae)"
+      
+      - name: Authorization - Username
+        run: git config user.name "$(git log -n 1 --pretty=format:%an)"
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
