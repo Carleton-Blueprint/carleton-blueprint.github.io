@@ -34,6 +34,6 @@ jobs:
           npm run deploy
         env:
           github_token: ${{ secrets.ACCESS_TOKEN }}
-          repository: ${{ github.carleton-blueprint.github.io }}
+          repository: ${{ github.repository }}
 
     
