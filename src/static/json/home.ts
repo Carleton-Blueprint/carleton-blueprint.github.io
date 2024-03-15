@@ -12,7 +12,7 @@ const projects: IProject[] = currentProjects.concat(pastProjects);
 
 const homeContent = {
   titleBlock: {
-    title: 'Tech fortnite social good',
+    title: 'Tech for social good',
     subtitle: "We're a team of students at Carleton University that develop pro-bono apps for nonprofits and promote tech for social good.",
     image: {
       picture: HomePicture,
