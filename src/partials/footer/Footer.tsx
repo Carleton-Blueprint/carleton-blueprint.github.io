@@ -1,20 +1,21 @@
 import styled from 'styled-components';
 import content from '../../static/json/footer';
 import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 const Footer = () => (
   <FooterContainer>
     <FlexContainer>
       <Column>
         {content.links.slice(0, 3).map((link) => (
-          <div>
+          <div key={uuidv4()}>
             <FooterTitle to={link.link}>{link.name}</FooterTitle>
           </div>
         ))}
       </Column>
       <Column>
         {content.links.slice(3).map((link) => (
-          <div>
+          <div key={uuidv4()}>
             <FooterTitle to={link.link}>{link.name}</FooterTitle>
           </div>
         ))}
@@ -34,7 +35,9 @@ const Footer = () => (
         ))}
       </Column>
     </FlexContainer>
-    <IllustrationCredit href="https://storyset.com/people">People illustrations by Storyset</IllustrationCredit>
+    <IllustrationCredit href='https://storyset.com/people'>
+      People illustrations by Storyset
+    </IllustrationCredit>
     <MadeWithLove>Made with ❤️ by The Blueprint Team</MadeWithLove>
   </FooterContainer>
 );

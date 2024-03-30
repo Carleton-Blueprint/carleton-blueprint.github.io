@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ProjectCarouselBlockProps } from '../interfaces/ProjectCarouselBlockProps';
+import { v4 as uuidv4 } from 'uuid';
 
 import { Link } from 'react-router-dom';
 
@@ -52,7 +53,7 @@ const HomeProjectsBlock = (props: ProjectCarouselBlockProps) => (
     </Carousel>
     <MobileProjects>
       {props.content.slider?.map((project) => (
-        <StyledA to={project.link ? project.link : '#'}>
+        <StyledA key={uuidv4()} to={project.link ? project.link : '#'}>
           <ProjectImageCard props={project} />
         </StyledA>
       ))}
@@ -93,7 +94,8 @@ const MobileProjects = styled.div`
   @media ${(props) => `${props.theme.viewport.widerMobile}`} {
     grid-template-columns: 1fr 1fr;
   }
-  @media ${(props) => `${props.theme.viewport.widerMobile} and  ${props.theme.viewport.hover}`} {
+  @media ${(props) =>
+      `${props.theme.viewport.widerMobile} and  ${props.theme.viewport.hover}`} {
     grid-template-columns: 1fr;
   }
 `;
