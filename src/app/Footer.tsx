@@ -24,7 +24,7 @@ export default async function Footer() {
     <div className="flex bg-blueprint pt-16 pb-10 text-white">
       <div className="container">
         <div className="flex justify-between">
-          <div className="flex flex-col text-lg space-y-2">
+          <div className="flex flex-col text-lg space-y-3">
             {res.map((page) => (
               <Link key={uuidv4()} href={page.href} className="hover:text-blueprint-100">
                 {page.name}

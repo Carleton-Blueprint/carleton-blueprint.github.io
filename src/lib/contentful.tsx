@@ -12,7 +12,8 @@ export type PageDataType = {
 };
 
 export async function fetchPages() {
-  const res = await client.getEntries({ content_type: "navLinks" });
+  const res = await client.getEntries({ content_type: "navLinks", select: ["fields"], limit: 1 });
+
   if (res.items.length === 0) throw new Error("No pages found");
 
   const raw = res.items[0].fields.links as { fields: PageDataType }[];

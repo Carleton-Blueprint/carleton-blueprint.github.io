@@ -17,7 +17,7 @@ function MainLink() {
 
 function LinkItem({ page }: { page: PageDataType }) {
   return (
-    <Link href={page.href} className="text-white">
+    <Link href={page.href} className="text-white hover:text-blueprint-100">
       {page.name}
     </Link>
   );
