@@ -27,16 +27,20 @@ export default async function Navbar() {
   const res = await fetchPages();
 
   return (
-    <div className=" bg-blueprint h-[80px] flex">
-      <div className="container flex flex-row items-center justify-between">
-        <MainLink />
+    <div className="h-[80px]">
+      <div className=" bg-blueprint h-[80px] flex fixed w-screen">
+        <div className="container flex flex-row items-center justify-between">
+          <MainLink />
 
-        <div className="flex flex-row space-x-5">
-          {res.map((page) => (
-            <LinkItem key={uuidv4()} page={page} />
-          ))}
+          <div className="flex flex-row space-x-5">
+            {res.map((page) => (
+              <LinkItem key={uuidv4()} page={page} />
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Blank space hidden under navbar */}
     </div>
   );
 }
