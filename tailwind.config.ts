@@ -3,6 +3,9 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -10,7 +13,7 @@ const config: Config = {
       },
       colors: {
         blueprint: {
-          50: "#dcf3ff",
+          50: "#E7F2FE",
           100: "#aed9ff",
           200: "#7dbdff",
           300: "#4aa3ff",

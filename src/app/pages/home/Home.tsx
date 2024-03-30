@@ -1,7 +1,9 @@
-import styled from 'styled-components';
-import { ContentBlock, NewTitleBlock, HomeBlock, HomeProjectsBlock } from '../../components';
+"use client";
 
-import content from '../../static/json/home';
+import styled from "styled-components";
+import { ContentBlock, NewTitleBlock, HomeBlock, HomeProjectsBlock } from "../../components";
+
+import content from "../../static/json/home";
 
 const Home = () => (
   <PageBody>
@@ -9,7 +11,7 @@ const Home = () => (
     <ContentBlock title={content.aboutBlock.title} changeBackground>
       <HomeBlock content={content.aboutBlock}></HomeBlock>
     </ContentBlock>
-    <ContentBlock title={content.projectsBlock.title}>
+    {/* <ContentBlock title={content.projectsBlock.title}>
       <HomeProjectsBlock content={content.projectsBlock}></HomeProjectsBlock>
     </ContentBlock>
     <ContentBlock title={content.getInvolvedBlock.title} changeBackground>
@@ -17,7 +19,7 @@ const Home = () => (
     </ContentBlock>
     <ContentBlock title={content.contactUsBlock.title}>
       <HomeBlock content={content.contactUsBlock}></HomeBlock>
-    </ContentBlock>
+    </ContentBlock> */}
   </PageBody>
 );
 

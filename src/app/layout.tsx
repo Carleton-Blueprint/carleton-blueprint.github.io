@@ -27,7 +27,7 @@ export default function RootLayout({
         <meta name="description" content="Tech for social good" />
       </head>
       <Providers>
-        <body className={poppins.className}>{children}</body>
+        <body className={`${poppins.className}`}>{children}</body>
       </Providers>
     </html>
   );
