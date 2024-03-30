@@ -6,10 +6,14 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ?? "",
 });
 
+export type PageDataType = {
+  name: string;
+  href: string;
+};
+
 export async function fetchPages() {
-  const res = await client.getEntry("61ExBXrQU5eIsFvZJSEKda");
-  console.log(res);
-  return res;
+  const res = await client.getEntries();
+  return res.items.map((item) => item.fields) as PageDataType[];
 }
 
 export default client;
