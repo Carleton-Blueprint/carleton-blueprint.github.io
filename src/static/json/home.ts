@@ -1,7 +1,7 @@
 import HomePicture from '../images/homepic.png';
 import AboutPicture from '../images/Team spirit-pana.svg';
-import ApplyPicture from '../images/Team spirit-pana.svg';
-import ContactPicture from '../images/Team spirit-pana.svg';
+import ApplyPicture from '../images/Co-workers-cuate.svg';
+import ContactPicture from '../images/Mention-rafiki.svg';
 import {projectDetails, IProject} from "./projectDetails";
 
 import BlueprintPicture from '../images/blueprint.png';

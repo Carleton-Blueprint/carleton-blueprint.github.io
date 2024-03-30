@@ -34,10 +34,18 @@ const Footer = () => (
         ))}
       </Column>
     </FlexContainer>
-
+    <IllustrationCredit href="https://storyset.com/people">People illustrations by Storyset</IllustrationCredit>
     <MadeWithLove>Made with ❤️ by The Blueprint Team</MadeWithLove>
   </FooterContainer>
 );
+
+const IllustrationCredit = styled.a`
+  font-size: 10px;
+  color: ${(props) => props.theme.colors.offWhite};
+  text-align: center;
+  display: block;
+  background-color: ${(props) => props.theme.colors.primaryBlue};
+`;
 
 const FooterContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primaryBlue};
