@@ -4,6 +4,7 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Providers from "@/lib/providers";
+import Navbar from "./Navbar";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
@@ -27,7 +28,10 @@ export default function RootLayout({
         <meta name="description" content="Tech for social good" />
       </head>
       <Providers>
-        <body className={`${poppins.className}`}>{children}</body>
+        <body className={`${poppins.className}`}>
+          <Navbar />
+          {children}
+        </body>
       </Providers>
     </html>
   );

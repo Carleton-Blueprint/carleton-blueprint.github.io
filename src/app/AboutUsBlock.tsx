@@ -1,11 +1,11 @@
-import NextImage from "next/image";
+import Image from "next/image";
 import image from "./_assets/teamspirit.svg";
 
 export default function AboutUsBlock() {
   return (
     <div className="flex flex-row items-center justify-around">
       <div className="relative w-[300px]">
-        <NextImage src={image} alt="decorative image" />
+        <Image src={image} alt="decorative image" />
       </div>
 
       <div className="max-w-[500px]">
