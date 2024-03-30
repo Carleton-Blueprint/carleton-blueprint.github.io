@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2680b63f.css",
-    "main.js": "/static/js/main.3a04a8bb.js",
+    "main.js": "/static/js/main.ea613fe8.js",
     "static/media/UrbanMindsSolution.png": "/static/media/UrbanMindsSolution.10d040fcda51e94edfc9.png",
     "static/media/AlloCanadaSolution.png": "/static/media/AlloCanadaSolution.473d35a73fcdc57a0395.png",
     "static/media/BeneficientSolution.png": "/static/media/BeneficientSolution.f24c8b80cd2c24d6f4d5.png",
@@ -36,10 +36,10 @@
     "static/media/list.svg": "/static/media/list.657fcc359945c91f2ac530de4ca0a1a4.svg",
     "static/media/listClose.svg": "/static/media/listClose.89d7ff33f6d74612bc16b7e2ee42982d.svg",
     "main.2680b63f.css.map": "/static/css/main.2680b63f.css.map",
-    "main.3a04a8bb.js.map": "/static/js/main.3a04a8bb.js.map"
+    "main.ea613fe8.js.map": "/static/js/main.ea613fe8.js.map"
   },
   "entrypoints": [
     "static/css/main.2680b63f.css",
-    "static/js/main.3a04a8bb.js"
+    "static/js/main.ea613fe8.js"
   ]
 }
