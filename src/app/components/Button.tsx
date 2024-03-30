@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import Link from "next/link";
 
 interface ButtonProps {
   text: string;
@@ -8,7 +8,7 @@ interface ButtonProps {
 }
 
 const Button = (props: ButtonProps) => (
-  <StyledA to={props.link ? props.link : '#'}>
+  <StyledA href={props.link ? props.link : "#"}>
     <BlueprintButton className={props.className}>{props.text}</BlueprintButton>
   </StyledA>
 );
@@ -37,7 +37,7 @@ const BlueprintButton = styled.button`
   text-transform: uppercase;
   transition: 0.2s ease-in-out;
   ::after {
-    content: '>';
+    content: ">";
   }
   @media ${(props) => `${props.theme.viewport.hover}`} {
     &:hover {

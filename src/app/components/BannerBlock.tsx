@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import Button from './Button';
-import contactContent from '../static/json/contact';
-import aboutContent from '../static/json/about';
-import projectContent from '../static/json/projects';
-import { useLocation } from 'react-router-dom';
+import styled from "styled-components";
+import Button from "./Button";
+import contactContent from "../static/json/contact";
+import aboutContent from "../static/json/about";
+import projectContent from "../static/json/projects";
+import { usePathname } from "next/navigation";
 
 type Content = {
   text: string;
@@ -16,12 +16,12 @@ type Content = {
 const contentMap: { [key: string]: Content } = {
   contact: contactContent.banner,
   about: aboutContent.banner,
-  projects: projectContent.banner
+  projects: projectContent.banner,
 };
 
 const BannerBlock = () => {
-  const location = useLocation();
-  const currentPage = location.pathname.split('/')[1].toLowerCase();
+  const location = usePathname();
+  const currentPage = location.split("/")[1].toLowerCase();
 
   const content = contentMap[currentPage];
 
@@ -32,10 +32,7 @@ const BannerBlock = () => {
           <Text>{content.text}</Text>
         </FlexContainer>
         <FlexContainer>
-          <Button
-            text={content.button.content}
-            link={content.button.link}
-          ></Button>
+          <Button text={content.button.content} link={content.button.link}></Button>
         </FlexContainer>
       </ApplicationDiv>
     );
@@ -66,7 +63,7 @@ const FlexContainer = styled.div`
 const Text = styled.h3`
   text-align: center;
   color: ${(props) => props.theme.colors.primaryBlue};
-  width:75%;
+  width: 75%;
   @media ${(props) => props.theme.viewport.laptop} {
     width: 100%;
   }

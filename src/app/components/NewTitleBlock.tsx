@@ -1,5 +1,7 @@
-import styled from 'styled-components';
-import Button from './Button';
+"use client";
+
+import styled from "styled-components";
+import Button from "./Button";
 
 interface TitleBlockProps {
   content: {
@@ -29,13 +31,13 @@ const NewTitleBlock = (props: TitleBlockProps) => (
           ))}
         </Buttons>
       </LeftFlex>
-      {props.content.image.border ?
+      {props.content.image.border ? (
         <PictureWrapper>
           <Picture src={props.content.image.picture} alt={props.content.image.alt} />
         </PictureWrapper>
-        :
+      ) : (
         <Image src={props.content.image.picture} alt={props.content.image.alt} />
-      }
+      )}
     </TitleBlockDiv>
   </Background>
 );
@@ -116,7 +118,7 @@ const PictureWrapper = styled.div`
   @media ${(props) => `${props.theme.viewport.laptop}`} {
     padding: 0;
     margin: 0 10%;
-    height: 300px; 
+    height: 300px;
   }
 `;
 

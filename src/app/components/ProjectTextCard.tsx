@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import Link from "next/link";
+import styled from "styled-components";
 
 interface ProjectProps {
   props: {
@@ -11,7 +11,7 @@ interface ProjectProps {
 }
 
 const ProjectTextCard = ({ props }: ProjectProps) => {
-  const projectName = props.name.replace(/\s/g, '');
+  const projectName = props.name.replace(/\s/g, "");
   return (
     <CardDiv>
       <PictureWrapper>
@@ -19,9 +19,10 @@ const ProjectTextCard = ({ props }: ProjectProps) => {
       </PictureWrapper>
       <Name>{props.name}</Name>
       <Description>{props.description}</Description>
-      <ReadMore to={`${projectName}`} state={{ projectDetails: props }}>
+      {/* <ReadMore href={`${projectName}`} state={{ projectDetails: props }}>
         Read More
-      </ReadMore>
+      </ReadMore> */}
+      <p>FIXMEE IN CODEE!!!!! ProjectTextCard.tsx - Read More</p>
     </CardDiv>
   );
 };

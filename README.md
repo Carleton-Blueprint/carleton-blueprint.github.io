@@ -1,68 +1,36 @@
-# carletonblueprint.org
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Our new and updated website for CU Blueprint available at [carletonblueprint.org](https://carletonblueprint.org/)
+## Getting Started
 
-This repository has been imported from our secondary GitHub, [CU Blueprint](https://github.com/cublueprint/cublueprint.github.io/tree/dev)
+First, run the development server:
 
-## Motivation for Project
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-In 2021, we decided to build our club a brand new website with an improved UI and a more modern tech stack. The reason for this change was that our old website was built with Pug and had outdated design decisions.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-To meet these challenges, our team designed a [new UI using Figma](https://www.figma.com/file/Qt7bGynNItu0hUvPu0EPGa/Draft-Website-Design?node-id=0%3A1) and is currently working on developing it using React, Typescript and styled components. 
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Learn More
 
-## Site Map
+To learn more about Next.js, take a look at the following resources:
 
-Our site contains information about CUBlueprint's mission statement, our current projects, our team, how to get involved and sign up forms for volunteers and non-profit organizations. 
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-The following is a visual map of how to navigate our website:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-### `INCLUDE SAMEE'S SITE MAP`
+## Deploy on Vercel
 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-
-## Tools
-
-* TypeScript
-* React
-* Yarn
-* Styled Components 💅 
-
-
-## How to run the website in Development
-
-First make sure you install [Node.js v16.20.2](https://nodejs.org/download/release/v16.20.2/). You can use nvm [(Node Version Manager)](https://github.com/nvm-sh/nvm) to switch between node versions.
-
-Next, to install dependencies run the following command inside the project directory ("cublueprint.github.io"):
-
-### `yarn install`
-
-Then to run the project in development mode on a local server, run the following command:
-
-### `yarn start`
-
-This command will run the app on default [http://localhost:3000](http://localhost:3000). It can be accessed via a web browser. The page will reload if you make edits. You will also see any lint errors in the console.
-
-## Deployment
-
-todo: add more specific steps here...
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-
-## Credits
-
-Credits for the website go to:
-* [Deen](https://www.linkedin.com/in/deenhaque)
-* [Meera](https://www.linkedin.com/in/meera-balsara/)
-* [Seneli](https://www.linkedin.com/in/seneliseneviratne/)
-* [Samee](https://www.linkedin.com/in/samee-shahood/)
-* todo: add others too
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
