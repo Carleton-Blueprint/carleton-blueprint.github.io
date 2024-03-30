@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2680b63f.css",
-    "main.js": "/static/js/main.a781e16d.js",
+    "main.js": "/static/js/main.3a04a8bb.js",
     "static/media/UrbanMindsSolution.png": "/static/media/UrbanMindsSolution.10d040fcda51e94edfc9.png",
     "static/media/AlloCanadaSolution.png": "/static/media/AlloCanadaSolution.473d35a73fcdc57a0395.png",
     "static/media/BeneficientSolution.png": "/static/media/BeneficientSolution.f24c8b80cd2c24d6f4d5.png",
@@ -11,10 +11,12 @@
     "static/media/homepic.png": "/static/media/homepic.29031b7ae18ff26d6a3e.png",
     "static/media/AlloCanada_logo_square.png": "/static/media/AlloCanada_logo_square.6f62ced9d7b23053091b.png",
     "static/media/Construction-pana.svg": "/static/media/Construction-pana.c9cc3e0293090d7fcc45616f463fb0ab.svg",
-    "static/media/Team spirit-pana.svg": "/static/media/Team spirit-pana.f80b17d27a356411b5eb2edd9d5f098c.svg",
+    "static/media/Co-workers-cuate.svg": "/static/media/Co-workers-cuate.3ddebf52c3111c9885035c8a7eb606f7.svg",
+    "static/media/Team spirit-pana.svg": "/static/media/Team spirit-pana.1899e7702a3d6d2a825bfdb664773ed9.svg",
     "static/media/UrbanMinds_logo_square.png": "/static/media/UrbanMinds_logo_square.40066c68ed4456e4164c.png",
     "static/media/poppins-v15-latin-regular.svg": "/static/media/poppins-v15-latin-regular.04277a799cb3f1b29dfad816139bad03.svg",
     "static/media/titleImage.svg": "/static/media/titleImage.74dd823ac5160401898506c108eba83e.svg",
+    "static/media/Mention-rafiki.svg": "/static/media/Mention-rafiki.2219b1ea515acd4d6254c05432cad359.svg",
     "static/media/poppins-v15-latin-regular.ttf": "/static/media/poppins-v15-latin-regular.b739ab04747cf8e3325a.ttf",
     "static/media/poppins-v15-latin-regular.woff": "/static/media/poppins-v15-latin-regular.c14093cee8c440c1884e.woff",
     "static/media/poppins-v15-latin-regular.eot": "/static/media/poppins-v15-latin-regular.18418ab667b4f80aa3cf.eot",
@@ -34,10 +36,10 @@
     "static/media/list.svg": "/static/media/list.657fcc359945c91f2ac530de4ca0a1a4.svg",
     "static/media/listClose.svg": "/static/media/listClose.89d7ff33f6d74612bc16b7e2ee42982d.svg",
     "main.2680b63f.css.map": "/static/css/main.2680b63f.css.map",
-    "main.a781e16d.js.map": "/static/js/main.a781e16d.js.map"
+    "main.3a04a8bb.js.map": "/static/js/main.3a04a8bb.js.map"
   },
   "entrypoints": [
     "static/css/main.2680b63f.css",
-    "static/js/main.a781e16d.js"
+    "static/js/main.3a04a8bb.js"
   ]
 }
