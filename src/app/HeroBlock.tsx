@@ -1,10 +1,10 @@
-"use client";
+"use client"; // for typewriter-effect
 
 import React from "react";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
 import image from "./_assets/heropic.png";
-import Link from "next/link";
+import LinkButton from "./LinkButton";
 
 export default function HeroBlock() {
   return (
@@ -21,9 +21,9 @@ export default function HeroBlock() {
         </h1>
         <p className="text-lg">We are a team of students at Carleton University that develop pro-bono apps for nonprofits and promote tech for social good.</p>
 
-        <Link href="https://linktr.ee/cublueprint" target="_blank" rel="noopener noreferrer">
-          <button className="self-start text-white font-bold px-5 py-2 rounded-full bg-blueprint hover:bg-blueprint-300">Apply</button>
-        </Link>
+        <LinkButton href="https://linktr.ee/cublueprint" newTab={true}>
+          Apply
+        </LinkButton>
       </div>
 
       <Image src={image} className="w-[500px] mx-16" alt="decorative image" />
