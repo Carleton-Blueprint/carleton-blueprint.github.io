@@ -1,5 +1,5 @@
 import TeamsTitleImage from '../images/teams_title_block.png'; 
-import AboutPicture from '../images/about.svg';
+import AboutPicture from '../images/Team spirit-pana.svg';
 
 import {projectDetails, IProject} from "./projectDetails";
 

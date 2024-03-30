@@ -4,7 +4,7 @@ import { HomeBlockProps } from '../interfaces/HomeBlockProps';
 import ProjectCard from './ProjectTextCard';
 
 import { Splide, SplideSlide, SplideTrack, Options } from '@splidejs/react-splide';
-import '@splidejs/react-splide/dist/css/splide.min.css';
+import '@splidejs/splide/css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';

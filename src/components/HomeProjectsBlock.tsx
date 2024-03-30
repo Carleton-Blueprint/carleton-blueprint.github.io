@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 
 import { ProjectImageCard } from '.';
 
-import { Swiper, SwiperSlide } from 'swiper/swiper-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
 
 // Import Swiper styles
-import 'swiper/swiper.scss'; // core Swiper
+import 'swiper/scss'; // core Swiper
 import 'swiper/swiper-bundle.css';
-import 'swiper/modules/navigation.mjs'; // Navigation module
-import 'swiper/modules/pagination.mjs'; // Pagination module
-import 'swiper/modules/effect-coverflow.min.mjs';
+import 'swiper/css/navigation'; // Navigation module
+import 'swiper/css/pagination'; // Pagination module
+import 'swiper/css/effect-coverflow';
 
 import '../static/styles/home-projects-slider.css';
 import '../static/styles/sliders.css';
