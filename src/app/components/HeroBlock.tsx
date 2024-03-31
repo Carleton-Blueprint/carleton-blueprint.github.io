@@ -19,7 +19,7 @@ export default function HeroBlock() {
             }}
           />
         </h1>
-        <p className="text-lg">We are a team of students at Carleton University that develop pro-bono apps for nonprofits and promote tech for social good.</p>
+        <p className="text-lg">We are a team of students at Carleton University that develops pro-bono apps for nonprofits and promote tech for social good.</p>
 
         <LinkButton href="https://linktr.ee/cublueprint" newTab={true}>
           Apply Here
