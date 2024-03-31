@@ -1,7 +1,7 @@
-import AboutUsBlock from "./AboutUsBlock";
-import HeroBlock from "./HeroBlock";
-import OurValuesBlock from "./OurValuesBlock";
-import ProjectsBlock from "./ProjectsBlock";
+import AboutUsBlock from "./components/AboutUsBlock";
+import HeroBlock from "./components/HeroBlock";
+import OurValuesBlock from "./components/OurValuesBlock";
+import ProjectsBlock from "./components/ProjectsBlock";
 
 export default function App() {
   return (

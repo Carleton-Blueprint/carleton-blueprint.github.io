@@ -3,12 +3,12 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
-import image from "./_assets/heropic.png";
-import LinkButton from "./LinkButton";
+import image from "../assets/heropic.png";
+import LinkButton from "../../components/LinkButton";
 
 export default function HeroBlock() {
   return (
-    <div className="container flex items-center py-20">
+    <div className="container flex items-center py-20 flex-col md:flex-row ">
       <div className="flex flex-col space-y-8">
         <h1 className="text-4xl font-extrabold">
           <Typewriter
@@ -26,7 +26,7 @@ export default function HeroBlock() {
         </LinkButton>
       </div>
 
-      <Image src={image} className="w-[500px] mx-16" alt="decorative image" />
+      <Image src={image} className="hidden md:flex w-[250px] lg:w-[400px] mx-16" alt="decorative image" />
     </div>
   );
 }

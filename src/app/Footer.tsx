@@ -3,11 +3,11 @@ import Link from "next/link";
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import Image, { StaticImageData } from "next/image";
-import logo from "./_assets/blueprint_banner_negative.png";
-import fb from "./_assets/socials/fb.webp";
-import ig from "./_assets/socials/ig.webp";
-import linkedin from "./_assets/socials/linkedin.webp";
-import yt from "./_assets/socials/yt.webp";
+import logo from "./assets/blueprint_banner_negative.png";
+import fb from "./assets/socials/fb.webp";
+import ig from "./assets/socials/ig.webp";
+import linkedin from "./assets/socials/linkedin.webp";
+import yt from "./assets/socials/yt.webp";
 
 function SocialIcon({ src }: { src: StaticImageData }) {
   return (

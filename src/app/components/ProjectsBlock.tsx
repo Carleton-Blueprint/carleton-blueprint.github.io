@@ -1,13 +1,13 @@
 import Image from "next/image";
-import image from "./_assets/projectpic.png";
 import BlockContainer from "./BlockContainer";
-import LinkButton from "./LinkButton";
+import image from "../assets/projectpic.png";
+import LinkButton from "@/components/LinkButton";
 
 export default function ProjectsBlock() {
   return (
     <BlockContainer title="Our Projects 📌" flip={true}>
       <div className="flex flex-row items-center justify-around">
-        <Image src={image} alt="decorative image" className="w-[300px]" />
+        <Image src={image} alt="decorative image" className="hidden md:flex w-[300px]" />
 
         <div className="max-w-[500px] space-y-3">
           <div className="font-bold text-blueprint text-2xl">Past Projects</div>

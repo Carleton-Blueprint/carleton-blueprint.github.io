@@ -2,11 +2,11 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import BlockContainer from "./BlockContainer";
 import { v4 as uuidv4 } from "uuid";
-import values1 from "./_assets/values/values1.svg";
-import values2 from "./_assets/values/values2.svg";
-import values3 from "./_assets/values/values3.svg";
-import values4 from "./_assets/values/values4.svg";
-import values5 from "./_assets/values/values5.svg";
+import values1 from "../assets/values/values1.svg";
+import values2 from "../assets/values/values2.svg";
+import values3 from "../assets/values/values3.svg";
+import values4 from "../assets/values/values4.svg";
+import values5 from "../assets/values/values5.svg";
 
 const values = [
   {
@@ -49,11 +49,11 @@ function Value({ data }: { data: ValueDataType }) {
   return (
     <div className="flex flex-row items-center justify-around">
       <div className={`flex flex-col max-w-[700px] space-y-2 ${data.flip && "order-2"}`}>
-        <div className={`font-bold text-blueprint text-lg ${data.flip && "text-end"}`}>{data.title}</div>
-        <div className={`${data.flip && "text-end"}`}>{data.description}</div>
+        <div className={`font-bold text-blueprint text-lg ${data.flip && "md:text-end"}`}>{data.title}</div>
+        <div className={`${data.flip && "md:text-end"}`}>{data.description}</div>
       </div>
 
-      <Image src={data.image} alt="decorative image" className={`w-[200px] ${data.flip && "order-1"}`} />
+      <Image src={data.image} alt="decorative image" className={`hidden md:flex w-[200px] ${data.flip && "order-1"}`} />
     </div>
   );
 }
