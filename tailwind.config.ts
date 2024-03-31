@@ -6,11 +6,18 @@ const config: Config = {
     container: {
       center: true,
       padding: {
-        DEFAULT: "3rem",
-        sm: "3rem",
-        lg: "4rem",
-        xl: "5rem",
-        "2xl": "6rem",
+        DEFAULT: "2rem",
+        // sm: "3rem",
+        // lg: "4rem",
+        // xl: "5rem",
+        // "2xl": "6rem",
+      },
+      screens: {
+        sm: "600px",
+        md: "728px",
+        lg: "944px",
+        xl: "1000px",
+        "2xl": "1256px",
       },
     },
     extend: {
