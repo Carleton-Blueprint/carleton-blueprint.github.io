@@ -1,5 +1,5 @@
 import Image from "next/image";
-import image from "../assets/teamspirit.svg";
+import image from "../_assets/teamspirit.svg";
 import BlockContainer from "./BlockContainer";
 
 export default function AboutUsBlock() {

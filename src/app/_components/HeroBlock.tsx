@@ -3,8 +3,8 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
-import image from "../assets/heropic.png";
-import LinkButton from "../../components/LinkButton";
+import image from "../_assets/heropic.png";
+import LinkButton from "@/components/LinkButton";
 
 export default function HeroBlock() {
   return (

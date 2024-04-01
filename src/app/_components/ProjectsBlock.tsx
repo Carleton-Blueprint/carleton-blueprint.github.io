@@ -1,6 +1,6 @@
 import Image from "next/image";
 import BlockContainer from "./BlockContainer";
-import image from "../assets/projectpic.png";
+import image from "../_assets/projectpic.png";
 import LinkButton from "@/components/LinkButton";
 
 export default function ProjectsBlock() {

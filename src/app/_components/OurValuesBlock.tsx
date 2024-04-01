@@ -2,11 +2,11 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import BlockContainer from "./BlockContainer";
 import { v4 as uuidv4 } from "uuid";
-import values1 from "../assets/values/values1.svg";
-import values2 from "../assets/values/values2.svg";
-import values3 from "../assets/values/values3.svg";
-import values4 from "../assets/values/values4.svg";
-import values5 from "../assets/values/values5.svg";
+import values1 from "../_assets/values/values1.svg";
+import values2 from "../_assets/values/values2.svg";
+import values3 from "../_assets/values/values3.svg";
+import values4 from "../_assets/values/values4.svg";
+import values5 from "../_assets/values/values5.svg";
 
 const values = [
   {

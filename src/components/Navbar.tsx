@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from "./assets/blueprint_banner_negative.png";
+import logo from "@/app/_assets/blueprint_banner_negative.png";
 import Link from "next/link";
 import { PageDataType, fetchPages } from "@/lib/contentful";
 import { v4 as uuidv4 } from "uuid";
