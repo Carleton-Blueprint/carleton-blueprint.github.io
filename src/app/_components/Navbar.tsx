@@ -4,6 +4,16 @@ import logo from "@/app/_assets/blueprint_banner_negative.png";
 import Link from "next/link";
 import { PageDataType, fetchPages } from "@/lib/contentful";
 import { v4 as uuidv4 } from "uuid";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import { GiHamburgerMenu } from "react-icons/gi";
+
 
 function MainLink() {
   return (
@@ -32,11 +42,23 @@ export default async function Navbar() {
         <div className="container flex flex-row items-center justify-between">
           <MainLink />
 
-          <div className="flex flex-row space-x-5">
+          <div className="hidden sm:flex flex-row space-x-5">
             {res.map((page) => (
               <LinkItem key={uuidv4()} page={page} />
             ))}
           </div>
+          <Sheet>
+            <SheetTrigger className="block sm:hidden"><GiHamburgerMenu className="size-7 text-white"/></SheetTrigger>
+            <SheetContent className="w-[250px] bg-blueprint text-2xl flex justify-center items-center">
+              <SheetHeader className="h-4/5">
+                <div className="h-3/6 flex flex-col justify-between">
+                  {res.map((page) => (
+                    <LinkItem key={uuidv4()} page={page} />
+                    ))}
+                </div>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
 
