@@ -3,12 +3,31 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { PageDataType } from "@/lib/contentful";
 import { v4 as uuidv4 } from "uuid";
 import NavbarLinkItem from "./NavbarLinkItem";
-import { NAV_BREAKPOINT } from "./Navbar";
 
-export default function NavbarMobile({ data }: { data: PageDataType[] }) {
+type PropType = {
+  data: PageDataType[];
+  breakpoint?: "xs" | "sm" | "md" | "lg" | "xl";
+};
+
+/*
+  https://github.com/tailwindlabs/tailwindcss/discussions/3461
+  Weird problem caused by PurgeCSS.
+  <SheetTrigger className={`{breakpoint}:hidden`}> will not work as expected
+*/
+const styles = {
+  sheetTrigger: {
+    xs: "xs:hidden",
+    sm: "sm:hidden",
+    md: "md:hidden",
+    lg: "lg:hidden",
+    xl: "xl:hidden",
+  },
+};
+
+export default function NavbarMobile({ data, breakpoint = "md" }: PropType) {
   return (
     <Sheet>
-      <SheetTrigger className={`block ${NAV_BREAKPOINT}:hidden`}>
+      <SheetTrigger className={styles.sheetTrigger[breakpoint]}>
         <GiHamburgerMenu className="size-7 text-white" />
       </SheetTrigger>
       <SheetContent className="w-[250px] bg-blueprint text-2xl flex justify-center items-center">

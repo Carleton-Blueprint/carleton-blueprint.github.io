@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import NavbarMobile from "./NavbarMobile";
 import NavbarLinkItem from "./NavbarLinkItem";
 
-export const NAV_BREAKPOINT = "md";
+const NAV_BREAKPOINT = "md";
 
 function MainLink() {
   return (
@@ -34,7 +34,7 @@ export default async function Navbar() {
             ))}
           </div>
 
-          <NavbarMobile data={res} />
+          <NavbarMobile data={res} breakpoint={NAV_BREAKPOINT} />
         </div>
       </div>
 
