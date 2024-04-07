@@ -37,7 +37,7 @@ export default async function Navbar() {
   const res = await fetchPages();
 
   return (
-    <div className="h-[80px]">
+    <div className="h-[80px] drop-shadow-2xl">
       <div className=" bg-blueprint h-[80px] flex fixed w-screen">
         <div className="container flex flex-row items-center justify-between">
           <MainLink />
