@@ -30,7 +30,7 @@ export default function ContactCard({data}: {data: ContactCardDataType}) {
   return (
     <div className="box-border mb-12">
         <a href={data.link}>
-        <Card className="ease-out duration-300 hover:drop-shadow-xl pt-16 max-w-96">
+        <Card className="ease-out duration-300 hover:drop-shadow-xl pt-16 md:max-w-96">
             <CardContent className="flex justify-center">
                 {iconElements[data.icon as IconType] || <div>Icon not found</div>}
             </CardContent>
