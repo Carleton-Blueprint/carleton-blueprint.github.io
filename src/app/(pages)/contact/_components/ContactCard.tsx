@@ -20,23 +20,23 @@ enum IconType {
 }
 
 const iconElements = {
-    "discord": <FaDiscord className="size-32 text-blueprint"/>,
-    "instagram": <GrInstagram className="size-32 text-blueprint"/>,
-    "email": <MdOutlineAlternateEmail className="size-32 text-blueprint"/>,
-    "linkedin": <FaLinkedinIn className="size-32 text-blueprint"/>,
+    "discord": <FaDiscord className="size-32 text-white"/>,
+    "instagram": <GrInstagram className="size-32 text-white"/>,
+    "email": <MdOutlineAlternateEmail className="size-32 text-white"/>,
+    "linkedin": <FaLinkedinIn className="size-32 text-white"/>,
 }
 
 export default function ContactCard({data}: {data: ContactCardDataType}) {
   return (
-    <div className="box-border mb-12">
+    <div className="box-border mb-12 border-blueprint">
         <a href={data.link}>
-        <Card className="ease-out duration-300 hover:drop-shadow-xl pt-16 md:max-w-96">
+        <Card className="bg-blueprint-300 border-0 ease-out duration-300 hover:drop-shadow-xl pt-10 max-w-64">
             <CardContent className="flex justify-center">
                 {iconElements[data.icon as IconType] || <div>Icon not found</div>}
             </CardContent>
             <CardHeader className="text-center">
-                <CardTitle>{data.title}</CardTitle>
-                <CardDescription className="text-balance">{data.description}</CardDescription>
+                <CardTitle className="text-white">{data.title}</CardTitle>
+                <CardDescription className="text-balance text-white">{data.description}</CardDescription>
             </CardHeader>
         </Card>
         </a>
