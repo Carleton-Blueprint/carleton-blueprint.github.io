@@ -8,31 +8,39 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { v4 as uuidv4 } from "uuid";
+import Image from "next/image";
+import CIWHV from "./_assets/CIWHV_logo_square.png";
 
 export default function Projects() {
   const res = [
     {
-      title: "Project 1",
-      description: "Project 1 Description",
-      content: "Project 1 Content",
+      title: "CIWHV",
+      description: "Workplace Stop",
+      content:
+        "We are developing a web platform for called Workplace Stop, a toolkit for workers in Canada to navigate the various systems when experiencing bullying, harassment, or systemic or psychological harm.",
+      image: CIWHV,
       footer: "Project 1 Footer",
     },
     {
-      title: "Project 2",
-      description: "Project 2 Description",
-      content: "Project 2 Content",
+      title: "Beneficent",
+      description: "Interest-Free Loan Tracker",
+      content:
+        "We developed a web application that allows Beneficent to better track their interest-free loan lending program.",
       footer: "Project 2 Footer",
     },
     {
-      title: "Project 3",
-      description: "Project 3 Description",
-      content: "Project 3 Content",
+      title: "Allo Canada",
+      description: "Settlement and Integration Services",
+      content:
+        "We are developing a web application that centralizes services which newcomers often need to access throughout their settlement and integration journeys.",
       footer: "Project 3 Footer",
     },
     {
-      title: "Project 4",
-      description: "Project 4 Description",
-      content: "Project 4 Content",
+      title: "Urban Minds",
+      description: "Youth Empowerment Platform",
+      content:
+        "We are developing a web application that allows them to empower youth to take on more city-building related projects in their community.",
       footer: "Project 4 Footer",
     },
     {
@@ -45,30 +53,40 @@ export default function Projects() {
   return (
     <div className="flex items-center flex-col m-16">
       <h1 className="text-4xl font-bold mb-4">Current Projects</h1>
-      <Tabs defaultValue="Project 1">
-        <TabsList className=" bg-blueprint-300 text-white">
+      <Tabs defaultValue={res[0].title} className="max-w-min">
+        <TabsList className="bg-blueprint-300 text-white">
           {res.map((data) => (
-            <TabsTrigger className="px-10" value={data.title}>
+            <TabsTrigger key={uuidv4()} className="px-10" value={data.title}>
               {data.title}
             </TabsTrigger>
           ))}
         </TabsList>
-        {res.map((data) => (
-          <TabsContent value={data.title}>
-            <Card>
-              <CardHeader>
-                <CardTitle>{data.title}</CardTitle>
-                <CardDescription>{data.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>{data.content}</p>
-              </CardContent>
-              <CardFooter>
-                <p>{data.footer}</p>
-              </CardFooter>
-            </Card>
-          </TabsContent>
-        ))}
+        <div>
+          {res.map((data) => (
+            <TabsContent key={uuidv4()} value={data.title}>
+              <Card className="flex">
+                <div>
+                  <CardHeader>
+                    <CardTitle>{data.title}</CardTitle>
+                    <CardDescription>{data.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{data.content}</p>
+                  </CardContent>
+                  <CardFooter>
+                    <p>{data.footer}</p>
+                  </CardFooter>
+                </div>
+                <Image
+                  src={data.image || CIWHV}
+                  alt={data.title}
+                  width={250}
+                  height={250}
+                />
+              </Card>
+            </TabsContent>
+          ))}
+        </div>
       </Tabs>
     </div>
   );
