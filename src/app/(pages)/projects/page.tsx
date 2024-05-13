@@ -29,7 +29,7 @@ export default function Projects() {
       <CurrentProjects />
       <div className="flex items-center flex-col m-16">
         <h1 className="text-4xl font-bold mb-8">Past Projects</h1>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center space-y-5">
           {res.map((data) => (
             <ProjectCard key={uuidv4()} data={data} grid />
           ))}

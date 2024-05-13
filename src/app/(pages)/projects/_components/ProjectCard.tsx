@@ -23,33 +23,33 @@ export default function ProjectCard({
   data: ProjectCardDataType;
   grid?: boolean;
 }) {
+
   return (
     <Card
-      className={`flex flex-row-reverse justify-center ${
-        grid ? "w-10/12 my-4" : "h-64 w-8/12"
-      }`}
+      className={`flex justify-center items-center ${grid ? 'w-[800px]' : 'w-[1000px]'}`}
     >
-      <div className={`${grid ? "w-7/12" : ""}`}>
+      <Image
+        src={data.image}
+        alt={data.title}
+        width={250}
+        height={250}
+        className={`hidden md:block ${grid ? 'h-[200px]': 'h-[300px]'} w-auto mx-8`}
+      />
+
+      <div>
         <CardHeader>
-          <CardTitle>{data.title}</CardTitle>
-          <CardDescription className={`${grid ? "" : ""}`}>
+          <CardTitle className={`${grid ? "text-2xl" : "text-3xl"}`}>{data.title}</CardTitle>
+          <CardDescription className={`${grid ? "text-sm" : "text-lg"}`}>
             {data.description}
           </CardDescription>
         </CardHeader>
-        <CardContent className={`h-28 ${grid ? "overflow-hidden" : ""}`}>
+        <CardContent className={`h-28 ${grid ? "overflow-hidden text-md" : "text-lg"} mb-5`}>
           <p>{data.content}</p>
         </CardContent>
         <CardFooter>
           <p>{data.footer}</p>
         </CardFooter>
       </div>
-      <Image
-        src={data.image}
-        alt={data.title}
-        width={250}
-        height={250}
-        className="hidden md:block"
-      />
     </Card>
   );
 }

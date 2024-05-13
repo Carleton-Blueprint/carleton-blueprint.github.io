@@ -53,23 +53,23 @@ export default function CurrentProjects() {
     },
   ];
   return (
-    <div className="flex items-center flex-col m-16">
-      <h1 className="text-2xl md:text-4xl font-bold mb-8">Current Projects</h1>
-      <Tabs defaultValue={res[0].title} className="">
-        <TabsList className="bg-blueprint-300 text-white">
+    <div className="flex items-center flex-col my-16 mb-24">
+      <h1 className="text-2xl md:text-6xl font-extrabold mb-8">Current Projects</h1>
+      <Tabs defaultValue={res[0].title} className="flex flex-col">
+        <TabsList className="bg-blueprint-300 text-white mx-auto w-fit mb-5">
           {res.map((data) => (
             <TabsTrigger key={uuidv4()} className="px-10" value={data.title}>
               {data.title}
             </TabsTrigger>
           ))}
         </TabsList>
-        <div className="h-64 flex">
+
           {res.map((data) => (
             <TabsContent key={uuidv4()} value={data.title} className="">
               <ProjectCard data={data} />
             </TabsContent>
           ))}
-        </div>
+
       </Tabs>
       {/* <Carousel>
         <CarouselContent className="w-2/3 justify-center">
