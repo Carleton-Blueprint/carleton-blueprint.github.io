@@ -1,11 +1,4 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { v4 as uuidv4 } from "uuid";
 import ProjectCard from "./ProjectCard";
 import CIWHV from "../_assets/CIWHV_logo_square.png";
@@ -54,8 +47,10 @@ export default function CurrentProjects() {
   ];
   return (
     <div className="flex items-center flex-col my-16 mb-24">
-      <h1 className="text-2xl md:text-6xl font-extrabold mb-8">Current Projects</h1>
-      <Tabs defaultValue={res[0].title} className="flex flex-col">
+      <h1 className="text-4xl md:text-6xl font-extrabold mb-8">
+        Current Projects
+      </h1>
+      <Tabs defaultValue={res[0].title} className="hidden md:flex flex-col">
         <TabsList className="bg-blueprint-300 text-white mx-auto w-fit mb-5">
           {res.map((data) => (
             <TabsTrigger key={uuidv4()} className="px-10" value={data.title}>
@@ -64,33 +59,17 @@ export default function CurrentProjects() {
           ))}
         </TabsList>
 
-          {res.map((data) => (
-            <TabsContent key={uuidv4()} value={data.title} className="">
-              <ProjectCard data={data} />
-            </TabsContent>
-          ))}
-
+        {res.map((data) => (
+          <TabsContent key={uuidv4()} value={data.title} className="">
+            <ProjectCard data={data} />
+          </TabsContent>
+        ))}
       </Tabs>
-      {/* <Carousel>
-        <CarouselContent className="w-2/3 justify-center">
-          {res.map((data) => (
-            <CarouselItem key={uuidv4()}>
-              <ProjectCard data={data} />
-            </CarouselItem>
-          ))}
-          <CarouselItem key={uuidv4()}>
-            <ProjectCard data={res[0]} />
-          </CarouselItem>
-          <CarouselItem key={uuidv4()}>
-            <ProjectCard data={res[0]} />
-          </CarouselItem>
-          <CarouselItem key={uuidv4()}>
-            <ProjectCard data={res[0]} />
-          </CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel> */}
+      <div className="md:hidden flex flex-col items-center space-y-5">
+        {res.map((data) => (
+          <ProjectCard data={data} />
+        ))}
+      </div>
     </div>
   );
 }
