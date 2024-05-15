@@ -56,9 +56,15 @@ export default function ProjectCard({
         >
           <p>{data.content}</p>
         </CardContent>
-        <CardFooter className="space-x-4">
-          <LinkButton href={data.footer}>Read More</LinkButton>
-          <LinkButton href={data.footer}>View Repository</LinkButton>
+        <CardFooter
+          className={`space-x-4 text-xs ${grid ? "md:text-lg" : "md:text-xl"}`}
+        >
+          <LinkButton href={data.footer} newTab={true}>
+            Read More
+          </LinkButton>
+          <LinkButton href={data.footer} newTab={true}>
+            View Repository
+          </LinkButton>
         </CardFooter>
       </div>
     </Card>

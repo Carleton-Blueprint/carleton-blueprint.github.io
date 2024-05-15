@@ -9,8 +9,15 @@ type Props = {
 
 export default function LinkButton({ children, href, newTab = false }: Props) {
   return (
-    <Link href={href} target={`${newTab && "_blank"}`} rel={`${newTab && "noopener noreferrer"}`} className="flex w-fit">
-      <button className="self-start text-white font-bold px-5 py-2 rounded-full bg-blueprint hover:bg-blueprint-300">{children}</button>
+    <Link
+      href={href}
+      target={`${newTab && "_blank"}`}
+      rel={`${newTab && "noopener noreferrer"}`}
+      className="flex w-fit"
+    >
+      <button className="self-start text-white font-bold px-5 py-2 rounded-full bg-blueprint ease-in-out duration-300 hover:bg-blueprint-300">
+        {children}
+      </button>
     </Link>
   );
 }
