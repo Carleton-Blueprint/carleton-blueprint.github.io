@@ -1,3 +1,5 @@
+"use client";
+
 import LinkButton from "@/components/LinkButton";
 import {
   Card,
@@ -8,14 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image, { StaticImageData } from "next/image";
-
-type ProjectCardDataType = {
-  title: string;
-  description: string;
-  content: string;
-  footer: string;
-  image: string | StaticImageData;
-};
+import { ProjectCardDataType } from "@/lib/contentful";
 
 export default function ProjectCard({
   data,
@@ -24,6 +19,9 @@ export default function ProjectCard({
   data: ProjectCardDataType;
   grid?: boolean;
 }) {
+  const imageLoader = ({ src }: { src: string }) => {
+    return `https:${src}`;
+  };
   return (
     <Card
       className={`flex justify-center items-center w-[300px] ${
@@ -31,8 +29,9 @@ export default function ProjectCard({
       }`}
     >
       <Image
-        src={data.image}
-        alt={data.title}
+        loader={imageLoader}
+        src={data.logo}
+        alt={data.companyName}
         width={250}
         height={250}
         className={`hidden md:block ${
@@ -43,10 +42,10 @@ export default function ProjectCard({
       <div>
         <CardHeader>
           <CardTitle className={`${grid ? "text-2xl" : "md:text-3xl"}`}>
-            {data.title}
+            {data.companyName}
           </CardTitle>
           <CardDescription className={`${grid ? "text-sm" : "md:text-lg"}`}>
-            {data.description}
+            {data.product}
           </CardDescription>
         </CardHeader>
         <CardContent
@@ -54,15 +53,15 @@ export default function ProjectCard({
             grid ? "overflow-hidden text-md" : "md:text-lg"
           } mb-5`}
         >
-          <p>{data.content}</p>
+          <p>{data.description}</p>
         </CardContent>
         <CardFooter
           className={`space-x-4 text-xs ${grid ? "md:text-lg" : "md:text-xl"}`}
         >
-          <LinkButton href={data.footer} newTab={true}>
+          <LinkButton href={data.link} newTab={true}>
             Read More
           </LinkButton>
-          <LinkButton href={data.footer} newTab={true}>
+          <LinkButton href={data.link} newTab={true}>
             View Repository
           </LinkButton>
         </CardFooter>
