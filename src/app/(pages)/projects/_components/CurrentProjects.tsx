@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { v4 as uuidv4 } from "uuid";
 import ProjectCard from "./ProjectCard";
-import { fetchProjects } from "@/lib/contentful";
+import { ProjectCardDataType, fetchProjects } from "@/lib/contentful";
 
 export default async function CurrentProjects() {
   const res = await fetchProjects(0);
@@ -29,13 +29,13 @@ export default async function CurrentProjects() {
 
         {res.map((data) => (
           <TabsContent key={uuidv4()} value={data.companyName} className="">
-            <ProjectCard data={data} />
+            <ProjectCard data={data as ProjectCardDataType} />
           </TabsContent>
         ))}
       </Tabs>
       <div className="md:hidden flex flex-col items-center space-y-5">
         {res.map((data) => (
-          <ProjectCard key={uuidv4()} data={data} />
+          <ProjectCard key={uuidv4()} data={data as ProjectCardDataType} />
         ))}
       </div>
     </div>

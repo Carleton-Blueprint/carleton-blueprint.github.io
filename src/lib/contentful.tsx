@@ -1,4 +1,4 @@
-import { createClient } from "contentful";
+import { EntrySkeletonType, createClient } from "contentful";
 import { StaticImageData } from "next/image";
 
 const client = createClient({
@@ -18,6 +18,11 @@ export type ProjectCardDataType = {
   description: string;
   logo: string;
   link: string;
+};
+
+type ProjectCardSkeleton = {
+  contentTypeId: "projectCard";
+  fields: ProjectCardDataType;
 };
 
 export type ContactCardDataType = {
@@ -54,7 +59,8 @@ export async function fetchProjects(current: number) {
   if (current == 0) {
     const projectCards = res.items.find(
       (item) => item.fields.name === "Current Projects"
-    )?.fields.projectCards as ProjectCardDataType[];
+    )?.fields.projectCards as EntrySkeletonType[];
+
     if (projectCards) {
       for (const projectCard of projectCards) {
         projects.push(projectCard.fields);
@@ -65,7 +71,7 @@ export async function fetchProjects(current: number) {
   } else {
     const projectCards = res.items.find(
       (item) => item.fields.name === "Past Projects"
-    )?.fields.projectCards as ProjectCardDataType[];
+    )?.fields.projectCards as EntrySkeletonType[];
     if (projectCards) {
       for (const projectCard of projectCards) {
         projects.push(projectCard.fields);
