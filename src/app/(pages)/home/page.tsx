@@ -3,7 +3,7 @@ import HeroBlock from "./_components/HeroBlock";
 import OurValuesBlock from "./_components/OurValuesBlock";
 import ProjectsBlock from "./_components/ProjectsBlock";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div>
       <HeroBlock />
