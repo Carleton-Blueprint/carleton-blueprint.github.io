@@ -1,54 +1,29 @@
-// EventsPage.tsx
 import React from 'react';
 import EventCard from "./_components/EventCard";  // Assuming EventCard is in the same directory
 
 const EventsPage: React.FC = () => {
-  // Sample data for events
-  const events = [
-    {
-      id: 1,
-      title: "Tech Conference 2024",
-      url: "https://example.com/events/tech-conference-2024"
-    },
-    {
-      id: 2,
-      title: "React Workshop",
-      url: "https://example.com/events/react-workshop"
-    },
-    {
-      id: 3,
-      title: "Startup Pitch Day",
-      url: "https://example.com/events/startup-pitch-day"
-    },
-    {
-      id: 4,
-      title: "Startup Pitch Day",
-      url: "https://example.com/events/startup-pitch-day"
-    },
-    {
-      id: 5,
-      title: "Startup Pitch Day",
-      url: "https://example.com/events/startup-pitch-day"
-    },
-            {
-      id: 6,
-      title: "Startup Pitch Day",
-      url: "https://example.com/events/startup-pitch-day"
-    },    {
-      id: 7,
-      title: "Startup Pitch Day",
-      url: "https://example.com/events/startup-pitch-day"
-    }
-            
-  ];
-
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-6">Upcoming Events</h2>
+    <div className="container mx-auto p-4" style={{ paddingTop: '70px' }}>
+      {/* Added bg-blue-500 and text-white classes to h2 */}
+      <h2 className="text-2xl font-bold text-center mb-6 bg-blue-500 text-white py-2 rounded">
+        Upcoming Events
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {events.map(event => (
-          <EventCard key={event.id} title={event.title} />
-        ))}
+        <EventCard 
+            imgURL="/assets/project_night.png"
+            title="2024 Project Night"
+            venue="HP 5345, Monday (March 25th), 6pm"
+            description="Join us for an epic Trivia Night hosted by Blueprint! Test your knowledge and meet new friends 🙌"
+            isUpcoming={false}
+        />
+        <EventCard 
+            imgURL="/assets/social_triva_night.png"
+            title="Trivia Night 2023"
+            venue="HP 3431, Friday (April 5th), 6pm"
+            description="**Got a project you've been working on? Want to work on a project with others?**
+        Join us on our first Side Project Night to showcase your project, look for teammates, or network with others!"
+            isUpcoming={true}
+        />
       </div>
     </div>
   );

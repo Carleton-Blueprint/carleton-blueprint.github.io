@@ -23,8 +23,8 @@ export default async function Navbar() {
   const res = await fetchPages();
 
   return (
-    <div className="h-[80px]">
-      <div className=" bg-blueprint h-[80px] flex fixed w-screen">
+    <div style={{ height: '80px', zIndex: 1000 }}>
+      <div className=" bg-blueprint h-[80px] flex fixed w-screen z-1000">
         <div className="container flex flex-row items-center justify-between">
           <MainLink />
 

@@ -1,29 +1,28 @@
-// EventCard.tsx
-import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-const eventLink = "https://cublueprint.vercel.app/blog";
-import download_image from "../_assets/download.png";  // Assuming download.png is in the same directory
+import React from 'react';
 
 interface EventCardProps {
-  title: string;
+    imgURL: string;
+    title: string;
+    venue: string;
+    description: string;
+    isUpcoming: boolean;
 }
 
-const EventCard: React.FC<EventCardProps> = ({ title }) => {
-  return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer hover:bg-gray-100">
-      {/* Updated usage of Link */}
-      <Link href={eventLink} passHref>
-        <div className="block p-6">
-          <Image src={download_image} alt={title} width={200} height={200} className="mb-4" />
-          <h3 className="font-bold text-xl mb-2">{title}</h3>
-          <p className="text-gray-700 text-base">
-            Click here to learn more!
-          </p>
+const EventCard: React.FC<EventCardProps> = ({ imgURL, title, venue, description, isUpcoming }) => {
+    return (
+        <div className="flex flex-col bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-200 mt-12 max-w-md w-full relative">
+            <div className="relative w-full h-72">
+                <Image src={imgURL} alt={title} layout="fill" objectFit="cover" />
+            </div>
+            <div className="p-6 flex flex-col items-center justify-center text-center">
+                <h2 className="text-xl font-bold mb-3 leading-tight">{title}</h2>
+                <p className="font-semibold text-gray-600">{venue}</p>
+                <p className="text-gray-500 text-sm mt-1">{description}</p>
+                {isUpcoming && <span className="px-3 py-1 text-white bg-green-500 rounded-full text-xs font-bold absolute top-4 right-4">Upcoming</span>}
+            </div>
         </div>
-      </Link>
-    </div>
-  );
+    );
 };
 
 export default EventCard;
