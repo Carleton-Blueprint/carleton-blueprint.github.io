@@ -5,7 +5,7 @@ import LinkButton from "@/components/LinkButton";
 
 export default function AboutUsBlock() {
   return (
-    <BlockContainer title="About Us 💡" flip={true}>
+    <BlockContainer title="About Us 💡😁" flip={true}>
       <div className="flex flex-row items-center justify-around">
         <Image src={image} alt="decorative image" className="hidden md:flex w-[300px]" />
 
