@@ -4,15 +4,22 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import Image, { StaticImageData } from "next/image";
 import logo from "@/app/_assets/blueprint_banner_negative.png";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import fb from "@/app/_assets/socials/fb.webp";
 import ig from "@/app/_assets/socials/ig.webp";
 import linkedin from "@/app/_assets/socials/linkedin.webp";
 import yt from "@/app/_assets/socials/yt.webp";
+import { IconType } from "react-icons";
 
-function SocialIcon({ src }: { src: StaticImageData }) {
+function SocialIcon({ src }: { src: IconType }) {
   return (
     <Link href="https://linktr.ee/cublueprint">
-      <Image src={src} alt="social media icon" className="w-6" />
+      <div className="w-8 h-8 text-xl hover:text-blueprint-100 flex justify-center">
+        {React.createElement(src)}
+      </div>
     </Link>
   );
 }
@@ -22,29 +29,35 @@ export default async function Footer() {
 
   return (
     <div className="flex bg-blueprint pt-16 pb-10 text-white">
-      <div className="container">
-        <div className="flex justify-between">
-          <div className="flex flex-col text-lg space-y-3">
+      <div className="container space-y-10">
+        <div className="flex flex-col space-y-8 items-center">
+          <div className="flex text-lg space-x-4">
             {res.map((page) => (
-              <Link key={uuidv4()} href={page.href} className="hover:text-blueprint-100">
+              <Link
+                key={uuidv4()}
+                href={page.href}
+                className="hover:text-blueprint-100"
+              >
                 {page.name}
               </Link>
             ))}
           </div>
 
-          <div className="">
+          <div className="text-center">
             <Image src={logo} alt="blueprint logo" className="w-[150px] pb-5" />
             <div className="pb-3">stay in the loop</div>
-            <div className="flex flex-row space-x-2">
-              <SocialIcon src={ig} />
-              <SocialIcon src={fb} />
-              <SocialIcon src={linkedin} />
-              <SocialIcon src={yt} />
+            <div className="flex flex-row justify-center">
+              <SocialIcon src={FaInstagram} />
+              <SocialIcon src={FaFacebook} />
+              <SocialIcon src={FaLinkedin} />
+              <SocialIcon src={FaYoutube} />
             </div>
           </div>
         </div>
 
-        <div className="w-full text-center text-sm">Made with ❤️ by Carleton Blueprint</div>
+        <div className="w-full text-center text-sm">
+          Made with ❤️ by Carleton Blueprint
+        </div>
       </div>
     </div>
   );
