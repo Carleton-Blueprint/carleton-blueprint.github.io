@@ -1,12 +1,12 @@
 import notion from ".";
 
 export type ProjectDataType = {
+  pageId: string;
   companyName: string;
   productName: string | undefined | null;
   description: string | undefined | null;
   year: string | undefined | null;
   logoUrl: string | undefined | null;
-  notionPageUrl: string | undefined | null;
   externalUrl: string | undefined | null;
   status: "Not started" | "Done" | "In progress" | undefined | null;
 };
@@ -42,21 +42,21 @@ export async function getProjects() {
     const page = (await notion.pages.retrieve({ page_id: pageId })) as any;
 
     const companyName = page.properties.Name.title[0].plain_text;
-    const productName = page.properties["Product Name"].rich_text[0]?.plain_text;
+    const productName =
+      page.properties["Product Name"].rich_text[0]?.plain_text;
     const description = page.properties.Description.rich_text[0]?.plain_text;
     const year = page.properties.Year.rich_text[0]?.plain_text;
     const logoUrl = page.icon.external.url;
-    const notionPageUrl = page.public_url;
     const externalUrl = page.properties.URL.url;
     const status = page.properties.Status.select.name;
 
     projects.push({
+      pageId,
       companyName,
       productName,
       description,
       year,
       logoUrl,
-      notionPageUrl,
       externalUrl,
       status,
     });

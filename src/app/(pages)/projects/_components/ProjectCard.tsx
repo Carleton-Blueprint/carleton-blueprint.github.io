@@ -1,5 +1,12 @@
 import LinkButton from "@/components/LinkButton";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ProjectDataType } from "@/lib/notion/projects";
 
 type ProjectCardPropType = {
@@ -7,22 +14,49 @@ type ProjectCardPropType = {
   grid?: boolean;
 };
 
-export default function ProjectCard({ data, grid = false }: ProjectCardPropType) {
+export default function ProjectCard({
+  data,
+  grid = false,
+}: ProjectCardPropType) {
   return (
-    <Card className={`flex justify-center items-center w-[300px] ${grid ? "md:w-[800px]" : "md:w-[1000px]"}`}>
-      {data.logoUrl && <img src={data.logoUrl} alt={data.companyName} width={250} height={250} className={`hidden md:block ${grid ? "h-[200px]" : "h-[300px]"} w-auto mx-8`} />}
+    <Card
+      className={`flex justify-center items-center w-[300px] ${
+        grid ? "md:w-[800px]" : "md:w-[1000px]"
+      }`}
+    >
+      {data.logoUrl && (
+        <img
+          src={data.logoUrl}
+          alt={data.companyName}
+          width={250}
+          height={250}
+          className={`hidden md:block ${
+            grid ? "h-[200px]" : "h-[300px]"
+          } w-auto mx-8`}
+        />
+      )}
 
       <div>
         <CardHeader>
-          <CardTitle className={`${grid ? "text-2xl" : "md:text-3xl"}`}>{data.companyName}</CardTitle>
-          <CardDescription className={`${grid ? "text-sm" : "md:text-lg"}`}>{data.productName}</CardDescription>
+          <CardTitle className={`${grid ? "text-2xl" : "md:text-3xl"}`}>
+            {data.companyName}
+          </CardTitle>
+          <CardDescription className={`${grid ? "text-sm" : "md:text-lg"}`}>
+            {data.productName}
+          </CardDescription>
         </CardHeader>
-        <CardContent className={`md:h-28 ${grid ? "overflow-hidden text-md" : "md:text-lg"} mb-5`}>
+        <CardContent
+          className={`md:h-28 ${
+            grid ? "overflow-hidden text-md" : "md:text-lg"
+          } mb-5`}
+        >
           <p>{data.description}</p>
         </CardContent>
-        <CardFooter className={`space-x-4 text-xs ${grid ? "md:text-lg" : "md:text-xl"}`}>
-          {data.notionPageUrl && (
-            <LinkButton href={data.notionPageUrl} newTab={true}>
+        <CardFooter
+          className={`space-x-4 text-xs ${grid ? "md:text-lg" : "md:text-xl"}`}
+        >
+          {data.pageId && (
+            <LinkButton href={"/projects/" + data.pageId} newTab={true}>
               Read More
             </LinkButton>
           )}

@@ -21,12 +21,16 @@ export default async function Footer() {
   const res = await fetchPages();
 
   return (
-    <div className="flex bg-blueprint pt-16 pb-10 text-white">
+    <div className="flex bg-blueprint pt-16 mt-12 pb-10 text-white">
       <div className="container">
         <div className="flex justify-between">
           <div className="flex flex-col text-lg space-y-3">
             {res.map((page) => (
-              <Link key={uuidv4()} href={page.href} className="hover:text-blueprint-100">
+              <Link
+                key={uuidv4()}
+                href={page.href}
+                className="hover:text-blueprint-100"
+              >
                 {page.name}
               </Link>
             ))}
@@ -44,7 +48,9 @@ export default async function Footer() {
           </div>
         </div>
 
-        <div className="w-full text-center text-sm">Made with ❤️ by Carleton Blueprint</div>
+        <div className="w-full text-center text-sm">
+          Made with ❤️ by Carleton Blueprint
+        </div>
       </div>
     </div>
   );
