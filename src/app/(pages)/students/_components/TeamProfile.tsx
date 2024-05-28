@@ -1,19 +1,27 @@
 import Image from 'next/image'
-import jalalPicture from "../_assets/jalalBouri.jpg";
+import { StudentDataType } from '@/lib/notion/students';
+import defaultPicture from "../_assets/default.png";
 
-type TeamProfileProps = {
-  name: string;
-  role: string;
+function TeamProfileBase ({ name, team, role, imageUrl, personalUrl }: StudentDataType){
+  return (
+    <div className="flex flex-col items-center text-center space-y-1">
+        <div className="rounded-full overflow-hidden w-32 h-32 mb-2">
+          <Image src={imageUrl == "No URL" ? defaultPicture : imageUrl} width={128} height={128} alt="Picture of Jalal Bouri"/>
+        </div>
+          <p className="font-bold">{name}</p>
+          <p className="text-charcoal-500 capitalize">{role}</p>
+    </div>
+  )
 }
 
-export default function TeamProfile({ name, role }: TeamProfileProps) {
-  return (
-    <figure className="flex flex-col items-center space-y-1">
-      <div className="rounded-full overflow-hidden w-32 h-32">
-        <Image src={jalalPicture} width={128} height={128} alt="Picture of Jalal Bouri"/>
-      </div>
-        <p className="font-bold text-center">{name}</p>
-        <p className="text-charcoal-500 text-center capitalize">{role}</p>
-    </figure>
-  );
+export default function TeamProfile({ name, team, role, imageUrl, personalUrl }: StudentDataType) {
+  if(personalUrl == "No URL"){
+    return (
+    <TeamProfileBase name={name} team={team} role={role} imageUrl={imageUrl} personalUrl={personalUrl}/>
+  )
+  } else return (
+    <a href={personalUrl} target="_blank">
+      <TeamProfileBase name={name} team={team} role={role} imageUrl={imageUrl} personalUrl={personalUrl}/>
+    </a>
+  )
 }
