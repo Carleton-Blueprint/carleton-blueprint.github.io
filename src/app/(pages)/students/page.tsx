@@ -1,12 +1,21 @@
-import TeamProfile from "./_components/TeamProfile";
-import getStudents from "@/lib/notion/students";
+import Section, { TeamDataType } from "./_components/Section"
+import getStudents from "@/lib/notion/students"
+import { v4 as uuidv4 } from "uuid"
 
 export default async function Students() {
   const students = await getStudents();
 
-  const executives = students.filter((student) => student.team == "Executive");
+  let teamNamesSet = new Set<string>();
+  for(const student of students){
+    teamNamesSet.add(student.team)
+  }
 
-  const internals = students.filter((student) => student.team == "Internal");
+  const teamNamesArray = Array.from(teamNamesSet)
+  const teams: TeamDataType[] = []
+  for(const teamName of teamNamesArray){
+    const teamMembers = students.filter(student => (student.team == teamName))
+    teams.push({teamName, teamMembers})
+  }
 
   return (
     <div>
@@ -25,39 +34,9 @@ export default async function Students() {
                 </p>
               </div>
               <div className="flex flex-col space-y-24 text-center">
-                <div className="flex flex-col space-y-6">
-                  <h4 className="text-2xl md:text-4xl text-white bg-blueprint font-semibold my-4 p-3 rounded-md">
-                    Executive Team
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-8">
-                    {executives.map((person) => (
-                      <TeamProfile
-                        name={person.name}
-                        role={person.role}
-                        imageUrl={person.imageUrl}
-                        personalUrl={person.personalUrl}
-                        key={person.name}
-                      />
-                    ))}
-                  </div>
-                </div>
-                <div className="flex flex-col space-y-6">
-                  <h4 className="text-2xl md:text-4xl text-white bg-blueprint  font-semibold my-4 p-3 rounded-md">
-                    Tech Team
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-8">
-                    {internals.map((person) => (
-                      <TeamProfile
-                        name={person.name}
-                        team={person.team}
-                        role={person.role}
-                        imageUrl={person.imageUrl}
-                        personalUrl={person.personalUrl}
-                        key={person.name}
-                      />
-                    ))}
-                  </div>
-                </div>
+                {teams.map(team => (
+                  <Section team={team} key={uuidv4()}/>
+                ))}
               </div>
             </div>
           </section>
