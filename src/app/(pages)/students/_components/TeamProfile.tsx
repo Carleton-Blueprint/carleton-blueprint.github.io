@@ -1,5 +1,6 @@
 import Image from "next/image";
 import defaultPicture from "../_assets/default.png";
+import { StudentDataType } from "@/lib/notion/students";
 
 function TeamProfileBase ({student}: {student: StudentDataType}){
   return (
