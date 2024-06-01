@@ -28,9 +28,7 @@ export default async function Students() {
                   Meet the Team
                 </h1>
                 <p className="text-lg text-center w-3/4">
-                  Our community specializes in a variety of disciplines, but our
-                  passion for helping nonprofits and our interest in technology
-                  brings us together.
+                  Our community brings together expertise in diverse disciplines, unified by our commitment to supporting nonprofits and our passion for technology.
                 </p>
               </div>
               <div className="flex flex-col space-y-24 text-center">
