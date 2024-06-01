@@ -18,7 +18,6 @@ const values = [
     title: "02 – Cherish Culture",
     description: "We as Blueprint members seek to cherish our time spent together. We develop meaningful relationships that extend well beyond the scope of the organization. We value each other as individuals and appreciate our differences.",
     image: values3,
-    flip: true,
   },
   {
     title: "03 – Innovate",
@@ -29,7 +28,6 @@ const values = [
     title: "04 – Personal Growth",
     description: "We as Blueprint members value the academic, social, and personal growth of our peers. We constantly seek to perpetuate the cycle of learning and teaching, for our benefit and for others. We strive to offer a helping hand in times of need and push each other to succeed.",
     image: values2,
-    flip: true,
   },
   {
     title: "05 – Stay Humble",
@@ -42,18 +40,17 @@ type ValueDataType = {
   image: StaticImageData;
   title: string;
   description: string;
-  flip?: boolean;
 };
 
 function Value({ data }: { data: ValueDataType }) {
   return (
     <div className="flex flex-row items-center justify-around">
-      <div className={`flex flex-col max-w-[700px] space-y-2 ${data.flip && "order-2"}`}>
-        <div className={`font-bold text-blueprint text-lg ${data.flip && "md:text-end"}`}>{data.title}</div>
-        <div className={`${data.flip && "md:text-end"}`}>{data.description}</div>
+      <div className={`flex flex-col max-w-[700px] space-y-2`}>
+        <div className={`font-bold text-blueprint text-xl`}>{data.title}</div>
+        <div className={`text-md`}>{data.description}</div>
       </div>
 
-      <Image src={data.image} alt="decorative image" className={`hidden md:flex w-[200px] ${data.flip && "order-1"}`} />
+      <Image src={data.image} alt="decorative image" className={`hidden md:flex w-[200px]`} />
     </div>
   );
 }
@@ -61,7 +58,7 @@ function Value({ data }: { data: ValueDataType }) {
 export default function OurValuesBlock() {
   return (
     <BlockContainer title="Our Values 🚀">
-      <div className="flex flex-col space-y-20 pt-10">
+      <div className="flex flex-col space-y-12 pt-10 max-w-[1000px] mx-auto">
         {values.map((value) => (
           <Value key={uuidv4()} data={value} />
         ))}
