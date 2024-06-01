@@ -11,13 +11,17 @@ export type EventDataType = {
   coverURL: string;
 };
 
-export default async function getEvents() {
+export async function getEventPageIds() {
   const database_id = "f988151abd6448ebb70053c5ca1278f9";
   const res = await notion.databases.query({
     database_id: database_id,
   });
   const eventPageIds = res.results.map((result) => result.id);
+  return eventPageIds;
+}
 
+export default async function getEvents() {
+  const eventPageIds = await getEventPageIds();
   const events: EventDataType[] = [];
 
   for (const eventPageId of eventPageIds) {
