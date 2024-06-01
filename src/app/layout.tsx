@@ -4,6 +4,7 @@ import "./globals.css";
 import Providers from "@/lib/providers";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
+import "react-notion/src/styles.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
