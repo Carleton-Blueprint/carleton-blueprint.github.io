@@ -10,30 +10,35 @@ import values5 from "../_assets/values/values5.svg";
 
 const values = [
   {
-    title: "01 – Mission First",
-    description: "We as Blueprint members ultimately unify under one goal - achieving our mission. We place the interests of the people and partners we serve above our own. Our primary measure of success is the amount of positive impact we create through our work.",
+    title: "Mission First.",
+    description:
+      "We as Blueprint members ultimately unify under one goal - achieving our mission. We place the interests of the people and partners we serve above our own. Our primary measure of success is the amount of positive impact we create through our work.",
     image: values1,
   },
   {
-    title: "02 – Cherish Culture",
-    description: "We as Blueprint members seek to cherish our time spent together. We develop meaningful relationships that extend well beyond the scope of the organization. We value each other as individuals and appreciate our differences.",
+    title: "Cherish Culture.",
+    description:
+      "We as Blueprint members seek to cherish our time spent together. We develop meaningful relationships that extend well beyond the scope of the organization. We value each other as individuals and appreciate our differences.",
     image: values3,
     flip: true,
   },
   {
-    title: "03 – Innovate",
-    description: "We as Blueprint members recognize that change is both inevitable and necessary. We are committed to innovate and emphasize effective solutions as needed in order to remain relevant - nothing is sacred. We welcome new ideas and diverse thinking.",
+    title: "Innovate.",
+    description:
+      "We as Blueprint members recognize that change is both inevitable and necessary. We are committed to innovate and emphasize effective solutions as needed in order to remain relevant - nothing is sacred. We welcome new ideas and diverse thinking.",
     image: values4,
   },
   {
-    title: "04 – Personal Growth",
-    description: "We as Blueprint members value the academic, social, and personal growth of our peers. We constantly seek to perpetuate the cycle of learning and teaching, for our benefit and for others. We strive to offer a helping hand in times of need and push each other to succeed.",
+    title: "Personal Growth.",
+    description:
+      "We as Blueprint members value the academic, social, and personal growth of our peers. We constantly seek to perpetuate the cycle of learning and teaching, for our benefit and for others. We strive to offer a helping hand in times of need and push each other to succeed.",
     image: values2,
     flip: true,
   },
   {
-    title: "05 – Stay Humble",
-    description: "We as Blueprint members strive to remain humble, accept our imperfections, and be receptive to feedback. We approach challenges with an open mind and remember that anyone can pursue social good, not just Blueprint.",
+    title: "Stay Humble.",
+    description:
+      "We as Blueprint members strive to remain humble, accept our imperfections, and be receptive to feedback. We approach challenges with an open mind and remember that anyone can pursue social good, not just Blueprint.",
     image: values5,
   },
 ];
@@ -47,21 +52,29 @@ type ValueDataType = {
 
 function Value({ data }: { data: ValueDataType }) {
   return (
-    <div className="flex flex-row items-center justify-around">
-      <div className={`flex flex-col max-w-[700px] space-y-2 ${data.flip && "order-2"}`}>
-        <div className={`font-bold text-blueprint text-lg ${data.flip && "md:text-end"}`}>{data.title}</div>
-        <div className={`${data.flip && "md:text-end"}`}>{data.description}</div>
+    <div
+      className={`${
+        data.flip && "self-end flex-row-reverse space-x-reverse"
+      } flex w-10/12 bg-white rounded-[35px] p-12 space-x-20 items-center`}
+    >
+      <div
+        className={`font-bold text-blueprint text-4xl ${
+          data.flip && "md:text-end"
+        }`}
+      >
+        {data.title}
       </div>
-
-      <Image src={data.image} alt="decorative image" className={`hidden md:flex w-[200px] ${data.flip && "order-1"}`} />
+      <div className={`${!data.flip && "md:text-end"} text-lg`}>
+        {data.description}
+      </div>
     </div>
   );
 }
 
 export default function OurValuesBlock() {
   return (
-    <BlockContainer title="Our Values 🚀">
-      <div className="flex flex-col space-y-20 pt-10">
+    <BlockContainer title="Our Values" flip>
+      <div className="flex flex-col space-y-12">
         {values.map((value) => (
           <Value key={uuidv4()} data={value} />
         ))}

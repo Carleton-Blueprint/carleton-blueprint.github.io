@@ -24,7 +24,7 @@ export default async function Navbar() {
 
   return (
     <div className="h-[80px]">
-      <div className=" bg-blueprint h-[80px] flex fixed w-screen">
+      <div className=" bg-blueprint h-[80px] flex w-screen">
         <div className="container flex flex-row items-center justify-between">
           <MainLink />
 
