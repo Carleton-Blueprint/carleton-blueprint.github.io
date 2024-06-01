@@ -1,7 +1,7 @@
 import { NotionRenderer } from "react-notion";
 import { Separator } from "@/components/ui/separator";
 
-export const getAllPosts = async (NOTION_BLOG_ID: string) => {
+const getAllPosts = async (NOTION_BLOG_ID: string) => {
   return await fetch(
     `https://notion-api.splitbee.io/v1/page/${NOTION_BLOG_ID}`,
     { next: { revalidate: 30 } }
