@@ -1,8 +1,7 @@
 import React from "react";
 import EventCard from "./_components/EventCard"; // Assuming EventCard is in the same directory
 import getEvents from "@/lib/notion/events";
-import blueprint from "../../_assets/Deck Template.jpeg";
-import { Skeleton } from "@/components/ui/skeleton";
+import blueprint from "./_assets/eventPlaceholder.jpeg";
 
 const EventsPage: React.FC = async () => {
   const res = await getEvents();
