@@ -1,6 +1,7 @@
-import Image from "next/image";
-import defaultPicture from "../_assets/default.png";
-import { StudentDataType } from "@/lib/notion/students";
+import Image from "next/image"
+import defaultPicture from "../_assets/default.png"
+import { StudentDataType } from "@/lib/notion/students"
+import Link from 'next/link'
 
 function TeamProfileBase ({student}: {student: StudentDataType}){
   return (
@@ -20,8 +21,8 @@ export default function TeamProfile({student}: {student: StudentDataType}) {
       <TeamProfileBase student={student}/>
     )
   } else return (
-      <a href={student.personalUrl} target="_blank">
+      <Link href={student.personalUrl} target="_blank">
         <TeamProfileBase student={student}/>
-      </a>
+      </Link>
   )
 }
