@@ -5,28 +5,29 @@ import Typewriter from "typewriter-effect";
 import Image from "next/image";
 import image from "../_assets/heropic.png";
 import LinkButton from "@/components/LinkButton";
+import Link from "next/link";
+import home from "../_assets/home.svg";
+import button from "../_assets/button.svg";
 
 export default function HeroBlock() {
   return (
-    <div className="container flex items-center py-20 flex-col md:flex-row ">
-      <div className="flex flex-col space-y-8">
-        <h1 className="text-4xl font-extrabold">
-          <Typewriter
-            options={{
-              strings: ["Tech for social good", "Carleton Blueprint"],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </h1>
-        <p className="text-lg">We are a team of students at Carleton University that develops pro-bono apps for nonprofits and promote tech for social good.</p>
-
-        <LinkButton href="https://linktr.ee/cublueprint" newTab={true}>
-          Apply Here
-        </LinkButton>
+    <div className="h-max flex">
+      <div className="absolute text-white top-80 left-24">
+        <h1 className="text-6xl font-bold">Carleton Blueprint</h1>
+        <h2 className="text-3xl mb-6">Tech for social good.</h2>
+        <Link
+          href={"/contact"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-fit mb-[-10px]"
+        >
+          <button className="self-start text-white font-bold px-5 py-2 w-[150px] rounded-full bg-blueprint hover:bg-blueprint-300">
+            Join Us
+          </button>
+        </Link>
+        <Image src={button} alt="Join Us" />
       </div>
-
-      <Image src={image} className="hidden md:flex w-[250px] lg:w-[400px] mx-16" alt="decorative image" />
+      <Image src={home} className="w-full" alt="Home" />
     </div>
   );
 }

@@ -2,8 +2,6 @@ import Section, { TeamDataType } from "./_components/Section";
 import getStudents from "@/lib/notion/students";
 import { v4 as uuidv4 } from "uuid";
 
-//export const revalidate = 0;
-
 export default async function Students() {
   const students = await getStudents();
 
@@ -25,14 +23,14 @@ export default async function Students() {
         <div className="flex flex-col w-full space-y-24 relative pb-24">
           <section className="content container">
             <div className="flex flex-col space-y-2">
-              <div className="flex flex-col items-center mb-8">
-                <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-center pt-6">
+              <div className="mb-8 flex flex-col items-center">
+                <h2 className="text-4xl md:text-6xl font-extrabold mb-8 text-center pt-6">
                   Meet the Team
-                </h1>
-                <p className="text-lg text-center w-3/4">
-                  Our community brings together expertise in diverse
-                  disciplines, unified by our commitment to supporting
-                  nonprofits and our passion for technology.
+                </h2>
+                <p className="text-lg text-center w-1/2">
+                  Our community specializes in a variety of disciplines, but our
+                  passion for helping nonprofits and our interest in technology
+                  brings us together.
                 </p>
               </div>
               <div className="flex flex-col space-y-24 text-center">

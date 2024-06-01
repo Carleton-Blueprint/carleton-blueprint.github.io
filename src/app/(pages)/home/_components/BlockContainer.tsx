@@ -1,14 +1,36 @@
 type Props = {
   children: React.ReactNode;
-  title: string;
+  title?: string;
   flip?: boolean;
+  roundedBottom?: boolean;
+  centered?: boolean;
 };
 
-export default function BlockContainer({ children, title, flip = false }: Props) {
+export default function BlockContainer({
+  children,
+  title,
+  flip = false,
+  roundedBottom = false,
+  centered = false,
+}: Props) {
   return (
-    <div className={`${flip && "bg-blueprint-50"} py-10`}>
-      <div className="container space-y-5">
-        <div className={`flex rounded-lg ${flip ? "bg-blueprint-100" : "bg-blueprint-50"} px-5 py-2 font-bold text-xl`}>{title}</div>
+    <div
+      className={`${flip && "bg-blueprint-50"} py-16 ${
+        roundedBottom ? "rounded-b-[50px]" : "rounded-[50px]"
+      }`}
+    >
+      <div
+        className={`container space-y-12 ${
+          centered && "flex flex-col items-center"
+        }`}
+      >
+        {title ? (
+          <div className={`flex text-blueprint py-2 font-bold text-6xl`}>
+            {title}
+          </div>
+        ) : (
+          <div></div>
+        )}
         {children}
       </div>
     </div>
