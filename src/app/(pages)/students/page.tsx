@@ -2,6 +2,8 @@ import Section, { TeamDataType } from "./_components/Section"
 import getStudents from "@/lib/notion/students"
 import { v4 as uuidv4 } from "uuid"
 
+export const revalidate = 60;
+
 export default async function Students() {
   const students = await getStudents();
 

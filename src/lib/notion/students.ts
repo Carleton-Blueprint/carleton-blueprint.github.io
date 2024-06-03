@@ -1,4 +1,5 @@
 import notion from ".";
+import { cache } from "react";
 
 export type StudentDataType = {
   name: string;
@@ -8,7 +9,7 @@ export type StudentDataType = {
   personalUrl: string;
 };
 
-export default async function getStudents() {
+const getStudents = cache(async () => {
   const database_id = "87bdbb9cb7bc432a850aea09e9d1e4c6";
   const res = await notion.databases.query({
     database_id: database_id,
@@ -39,4 +40,6 @@ export default async function getStudents() {
   }
 
   return studentsArray;
-}
+});
+
+export default getStudents;
