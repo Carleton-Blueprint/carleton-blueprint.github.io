@@ -1,22 +1,22 @@
-import Section, { TeamDataType } from "./_components/Section"
-import getStudents from "@/lib/notion/students"
-import { v4 as uuidv4 } from "uuid"
+import Section, { TeamDataType } from "./_components/Section";
+import getStudents from "@/lib/notion/students";
+import { v4 as uuidv4 } from "uuid";
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 export default async function Students() {
   const students = await getStudents();
 
   let teamNamesSet = new Set<string>();
-  for(const student of students){
-    teamNamesSet.add(student.team)
+  for (const student of students) {
+    teamNamesSet.add(student.team);
   }
 
-  const teamNamesArray = Array.from(teamNamesSet)
-  const teams: TeamDataType[] = []
-  for(const teamName of teamNamesArray){
-    const teamMembers = students.filter(student => (student.team == teamName))
-    teams.push({teamName, teamMembers})
+  const teamNamesArray = Array.from(teamNamesSet);
+  const teams: TeamDataType[] = [];
+  for (const teamName of teamNamesArray) {
+    const teamMembers = students.filter((student) => student.team == teamName);
+    teams.push({ teamName, teamMembers });
   }
 
   return (
@@ -30,12 +30,14 @@ export default async function Students() {
                   Meet the Team
                 </h1>
                 <p className="text-lg text-center w-3/4">
-                  Our community brings together expertise in diverse disciplines, unified by our commitment to supporting nonprofits and our passion for technology.
+                  Our community brings together expertise in diverse
+                  disciplines, unified by our commitment to supporting
+                  nonprofits and our passion for technology.
                 </p>
               </div>
               <div className="flex flex-col space-y-24 text-center">
-                {teams.map(team => (
-                  <Section team={team} key={uuidv4()}/>
+                {teams.map((team) => (
+                  <Section team={team} key={uuidv4()} />
                 ))}
               </div>
             </div>
