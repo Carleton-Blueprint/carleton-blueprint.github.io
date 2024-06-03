@@ -70,7 +70,7 @@ function Value({ data }: { data: ValueDataType }) {
 
 export default function OurValuesBlock() {
   return (
-    <BlockContainer title="Our Values" flip>
+    <BlockContainer title="Our Values" flip inner>
       <div className="flex flex-col space-y-12">
         {values.map((value) => (
           <Value key={uuidv4()} data={value} />

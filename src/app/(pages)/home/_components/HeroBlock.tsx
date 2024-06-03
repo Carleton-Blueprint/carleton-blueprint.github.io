@@ -27,7 +27,7 @@ export default function HeroBlock() {
         </Link>
         <Image src={button} alt="Join Us" />
       </div>
-      <Image src={home} className="w-full" alt="Home" />
+      <Image src={home} className="w-screen" alt="Home" />
     </div>
   );
 }
