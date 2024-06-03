@@ -4,6 +4,7 @@ type Props = {
   flip?: boolean;
   roundedBottom?: boolean;
   centered?: boolean;
+  inner?: boolean;
 };
 
 export default function BlockContainer({
@@ -12,12 +13,14 @@ export default function BlockContainer({
   flip = false,
   roundedBottom = false,
   centered = false,
+  inner = false,
 }: Props) {
   return (
     <div
-      className={`${flip && "bg-blueprint-50"} py-16 ${
-        roundedBottom ? "rounded-b-[50px]" : "rounded-[50px]"
-      }`}
+      className={`py-16
+        ${flip && "bg-blueprint-50"}
+        ${roundedBottom ? "rounded-b-[50px]" : "rounded-[50px]"}
+        ${inner && "w-[90%] self-center"}`}
     >
       <div
         className={`container space-y-12 ${

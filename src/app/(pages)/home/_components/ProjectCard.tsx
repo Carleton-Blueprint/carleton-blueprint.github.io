@@ -14,7 +14,7 @@ export default function NewProjectCard({
   return (
     <div className="">
       <Image src={projectLogo} alt="decorative image" className="absolute" />
-      <div className="group w-96 h-96 relative bg-gradient-to-t from-blueprint/100 to-blueprint/65 from-25% to-75% opacity-85 hover:opacity-100 transition-opacity ease-in-out duration-300 rounded-[35px]">
+      <div className="group w-96 h-96 relative bg-gradient-to-t from-blueprint/100 to-blueprint/65 from-25% to-75% transition-opacity ease-in-out duration-300 rounded-[35px]">
         <div className="absolute top-2 right-2">
           <IoLogoGithub className="opacity-0 group-hover:opacity-100 w-20 h-20 transition-color duration-300 ease-in-out hover:text-slate-300 text-white" />
         </div>
