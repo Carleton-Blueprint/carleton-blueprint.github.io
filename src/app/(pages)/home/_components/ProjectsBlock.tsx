@@ -6,7 +6,7 @@ import { MdDoubleArrow } from "react-icons/md";
 export default function ProjectsBlock() {
   return (
     <BlockContainer title="Current Projects" centered>
-      <div className="flex flex-row space-x-12">
+      <div className="flex flex-col md:flex-row space-y-6 md:space-x-12">
         <ProjectCard
           title="Project 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at velit eget nunc ultrices fermentum. Sed nec."

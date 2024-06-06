@@ -8,8 +8,10 @@ export default function AboutUsBlock() {
   return (
     <BlockContainer flip={true} roundedBottom={true}>
       <div className="flex flex-row">
-        <div className="w-2/3 text-3xl space-y-8">
-          <h1 className="text-blueprint font-bold text-6xl">Our Mission</h1>
+        <div className="md:w-2/3 text-2xl space-y-8">
+          <h1 className="text-blueprint font-bold text-5xl md:text-6xl">
+            Our Mission
+          </h1>
           <p>
             Blueprint strives to make technology more accessible and useful for
             those who create communities and promote public welfare.
@@ -18,17 +20,17 @@ export default function AboutUsBlock() {
             href="https://calblueprint.org/chapters"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blueprint group font-bold flex flex-row w-fit items-center"
+            className="text-blueprint group font-bold flex flex-row w-fit items-center text-sm"
           >
             <p>Check out our other Blueprint chapters</p>
             <MdDoubleArrow className="ml-2 group-hover:ml-4 transition-spacing ease-in-out" />
           </Link>
         </div>
-        <div className="flex w-1/3 justify-end">
+        <div className="hidden md:flex w-1/3 justify-end">
           <Image
             src={image}
             alt="decorative image"
-            className="hidden md:flex w-[300px]"
+            className="flex w-[300px]"
           />
         </div>
       </div>
