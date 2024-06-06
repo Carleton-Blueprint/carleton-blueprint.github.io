@@ -1,5 +1,3 @@
-"use client";
-
 import LinkButton from "@/components/LinkButton";
 import {
   Card,
@@ -9,35 +7,34 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Image, { StaticImageData } from "next/image";
-import { ProjectCardDataType } from "@/lib/contentful";
+import { ProjectDataType } from "@/lib/notion/projects";
+
+type ProjectCardPropType = {
+  data: ProjectDataType;
+  grid?: boolean;
+};
 
 export default function ProjectCard({
   data,
   grid = false,
-}: {
-  data: ProjectCardDataType;
-  grid?: boolean;
-}) {
-  const imageLoader = ({ src }: { src: string }) => {
-    return `https:${src}`;
-  };
+}: ProjectCardPropType) {
   return (
     <Card
       className={`flex justify-center items-center w-[300px] ${
         grid ? "md:w-[800px]" : "md:w-[1000px]"
       }`}
     >
-      <Image
-        loader={imageLoader}
-        src={data.logo}
-        alt={data.companyName}
-        width={250}
-        height={250}
-        className={`hidden md:block ${
-          grid ? "h-[200px]" : "h-[300px]"
-        } w-auto mx-8`}
-      />
+      {data.logoUrl && (
+        <img
+          src={data.logoUrl}
+          alt={data.companyName}
+          width={250}
+          height={250}
+          className={`hidden md:block ${
+            grid ? "h-[200px]" : "h-[300px]"
+          } w-auto mx-8`}
+        />
+      )}
 
       <div>
         <CardHeader>
@@ -45,7 +42,7 @@ export default function ProjectCard({
             {data.companyName}
           </CardTitle>
           <CardDescription className={`${grid ? "text-sm" : "md:text-lg"}`}>
-            {data.product}
+            {data.productName}
           </CardDescription>
         </CardHeader>
         <CardContent
@@ -58,12 +55,17 @@ export default function ProjectCard({
         <CardFooter
           className={`space-x-4 text-xs ${grid ? "md:text-lg" : "md:text-xl"}`}
         >
-          <LinkButton href={data.link} newTab={true}>
-            Read More
-          </LinkButton>
-          <LinkButton href={data.link} newTab={true}>
-            View Repository
-          </LinkButton>
+          {data.pageId && (
+            <LinkButton href={"/projects/" + data.pageId} newTab={true}>
+              Read More
+            </LinkButton>
+          )}
+
+          {data.externalUrl && (
+            <LinkButton href={data.externalUrl} newTab={true} variant="ghost">
+              View Project
+            </LinkButton>
+          )}
         </CardFooter>
       </div>
     </Card>
