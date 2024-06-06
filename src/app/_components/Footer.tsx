@@ -4,10 +4,6 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import Image, { StaticImageData } from "next/image";
 import logo from "@/app/_assets/blueprint_banner_negative.png";
-import fb from "@/app/_assets/socials/fb.webp";
-import ig from "@/app/_assets/socials/ig.webp";
-import linkedin from "@/app/_assets/socials/linkedin.webp";
-import yt from "@/app/_assets/socials/yt.webp";
 
 function SocialIcon({ src }: { src: StaticImageData }) {
   return (
@@ -39,12 +35,7 @@ export default async function Footer() {
           <div className="">
             <Image src={logo} alt="blueprint logo" className="w-[150px] pb-5" />
             <div className="pb-3">stay in the loop</div>
-            <div className="flex flex-row space-x-2">
-              <SocialIcon src={ig} />
-              <SocialIcon src={fb} />
-              <SocialIcon src={linkedin} />
-              <SocialIcon src={yt} />
-            </div>
+            <div className="flex flex-row space-x-2"></div>
           </div>
         </div>
 
