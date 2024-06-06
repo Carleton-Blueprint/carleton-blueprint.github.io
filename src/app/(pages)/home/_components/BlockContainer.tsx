@@ -28,7 +28,9 @@ export default function BlockContainer({
         }`}
       >
         {title ? (
-          <div className={`flex text-blueprint py-2 font-bold text-6xl`}>
+          <div
+            className={`flex text-blueprint py-2 font-bold text-5xl md:text-6xl`}
+          >
             {title}
           </div>
         ) : (
