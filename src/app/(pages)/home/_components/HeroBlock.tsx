@@ -11,12 +11,12 @@ import button from "../_assets/button.svg";
 
 export default function HeroBlock() {
   return (
-    <div className="h-max flex">
-      <div className="absolute text-white top-80 left-24">
+    <div className="flex w-full h-screen bg-[#0A1E3A]">
+      <div className="absolute text-white top-56 left-12 md:top-80 md:left-24">
         <h1 className="text-6xl font-bold">Carleton Blueprint</h1>
         <h2 className="text-3xl mb-6">Tech for social good.</h2>
         <Link
-          href={"/contact"}
+          href={"https://discord.com/invite/7gkkW5nJPW"}
           target="_blank"
           rel="noopener noreferrer"
           className="flex w-fit mb-[-10px]"
@@ -27,7 +27,7 @@ export default function HeroBlock() {
         </Link>
         <Image src={button} alt="Join Us" />
       </div>
-      <Image src={home} className="w-screen" alt="Home" />
+      <Image src={home} className="hidden md:block w-screen" alt="Home" />
     </div>
   );
 }

@@ -51,17 +51,17 @@ function Value({ data }: { data: ValueDataType }) {
   return (
     <div
       className={`${
-        data.flip && "self-end flex-row-reverse space-x-reverse"
-      } flex w-10/12 bg-white rounded-[35px] p-12 space-x-20 items-center`}
+        data.flip && "md:self-end md:flex-row-reverse md:space-x-reverse"
+      } flex flex-col md:flex-row md:w-10/12 bg-white rounded-[35px] p-12 space-y-6 md:space-x-20 items-center shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)]`}
     >
       <div
-        className={`font-bold text-blueprint text-4xl ${
+        className={`font-bold text-blueprint text-2xl md:text-4xl ${
           data.flip && "md:text-end"
         }`}
       >
         {data.title}
       </div>
-      <div className={`${!data.flip && "md:text-end"} text-lg`}>
+      <div className={`${!data.flip && "md:text-end"} text-md md:text-lg`}>
         {data.description}
       </div>
     </div>
