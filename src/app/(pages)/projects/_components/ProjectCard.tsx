@@ -1,3 +1,4 @@
+"use client";
 import LinkButton from "@/components/LinkButton";
 import {
   Card,
@@ -8,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ProjectDataType } from "@/lib/notion/projects";
+import { CldImage } from "next-cloudinary";
 
 type ProjectCardPropType = {
   data: ProjectDataType;
@@ -25,7 +27,7 @@ export default function ProjectCard({
       }`}
     >
       {data.logoUrl && (
-        <img
+        <CldImage
           src={data.logoUrl}
           alt={data.companyName}
           width={250}
