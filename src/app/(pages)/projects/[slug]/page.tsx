@@ -1,13 +1,12 @@
 import { NotionRenderer } from "react-notion";
 import { Separator } from "@/components/ui/separator";
-import { ProjectDataType, getProjectPageIds } from "@/lib/notion/projects";
+import { getProjectPageIds } from "@/lib/notion/projects";
 
 export async function generateStaticParams() {
   const projects = await getProjectPageIds();
-  console.log(projects);
 
-  return projects.map((project: any) => ({
-    slug: project.pageId,
+  return projects.map((project: string) => ({
+    slug: project,
   }));
 }
 
