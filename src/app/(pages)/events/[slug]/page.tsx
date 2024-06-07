@@ -23,7 +23,7 @@ export default async function EventPage({
 }: {
   params: { slug: string };
 }) {
-  const blockMap = await getBlockMap(params.slug); //staticProps.props.posts;
+  const blockMap = await getBlockMap(params.slug);
   const title = (Object.values(blockMap) as any)[0].value.properties
     .title[0][0];
   return (

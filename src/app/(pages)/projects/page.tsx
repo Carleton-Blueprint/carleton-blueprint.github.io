@@ -1,7 +1,7 @@
 import React from "react";
 import CurrentProjects from "./_components/CurrentProjects";
 import PastProjects from "./_components/PastProjects";
-import { getProjects, isCurrentProject } from "@/lib/notion/projects";
+import getProjects, { isCurrentProject } from "@/lib/notion/projects";
 
 export default async function Projects() {
   const res = await getProjects();

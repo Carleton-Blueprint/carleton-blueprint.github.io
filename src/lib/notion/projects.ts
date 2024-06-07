@@ -15,17 +15,11 @@ export function isCurrentProject(project: ProjectDataType) {
   return project.status === "In progress";
 }
 
-export async function getProjects() {
+export async function getProjectPageIds() {
   const databaseId = "f0725682a6134d0f8174876e083eee19";
 
   const res = await notion.databases.query({
     database_id: databaseId,
-    // filter: {
-    //   property: "Status",
-    //   select: {
-    //     equals: "Done",
-    //   },
-    // },
     sorts: [
       {
         property: "Year",
@@ -35,7 +29,11 @@ export async function getProjects() {
   });
 
   const projectPageIds = res.results.map((result) => result.id);
+  return projectPageIds;
+}
 
+export default async function getProjects() {
+  const projectPageIds = await getProjectPageIds();
   const projects: ProjectDataType[] = [];
 
   for (const pageId of projectPageIds) {
