@@ -4,13 +4,14 @@ import { ProjectDataType, getProjectPageIds } from "@/lib/notion/projects";
 
 export async function generateStaticParams() {
   const projects = await getProjectPageIds();
+  console.log(projects);
 
   return projects.map((project: any) => ({
     slug: project.pageId,
   }));
 }
 
-export const getBlockMap = async (NOTION_BLOG_ID: string) => {
+const getBlockMap = async (NOTION_BLOG_ID: string) => {
   return await fetch(
     `https://notion-api.splitbee.io/v1/page/${NOTION_BLOG_ID}`
   ).then((res) => res.json());
