@@ -46,8 +46,8 @@ export async function getProjects() {
       page.properties["Product Name"].rich_text[0]?.plain_text;
     const description = page.properties.Description.rich_text[0]?.plain_text;
     const year = page.properties.Year.rich_text[0]?.plain_text;
-    const logoUrl = page.properties["Logo URL"].rich_text[0]?.plain_text;
-    console.log(logoUrl);
+    const logoUrl =
+      page.properties["Logo URL"].rich_text[0]?.plain_text || "/default";
     const externalUrl = page.properties.URL.url;
     const status = page.properties.Status.select.name;
 

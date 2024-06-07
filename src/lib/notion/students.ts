@@ -31,7 +31,8 @@ const getStudents = cache(async () => {
     const name = student.properties.Name.title[0].plain_text;
     const team = student.properties.Team.select.name;
     const role = student.properties.Roles.select.name;
-    const imageUrl = student.properties.Photo.files[0]?.file.url || "No URL";
+    const imageUrl =
+      student.properties.Photo.rich_text[0]?.plain_text || "/default";
     const personalUrl =
       student.properties.Link.url !== null
         ? student.properties.Link.url
