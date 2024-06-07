@@ -1,10 +1,11 @@
+"use client";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
 import React from "react";
+import { CldImage } from "next-cloudinary";
 
 interface EventCardProps {
   id: string;
-  imgURL: string | StaticImageData;
+  imgURL: string;
   title: string;
   venue: string;
   time: string;
@@ -30,7 +31,7 @@ const EventCard: React.FC<EventCardProps> = ({
     >
       <div className="relative w-full h-72">
         <div className="max-h-full overflow-hidden">
-          <Image
+          <CldImage
             src={imgURL}
             alt={title}
             width={400}

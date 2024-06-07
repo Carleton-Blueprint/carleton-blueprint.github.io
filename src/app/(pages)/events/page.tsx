@@ -16,7 +16,7 @@ const EventsPage: React.FC = async () => {
           <EventCard
             id={event.eventPageId}
             key={event.eventName}
-            imgURL={event.coverURL === "No URL" ? blueprint : event.coverURL}
+            imgURL={event.coverURL}
             title={event.eventName}
             venue={event.venue}
             time={event.date}
