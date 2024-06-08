@@ -11,7 +11,7 @@ export default async function CurrentProjects({
   return (
     <div className="flex items-center flex-col my-16 mb-24">
       <h1 className="text-4xl md:text-6xl font-extrabold mb-8">
-        Current Projects
+        Current Projects!
       </h1>
       <Tabs
         defaultValue={projects[0].companyName}
