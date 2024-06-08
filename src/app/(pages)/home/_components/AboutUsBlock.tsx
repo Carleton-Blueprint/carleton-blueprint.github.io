@@ -20,7 +20,7 @@ export default function AboutUsBlock() {
             href="https://calblueprint.org/chapters"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blueprint group font-bold flex flex-row w-fit items-center text-sm"
+            className="text-blueprint group font-bold flex flex-row w-fit items-center text-sm md:text-2xl"
           >
             <p>Check out our other Blueprint chapters</p>
             <MdDoubleArrow className="ml-2 group-hover:ml-4 transition-spacing ease-in-out" />

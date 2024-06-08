@@ -2,25 +2,18 @@ import BlockContainer from "./BlockContainer";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
 import { MdDoubleArrow } from "react-icons/md";
+import { getFeaturedProjects } from "@/lib/notion/projects";
 
-export default function ProjectsBlock() {
+export default async function ProjectsBlock() {
+  const featuredProjects = await getFeaturedProjects();
   return (
     <BlockContainer title="Current Projects" centered>
-      <div className="flex flex-col md:flex-row space-y-6 md:space-x-12">
-        <ProjectCard
-          title="Project 1"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at velit eget nunc ultrices fermentum. Sed nec."
-        />
-        <ProjectCard
-          title="Project 2"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at velit eget nunc ultrices fermentum. Sed nec."
-        />
-        <ProjectCard
-          title="Project 3"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at velit eget nunc ultrices fermentum. Sed nec."
-        />
+      <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-12">
+        {featuredProjects.map((project) => (
+          <ProjectCard key={project.pageId} data={project} />
+        ))}
       </div>
-      <div className="w-full text-2xl">
+      <div className="w-full text-2xl flex justify-center md:justify-start">
         <Link
           href="/about"
           target="_blank"

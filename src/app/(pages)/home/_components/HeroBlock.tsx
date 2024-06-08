@@ -7,8 +7,8 @@ import button from "../_assets/button.svg";
 export default function HeroBlock() {
   return (
     <div className="flex justify-between items-center w-full h-screen bg-[#0A1E3A]">
-      <div className="w-1/2 flex justify-center">
-        <div className="text-white top-56 items-center left-12 md:top-80 md:left-24 h-min">
+      <div className="md:w-1/2 md:m-0 ml-8 flex items-center justify-center">
+        <div className="text-white items-center md:top-80 md:left-24 h-min">
           <h1 className="text-6xl font-bold">Carleton Blueprint</h1>
           <h2 className="text-3xl mb-6">Tech for social good.</h2>
           <Link

@@ -32,6 +32,34 @@ export async function getProjectPageIds() {
   return projectPageIds;
 }
 
+export async function getFeaturedProjects() {
+  const projectPageIds = await getProjectPageIds();
+  const projects: ProjectDataType[] = [];
+
+  for (const pageId of projectPageIds) {
+    const page = (await notion.pages.retrieve({ page_id: pageId })) as any;
+    if (page.properties.Featured.checkbox) {
+      const companyName = page.properties.Name.title[0].plain_text;
+      const productName =
+        page.properties["Product Name"].rich_text[0]?.plain_text || "";
+      const logoUrl =
+        page.properties["Logo URL"].rich_text[0]?.plain_text || "/default";
+      const externalUrl = page.properties.URL.url;
+      projects.push({
+        pageId,
+        companyName,
+        productName,
+        description: "",
+        year: "",
+        logoUrl,
+        externalUrl,
+        status: "Done",
+      });
+    }
+  }
+  return projects;
+}
+
 export default async function getProjects() {
   const projectPageIds = await getProjectPageIds();
   const projects: ProjectDataType[] = [];
