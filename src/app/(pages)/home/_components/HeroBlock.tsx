@@ -1,32 +1,30 @@
-"use client"; // for typewriter-effect
-
 import React from "react";
-import Typewriter from "typewriter-effect";
 import Image from "next/image";
-import image from "../_assets/heropic.png";
-import LinkButton from "@/components/LinkButton";
+import Link from "next/link";
+import home from "../_assets/home.svg";
+import button from "../_assets/button.svg";
 
 export default function HeroBlock() {
   return (
-    <div className="container flex items-center py-20 flex-col md:flex-row ">
-      <div className="flex flex-col space-y-8">
-        <h1 className="text-4xl font-extrabold">
-          <Typewriter
-            options={{
-              strings: ["Tech for social good", "Carleton Blueprint"],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </h1>
-        <p className="text-lg">We are a team of students at Carleton University that develops pro-bono apps for nonprofits and promote tech for social good.</p>
-
-        <LinkButton href="https://linktr.ee/cublueprint" newTab={true}>
-          Apply Here
-        </LinkButton>
+    <div className="flex justify-between items-center w-full h-screen bg-[#0A1E3A]">
+      <div className="md:w-1/2 md:m-0 ml-8 flex items-center justify-center">
+        <div className="text-white items-center md:top-80 md:left-24 h-min">
+          <h1 className="text-6xl font-bold">Carleton Blueprint</h1>
+          <h2 className="text-3xl mb-6">Tech for social good.</h2>
+          <Link
+            href={"https://discord.com/invite/7gkkW5nJPW"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-fit mb-[-10px]"
+          >
+            <button className="self-start text-white font-bold px-5 py-2 w-[150px] rounded-full bg-blueprint hover:bg-blueprint-300">
+              Join Us
+            </button>
+          </Link>
+          <Image src={button} alt="Join Us" />
+        </div>
       </div>
-
-      <Image src={image} className="hidden md:flex w-[250px] lg:w-[400px] mx-16" alt="decorative image" />
+      <Image src={home} className="hidden md:block h-full w-1/2" alt="Home" />
     </div>
   );
 }
