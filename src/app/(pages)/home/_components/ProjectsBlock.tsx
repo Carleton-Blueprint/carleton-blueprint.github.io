@@ -3,17 +3,39 @@ import ProjectCard from "./ProjectCard";
 import Link from "next/link";
 import { MdDoubleArrow } from "react-icons/md";
 import { getFeaturedProjects } from "@/lib/notion/projects";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();
   return (
-    <BlockContainer title="Current Projects" centered>
-      <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-12">
-        {featuredProjects.map((project) => (
-          <ProjectCard key={project.pageId} data={project} />
-        ))}
-      </div>
-      <div className="w-full text-2xl flex justify-center md:justify-start">
+    <BlockContainer title="Current Projects" centered padding="title only">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className=" w-10/12 md:w-10/12"
+      >
+        <CarouselContent>
+          {featuredProjects.map((project) => (
+            <CarouselItem
+              key={project.pageId}
+              className="md:basis-1/2 lg:basis-1/3 flex justify-center"
+            >
+              <ProjectCard data={project} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="hidden md:inline-flex" />
+        <CarouselNext className="hidden md:inline-flex" />
+      </Carousel>
+      <div className="w-full text-2xl flex justify-center md:justify-start container">
         <Link
           href="/about"
           target="_blank"

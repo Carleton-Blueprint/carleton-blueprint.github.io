@@ -6,15 +6,16 @@ import { MdDoubleArrow } from "react-icons/md";
 
 export default function AboutUsBlock() {
   return (
-    <BlockContainer flip={true} roundedBottom={true}>
+    <BlockContainer flip={true} roundedCorners="bottom">
       <div className="flex flex-row">
         <div className="md:w-2/3 text-2xl space-y-8">
           <h1 className="text-blueprint font-bold text-5xl md:text-6xl">
             Our Mission
           </h1>
           <p>
-            Blueprint strives to make technology more accessible and useful for
-            those who create communities and promote public welfare.
+            Started at UC Berkeley, Blueprint strives to make technology more
+            accessible and useful for those who create communities and promote
+            public welfare. This chapter at Carleton University is no different.
           </p>
           <Link
             href="https://calblueprint.org/chapters"

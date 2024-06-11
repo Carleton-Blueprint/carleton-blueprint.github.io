@@ -58,7 +58,7 @@ function Value({ data }: { data: ValueDataType }) {
     <div
       className={`${
         data.flip && "md:self-end md:flex-row-reverse md:space-x-reverse"
-      } flex flex-col md:flex-row md:w-10/12 bg-white rounded-[35px] p-12 md:space-x-20 items-center shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)]`}
+      } flex flex-col md:flex-row md:w-10/12 bg-white rounded-[35px] p-6 md:p-12 md:space-x-20 items-center shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)]`}
     >
       <div
         className={`font-bold text-blueprint text-2xl md:text-4xl ${
@@ -67,7 +67,11 @@ function Value({ data }: { data: ValueDataType }) {
       >
         {data.title}
       </div>
-      <div className={`${!data.flip && "md:text-end"} text-md md:text-lg`}>
+      <div
+        className={`${
+          !data.flip && "md:text-end"
+        } text-justify md:text-start text-md md:text-lg`}
+      >
         {data.description}
       </div>
     </div>
@@ -76,7 +80,7 @@ function Value({ data }: { data: ValueDataType }) {
 
 export default function OurValuesBlock() {
   return (
-    <BlockContainer title="Our Values" flip inner>
+    <BlockContainer title="Our Values" flip inner roundedCorners>
       <div className="flex flex-col space-y-12">
         {values.map((value) => (
           <Value key={uuidv4()} data={value} />
