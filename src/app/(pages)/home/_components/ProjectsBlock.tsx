@@ -1,19 +1,50 @@
-import Image from "next/image";
 import BlockContainer from "./BlockContainer";
-import image from "../_assets/projectpic.png";
-import LinkButton from "@/components/LinkButton";
+import ProjectCard from "./ProjectCard";
+import Link from "next/link";
+import { MdDoubleArrow } from "react-icons/md";
+import { getFeaturedProjects } from "@/lib/notion/projects";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-export default function ProjectsBlock() {
+export default async function ProjectsBlock() {
+  const featuredProjects = await getFeaturedProjects();
   return (
-    <BlockContainer title="Our Projects 📌" flip={true}>
-      <div className="flex flex-row items-center justify-around">
-        <Image src={image} alt="decorative image" className="hidden md:flex w-[300px]" />
-
-        <div className="max-w-[500px] space-y-3">
-          <div className="font-bold text-blueprint text-2xl">Past Projects</div>
-          <div className="text-lg pb-5">We believe in building technology that makes our community more open and connected. Check out our past projects!</div>
-          <LinkButton href="/projects">View Projects</LinkButton>
-        </div>
+    <BlockContainer title="Current Projects" centered padding="title only">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className=" w-10/12 md:w-10/12"
+      >
+        <CarouselContent>
+          {featuredProjects.map((project) => (
+            <CarouselItem
+              key={project.pageId}
+              className="md:basis-1/2 lg:basis-1/3 flex justify-center"
+            >
+              <ProjectCard data={project} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="hidden md:inline-flex" />
+        <CarouselNext className="hidden md:inline-flex" />
+      </Carousel>
+      <div className="w-full text-2xl flex justify-center md:justify-start container">
+        <Link
+          href="/about"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blueprint group font-bold flex flex-row w-fit items-center"
+        >
+          <p>Check out all projects</p>
+          <MdDoubleArrow className="ml-2 group-hover:ml-4 transition-spacing ease-in-out" />
+        </Link>
       </div>
     </BlockContainer>
   );
