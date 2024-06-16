@@ -14,7 +14,7 @@ export default async function Contact() {
         <div className="my-24 mt-24 md:mb-12 flex justify-around items-center">
           <div className="max-w-[350px] md:max-w-[500px] space-y-3">
             <h1 className="text-4xl md:text-6xl font-bold text-white">For Non-Profits</h1>
-            <p className="text-xl text-white">If you are interested in our services or have a potential project you need help with send us an email!</p>
+            <p className="text-xl text-white">If you are interested in our services or have a potential project you need help with send us an email</p>
             <br />
             <a href="mailto:carletonblueprint@gmail.com" className="text-white hover:text-gray-300 text-xl md:text-3xl">
               carletonblueprint@gmail.com
