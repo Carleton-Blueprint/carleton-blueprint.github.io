@@ -47,44 +47,43 @@ export async function fetchPages() {
   return raw.map((item) => item.fields) as PageDataType[];
 }
 
-export async function fetchProjects(current: number) {
-  const res = await client.getEntries({
-    content_type: "projects",
-    select: ["fields"],
-  });
+// export async function fetchProjects(current: number) {
+//   const res = await client.getEntries({
+//     content_type: "projects",
+//     select: ["fields"],
+//   });
 
-  let projects = [];
+//   let projects = [];
 
-  if (res.items.length == 0) throw new Error("No projects found");
-  if (current == 0) {
-    const projectCards = res.items.find(
-      (item) => item.fields.name === "Current Projects"
-    )?.fields.projectCards as EntrySkeletonType[];
-
-    if (projectCards) {
-      for (const projectCard of projectCards) {
-        projects.push(projectCard.fields);
-      }
-    } else {
-      throw new Error("No project cards found");
-    }
-  } else {
-    const projectCards = res.items.find(
-      (item) => item.fields.name === "Past Projects"
-    )?.fields.projectCards as EntrySkeletonType[];
-    if (projectCards) {
-      for (const projectCard of projectCards) {
-        projects.push(projectCard.fields);
-      }
-    } else {
-      throw new Error("No project cards found");
-    }
-  }
-  for (var project of projects) {
-    project.logo = project.logo.fields.file.url;
-  }
-  return projects;
-}
+//   if (res.items.length == 0) throw new Error("No projects found");
+//   if (current == 0) {
+//     const projectCards = res.items.find(
+//       (item) => item.fields.name === "Current Projects"
+//     )?.fields.projectCards as ProjectCardDataType[];
+//     if (projectCards) {
+//       for (const projectCard of projectCards) {
+//         projects.push(projectCard.fields);
+//       }
+//     } else {
+//       throw new Error("No project cards found");
+//     }
+//   } else {
+//     const projectCards = res.items.find(
+//       (item) => item.fields.name === "Past Projects"
+//     )?.fields.projectCards as ProjectCardDataType[];
+//     if (projectCards) {
+//       for (const projectCard of projectCards) {
+//         projects.push(projectCard.fields);
+//       }
+//     } else {
+//       throw new Error("No project cards found");
+//     }
+//   }
+//   for (var project of projects) {
+//     project.logo = project.logo.fields.file.url;
+//   }
+//   return projects;
+// }
 
 export async function fetchContact() {
   const res = await client.getEntries({

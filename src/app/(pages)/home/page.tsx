@@ -2,16 +2,17 @@ import AboutUsBlock from "./_components/AboutUsBlock";
 import HeroBlock from "./_components/HeroBlock";
 import OurValuesBlock from "./_components/OurValuesBlock";
 import ProjectsBlock from "./_components/ProjectsBlock";
+import EventsBlock from "./_components/EventsBlock";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div>
       <HeroBlock />
-
-      <div className="flex flex-col space-y-5">
+      <div className="flex flex-col">
         <AboutUsBlock />
-        <OurValuesBlock />
         <ProjectsBlock />
+        <EventsBlock />
+        <OurValuesBlock />
       </div>
     </div>
   );
