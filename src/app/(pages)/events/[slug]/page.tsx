@@ -17,9 +17,9 @@ export default async function EventPage({
   const title = (Object.values(allPosts) as any)[0].value.properties
     .title[0][0];
   return (
-    <div className="flex justify-center pt-12">
-      <div className="w-1/2 space-y-8 border-l-4 pl-12 border-slate-200">
-        <h1 className="text-4xl font-bold">{title}</h1>
+    <div className="flex flex-col items-center justify-center pt-12" style={{ backgroundColor: '#E7F2FD' }}>
+      <h1 className="text-5xl font-extrabold text-center text-blue-500 mt-4 mb-8">{title}</h1>
+      <div className="w-1/2 space-y-8 border-l-4 pl-12 border-slate-200" style={{ backgroundColor: 'white' }}>
         <Separator />
         <NotionRenderer blockMap={allPosts} />
       </div>
