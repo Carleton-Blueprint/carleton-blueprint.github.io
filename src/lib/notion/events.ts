@@ -17,13 +17,9 @@ export async function getEventPageIds() {
   const res = await notion.databases.query({
     database_id: database_id,
   });
-  const eventPageIds = res.results.map((result) => result.id);
-  return eventPageIds;
-}
+  
+  const eventPageIds = res.results.map((result: any) => result.id);
 
-export async function getFeaturedEvents() {
-  const eventPageIds = await getEventPageIds();
-  const events: EventDataType[] = [];
 
   for (const eventPageId of eventPageIds) {
     const page = (await notion.pages.retrieve({ page_id: eventPageId })) as any;
@@ -56,18 +52,15 @@ export default async function getEvents() {
 
   for (const eventPageId of eventPageIds) {
     const page = (await notion.pages.retrieve({ page_id: eventPageId })) as any;
-    const eventName = page.properties.Name.title[0].text.content;
-    //const date = parseISO(page.properties.Date.date.start);
-    const date = format(
-      parseISO(page.properties.Date.date.start),
-      "MMMM dd, yyyy h:mm a"
-    );
-    const venue = page.properties.Venue.rich_text[0].plain_text;
-    const status = page.properties.Status.status.name;
-    const description =
-      page.properties.Description.rich_text[0]?.plain_text || "";
-    const coverURL =
-      page.properties["Cover URL"].rich_text[0]?.plain_text || "/default";
+
+    const eventName = page.properties.Name?.title[0]?.text?.content || "No Event Name";
+    const date = page.properties.Date?.date?.start 
+      ? format(parseISO(page.properties.Date.date.start), "MMMM dd, yyyy h:mm a")
+      : "No Date";
+    const venue = page.properties.Venue?.rich_text[0]?.plain_text || "No Venue";
+    const status = page.properties.Status?.status?.name || "No Status";
+    const description = page.properties.Description?.rich_text[0]?.plain_text || "No Description";
+    const coverURL = page.properties.Cover?.files?.[0]?.file?.url || "No URL";
 
     events.push({
       eventPageId,
