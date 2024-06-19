@@ -7,6 +7,7 @@ type Props = {
   inner?: boolean;
   margin?: "top" | "bottom" | true | false;
   padding?: "title only" | true | false;
+  shadow?: boolean;
 };
 
 export default function BlockContainer({
@@ -18,6 +19,7 @@ export default function BlockContainer({
   inner = false,
   margin = false,
   padding = true,
+  shadow = false,
 }: Props) {
   return (
     <div
@@ -29,7 +31,8 @@ export default function BlockContainer({
         ${inner && "md:w-[90%] self-center"}
         ${margin === true && "my-12"}
         ${margin === "top" && "mt-12"}
-        ${margin === "bottom" && "mb-12"}`}
+        ${margin === "bottom" && "mb-12"}
+        ${shadow === true && "shadow-lg"}`}
     >
       <div
         className={`space-y-12 

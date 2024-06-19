@@ -18,28 +18,19 @@ export default async function Students() {
   }
 
   return (
-    <div>
-      <div className=" min-h-screen overflow-x-hidden">
-        <div className="flex flex-col w-full space-y-24 relative pb-24">
-          <section className="content container">
-            <div className="flex flex-col space-y-2">
-              <div className="mb-8 flex flex-col items-center">
-                <h2 className="text-4xl md:text-6xl font-extrabold mb-8 text-center pt-6">
-                  Meet the Team
-                </h2>
-                <p className="text-lg text-center w-1/2">
-                  Our community specializes in a variety of disciplines, but our
-                  passion for helping nonprofits and our interest in technology
-                  brings us together.
-                </p>
-              </div>
-              <div className="flex flex-col space-y-24 text-center">
-                {teams.map((team) => (
-                  <Section team={team} key={uuidv4()} />
-                ))}
-              </div>
-            </div>
-          </section>
+    <div className="bg-blueprint-100 min-h-screen overflow-x-hidden">
+      <div className="flex flex-col space-y-24 relative pb-24 content container">
+        <div className="flex flex-col space-y-2">
+          <div className="m-8 flex flex-col items-center">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-center pt-6">
+              Meet Our <span className="text-blueprint-500">Team</span>
+            </h1>
+          </div>
+          <div className="flex flex-col space-y-24 text-center">
+            {teams.map((team) => (
+              <Section team={team} key={uuidv4()} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
