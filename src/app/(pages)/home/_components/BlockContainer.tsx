@@ -21,25 +21,23 @@ export default function BlockContainer({
 }: Props) {
   return (
     <div
-      className={`py-16
+      className={`py-16 w-screen
         ${flip && "bg-blueprint-50"}
         ${roundedCorners === true && "rounded-[50px]"}
         ${roundedCorners === "top" && "rounded-t-[50px]"}
         ${roundedCorners === "bottom" && "rounded-b-[50px]"}
-        ${inner && "md:w-[90%] self-center"}
+        ${inner && "md:w-fit self-center px-10"}
         ${margin === true && "my-12"}
         ${margin === "top" && "mt-12"}
         ${margin === "bottom" && "mb-12"}`}
     >
       <div
-        className={`space-y-12 
-        ${centered && "flex flex-col items-center"}
-        ${padding === true && "container"}`}
+        className={`space-y-12 container
+        ${centered && "flex flex-col items-center"}`}
       >
         {title && (
           <div
             className={`flex text-blueprint py-2 font-bold text-5xl md:text-6xl
-            ${padding === "title only" && !centered && "container"}
             ${centered && "text-center"}`}
           >
             {title}

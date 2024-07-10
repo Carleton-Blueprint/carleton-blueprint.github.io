@@ -12,19 +12,14 @@ import {
 export default async function HomeEvents() {
   const res = await getFeaturedEvents();
   return (
-    <BlockContainer
-      title="News and Events"
-      flip
-      margin={"bottom"}
-      padding="title only"
-    >
+    <BlockContainer title="News and Events" flip margin={"bottom"}>
       <div className="flex justify-center">
         <Carousel
           opts={{
             align: "start",
             loop: true,
           }}
-          className=" w-10/12 md:w-11/12"
+          className="w-full"
         >
           <CarouselContent>
             {res.map((event) => (
