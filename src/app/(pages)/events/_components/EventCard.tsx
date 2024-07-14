@@ -1,10 +1,11 @@
+"use client";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
 import React from "react";
+import { CldImage } from "next-cloudinary";
 
 interface EventCardProps {
   id: string;
-  imgURL: string | StaticImageData;
+  imgURL: string;
   title: string;
   venue: string;
   time: string;
@@ -30,7 +31,7 @@ const EventCard: React.FC<EventCardProps> = ({
     >
       <div className="relative w-full h-72">
         <div className="max-h-full overflow-hidden">
-          <Image
+          <CldImage
             src={imgURL}
             alt={title}
             width={400}
@@ -41,15 +42,15 @@ const EventCard: React.FC<EventCardProps> = ({
       </div>
       <div className="p-6 flex flex-col items-center justify-center text-center">
         <h2 className="text-xl font-bold mb-3">{title}</h2>
-        <p className="text-lg text-indigo-600 font-semibold">{venue}</p>
-        <p className="text-md italic text-gray-800">{time}</p>
-        <p className="text-gray-700">{description}</p>
-        {isUpcoming && (
+        <hr className="w-full border-t-2 border-gray-300 my-3" />
+        <p className="text-lg text-indigo-600 font-semibold py-2">Location: {venue}</p>
+        <p className="text-md italic text-gray-800 py-2">{time}</p>
+        <p className="text-gray-700 py-2">{description}</p>
+        {isUpcoming ? (
           <span className="px-3 py-1 text-white bg-green-500 rounded-full text-xs font-bold absolute top-4 right-4">
             Upcoming
           </span>
-        )}
-        {!isUpcoming && (
+        ) : (
           <span className="px-3 py-1 text-white bg-gray-400 rounded-full text-xs font-bold absolute top-4 right-4">
             Passed
           </span>
