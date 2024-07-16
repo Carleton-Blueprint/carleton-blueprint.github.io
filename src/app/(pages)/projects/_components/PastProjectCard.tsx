@@ -27,10 +27,10 @@ export default async function PastProjectCard({ data }: { data: ProjectDataType 
             )}
             <div className="flex flex-col justify-between flex-grow">
                 <CardHeader>
-                    <CardTitle className="text-2xl text-center">
+                    <CardTitle className="text-4xl text-center">
                         {data.companyName}
                     </CardTitle>
-                    <CardDescription className="text-sm text-center">
+                    <CardDescription className="text-sm text-center text-white">
                         {data.productName}
                     </CardDescription>
                 </CardHeader>
