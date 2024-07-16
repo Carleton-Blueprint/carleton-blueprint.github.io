@@ -22,9 +22,7 @@ export default function ProjectCard({
 }: ProjectCardPropType) {
   return (
     <Card
-      className={`flex justify-center items-center w-[300px] ${
-        grid ? "md:w-[800px]" : "md:w-[1000px]"
-      }`}
+      className={`flex justify-center items-center w-[300px] rounded-[30px] md:w-10/12 `}
     >
       {data.logoUrl && (
         <CldImage
