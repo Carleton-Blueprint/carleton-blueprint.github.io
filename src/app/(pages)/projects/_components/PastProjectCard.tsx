@@ -21,7 +21,7 @@ export default async function PastProjectCard({ data }: { data: ProjectDataType 
                         alt={data.companyName}
                         width={250}
                         height={250}
-                        className="w-auto h-24 object-contain"
+                        className="w-48 h-48 object-fill"
                     />
                 </div>
             )}
