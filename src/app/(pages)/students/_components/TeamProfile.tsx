@@ -5,7 +5,7 @@ import { CldImage } from "next-cloudinary";
 
 function TeamProfileBase({ student, hover = false }: { student: StudentDataType, hover: boolean }) {
   return (
-    <div className={`flex flex-col items-center text-center space-y-1 bg-blueprint py-3 rounded-2xl ${hover && "transition ease-in-out hover:scale-110 hover:bg-blueprint-700 duration-300"}`}>
+    <div className={`flex flex-col items-center text-center space-y-1 py-3 rounded-2xl ${hover && "transition ease-in-out hover:scale-110 hover:bg-blueprint-100 duration-200"}`}>
       <div className="rounded-full overflow-hidden w-32 h-32 mb-2 border-white border-2">
         <CldImage
           src={student.imageUrl}
@@ -14,8 +14,8 @@ function TeamProfileBase({ student, hover = false }: { student: StudentDataType,
           alt={"Picture of " + student.name}
         />
       </div>
-      <p className="text-white text-lg font-bold">{student.name}</p>
-      <p className="text-white capitalize">{student.role}</p>
+      <p className="text-black text-lg font-bold">{student.name}</p>
+      <p className="text-black capitalize">{student.role}</p>
     </div>
   );
 }
