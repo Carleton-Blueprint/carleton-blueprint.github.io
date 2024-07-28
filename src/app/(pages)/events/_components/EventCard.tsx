@@ -40,12 +40,14 @@ const EventCard: React.FC<EventCardProps> = ({
           />
         </div>
       </div>
-      <div className="p-6 flex flex-col items-center justify-center text-center">
-        <h2 className="text-xl font-bold mb-3">{title}</h2>
-        <hr className="w-full border-t-2 border-gray-300 my-3" />
-        <p className="text-lg text-indigo-600 font-semibold py-2">Location: {venue}</p>
-        <p className="text-md italic text-gray-800 py-2">{time}</p>
-        <p className="text-gray-700 py-2">{description}</p>
+      <div className="p-4 md:p-6 flex flex-col items-center justify-center text-center">
+        <h2 className="text-xl font-bold mb-1 md:mb-3">{title}</h2>
+        <hr className="w-full border-t-2 border-gray-300 my-1 md:my-3" />
+        <p className="text-lg text-indigo-600 font-semibold md:py-2">
+          Location: {venue}
+        </p>
+        <p className="text-md italic text-gray-800 md:py-2">{time}</p>
+        <p className="text-gray-700 py-1 md:py-2">{description}</p>
         {isUpcoming ? (
           <span className="px-3 py-1 text-white bg-green-500 rounded-full text-xs font-bold absolute top-4 right-4">
             Upcoming

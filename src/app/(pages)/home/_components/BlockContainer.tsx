@@ -4,7 +4,6 @@ type Props = {
   flip?: boolean;
   roundedCorners?: "top" | "bottom" | true | false;
   centered?: boolean;
-  mobile_padding?: boolean;
   inner?: boolean;
   margin?: "top" | "bottom" | true | false;
   padding?: "title only" | true | false;
@@ -16,7 +15,6 @@ export default function BlockContainer({
   flip = false,
   roundedCorners = false,
   centered = false,
-  mobile_padding = false,
   inner = false,
   margin = false,
   padding = true,
@@ -28,8 +26,7 @@ export default function BlockContainer({
         ${roundedCorners === true && "rounded-[50px]"}
         ${roundedCorners === "top" && "rounded-t-[50px]"}
         ${roundedCorners === "bottom" && "rounded-b-[50px]"}
-        ${mobile_padding && "md:w-fit self-center px-4"}
-        ${inner && "md:w-fit self-center px-10"}
+        ${inner && "md:w-fit self-center md:px-10"}
         ${margin === true && "my-12"}
         ${margin === "top" && "mt-12"}
         ${margin === "bottom" && "mb-12"}`}
