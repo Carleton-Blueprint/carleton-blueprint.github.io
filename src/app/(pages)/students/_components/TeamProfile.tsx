@@ -3,9 +3,20 @@ import { StudentDataType } from "@/lib/notion/students";
 import Link from "next/link";
 import { CldImage } from "next-cloudinary";
 
-function TeamProfileBase({ student, hover = false }: { student: StudentDataType, hover: boolean }) {
+function TeamProfileBase({
+  student,
+  hover = false,
+}: {
+  student: StudentDataType;
+  hover: boolean;
+}) {
   return (
-    <div className={`flex flex-col items-center text-center space-y-1 py-3 rounded-2xl ${hover && "transition ease-in-out hover:scale-110 hover:bg-blueprint-100 duration-200"}`}>
+    <div
+      className={`flex flex-col items-center text-center space-y-1 py-3 rounded-2xl ${
+        hover &&
+        "transition ease-in-out hover:scale-110 hover:bg-blueprint-50 duration-200"
+      }`}
+    >
       <div className="rounded-full overflow-hidden w-32 h-32 mb-2 border-white border-2">
         <CldImage
           src={student.imageUrl}
