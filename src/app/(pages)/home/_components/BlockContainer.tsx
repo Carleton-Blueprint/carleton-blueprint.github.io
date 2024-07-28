@@ -24,25 +24,23 @@ export default function BlockContainer({
   return (
     <div
       className={`py-16
-        ${flip === true ? "bg-blueprint-50" : "bg-white"}
+        ${flip ? "bg-blueprint-50" : "bg-white"}
         ${roundedCorners === true && "rounded-[50px]"}
         ${roundedCorners === "top" && "rounded-t-[50px]"}
         ${roundedCorners === "bottom" && "rounded-b-[50px]"}
-        ${inner && "md:w-[90%] self-center"}
+        ${inner && "md:w-fit self-center md:px-10"}
         ${margin === true && "my-12"}
         ${margin === "top" && "mt-12"}
         ${margin === "bottom" && "mb-12"}
         ${shadow === true && "shadow-lg"}`}
     >
       <div
-        className={`space-y-12 
-        ${centered && "flex flex-col items-center"}
-        ${padding === true && "container"}`}
+        className={`space-y-2 container
+        ${centered && "flex flex-col items-center"}`}
       >
         {title && (
           <div
-            className={`flex text-blueprint py-2 font-bold text-4xl md:text-5xl
-            ${padding === "title only" && !centered && "container"}
+            className={`flex text-blueprint py-2 font-bold text-5xl md:text-6xl
             ${centered && "text-center"}`}
           >
             {title}
