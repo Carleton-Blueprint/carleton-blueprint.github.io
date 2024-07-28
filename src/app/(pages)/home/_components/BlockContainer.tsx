@@ -40,7 +40,7 @@ export default function BlockContainer({
       >
         {title && (
           <div
-            className={`flex text-blueprint py-2 font-bold text-5xl md:text-6xl
+            className={`flex text-blueprint py-2 font-bold text-4xl md:text-5xl
             ${centered && "text-center"}`}
           >
             {title}
