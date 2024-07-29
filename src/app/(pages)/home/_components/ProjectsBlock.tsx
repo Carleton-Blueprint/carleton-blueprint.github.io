@@ -14,20 +14,20 @@ import {
 export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();
   return (
-    <BlockContainer title="Current Projects" centered>
-      <div className="flex justify-center w-full">
+    <BlockContainer title="Current Projects" centered padding="title only">
+      <div className="flex justify-center">
         <Carousel
           opts={{
             align: "start",
             loop: true,
           }}
-          className="w-full"
+          className="w-1/3 md:w-2/3 lg:w-full"
         >
-          <CarouselContent>
+          <CarouselContent className="">
             {featuredProjects.map((project) => (
               <CarouselItem
                 key={project.pageId}
-                className="md:basis-1/2 lg:basis-1/3 flex justify-center"
+                className="md:basis-1/2 lg:basis-1/3"
               >
                 <ProjectCard data={project} />
               </CarouselItem>
@@ -37,7 +37,7 @@ export default async function ProjectsBlock() {
           <CarouselNext className="hidden md:inline-flex" />
         </Carousel>
       </div>
-      <div className="text-lg md:text-2xl flex justify-center md:justify-start container">
+      <div className="w-full text-2xl flex justify-center md:justify-start container">
         <Link
           href="/projects"
           target="_blank"

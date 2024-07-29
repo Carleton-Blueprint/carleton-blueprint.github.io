@@ -14,7 +14,7 @@ export default function EventCard({ data }: { data: EventDataType }) {
             alt="decorative image"
             width={688}
             height={600}
-            className="absolute md:w-full md:h-full"
+            className="absolute w-full h-full object-cover"
           />
           <CardContent className="absolute bg-gradient-to-t from-blueprint/70 to-blueprint/15 from-25% to-65% w-full h-full rounded-[50px]">
             <span className="absolute bottom-0 left-0 px-6 pb-8 text-white translate-y-14 group-hover:translate-y-0 group:transition duration-300 ease-in-out">
