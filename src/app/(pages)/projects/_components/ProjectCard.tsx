@@ -66,6 +66,12 @@ export default function ProjectCard({
               View Project
             </LinkButton>
           )}
+
+          {data.gitHubUrl && (
+            <LinkButton href={data.gitHubUrl} newTab={true} variant="ghost">
+              GitHub
+            </LinkButton>
+          )}
         </CardFooter>
       </div>
     </Card>
