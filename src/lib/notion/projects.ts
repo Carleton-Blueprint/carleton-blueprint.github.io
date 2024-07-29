@@ -9,6 +9,7 @@ export type ProjectDataType = {
   logoUrl: string | undefined | null;
   externalUrl: string | undefined | null;
   status: "Not started" | "Done" | "In progress" | undefined | null;
+  gitHubUrl: string | undefined | "";
 };
 
 export function isCurrentProject(project: ProjectDataType) {
@@ -45,6 +46,7 @@ export async function getFeaturedProjects() {
       const logoUrl =
         page.properties["Logo URL"].rich_text[0]?.plain_text || "/default";
       const externalUrl = page.properties.URL.url;
+      const gitHubUrl = page.properties.gitHubUrl;
       projects.push({
         pageId,
         companyName,
@@ -54,6 +56,7 @@ export async function getFeaturedProjects() {
         logoUrl,
         externalUrl,
         status: "Done",
+        gitHubUrl,
       });
     }
   }
@@ -76,6 +79,7 @@ export default async function getProjects() {
       page.properties["Logo URL"].rich_text[0]?.plain_text || "/default";
     const externalUrl = page.properties.URL.url;
     const status = page.properties.Status.select.name;
+    const gitHubUrl = page.properties.gitHubUrl;
 
     projects.push({
       pageId,
@@ -86,6 +90,7 @@ export default async function getProjects() {
       logoUrl,
       externalUrl,
       status,
+      gitHubUrl,
     });
   }
 
