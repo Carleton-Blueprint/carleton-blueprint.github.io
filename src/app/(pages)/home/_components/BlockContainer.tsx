@@ -7,6 +7,7 @@ type Props = {
   inner?: boolean;
   margin?: "top" | "bottom" | true | false;
   padding?: "title only" | true | false;
+  shadow?: boolean;
 };
 
 export default function BlockContainer({
@@ -18,18 +19,20 @@ export default function BlockContainer({
   inner = false,
   margin = false,
   padding = true,
+  shadow = false,
 }: Props) {
   return (
     <div
-      className={`py-16 w-screen
-        ${flip && "bg-blueprint-50"}
+      className={`py-16
+        ${flip ? "bg-blueprint-50" : "bg-white"}
         ${roundedCorners === true && "rounded-[50px]"}
         ${roundedCorners === "top" && "rounded-t-[50px]"}
         ${roundedCorners === "bottom" && "rounded-b-[50px]"}
-        ${inner && "md:w-fit self-center px-10"}
+        ${inner && "md:w-fit self-center md:px-10"}
         ${margin === true && "my-12"}
         ${margin === "top" && "mt-12"}
-        ${margin === "bottom" && "mb-12"}`}
+        ${margin === "bottom" && "mb-12"}
+        ${shadow === true && "shadow-lg"}`}
     >
       <div
         className={`space-y-2 container
