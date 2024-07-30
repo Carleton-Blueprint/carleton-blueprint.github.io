@@ -9,7 +9,7 @@ export default function AboutUsBlock() {
     <BlockContainer flip={true} roundedCorners="bottom">
       <div className="flex flex-row">
         <div className="md:w-2/3 text-2xl space-y-8">
-          <h1 className="text-blueprint font-bold text-5xl md:text-6xl">
+          <h1 className="text-blueprint font-bold text-4xl md:text-5xl">
             Our Mission
           </h1>
           <p>

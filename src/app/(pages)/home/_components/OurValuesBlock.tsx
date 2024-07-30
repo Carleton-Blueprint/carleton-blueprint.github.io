@@ -88,8 +88,14 @@ function Value({ data }: { data: ValueDataType }) {
 
 export default function OurValuesBlock() {
   return (
-    <BlockContainer title="Our Values" flip inner roundedCorners>
-      <div className="flex flex-col space-y-12">
+    <BlockContainer
+      title="Our Values"
+      flip
+      inner
+      roundedCorners
+      margin="bottom"
+    >
+      <div className="flex flex-col space-y-12 py-10">
         {values.map((value) => (
           <Value key={uuidv4()} data={value} />
         ))}

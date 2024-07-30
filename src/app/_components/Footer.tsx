@@ -17,7 +17,7 @@ export default async function Footer() {
   const res = await fetchPages();
 
   return (
-    <div className="flex bg-blueprint pt-8 mt-12 pb-10 text-white">
+    <div className="flex bg-blueprint pt-8 pb-10 text-white">
       <div className="container">
         <div className="flex justify-between">
           <div className="flex flex-col text-lg space-y-3">

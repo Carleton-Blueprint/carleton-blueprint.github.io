@@ -15,7 +15,7 @@ export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();
   return (
     <BlockContainer title="Current Projects" centered padding="title only">
-      <div className="flex justify-center">
+      <div className="flex py-10 selection:justify-center">
         <Carousel
           opts={{
             align: "start",
@@ -37,7 +37,7 @@ export default async function ProjectsBlock() {
           <CarouselNext className="hidden md:inline-flex" />
         </Carousel>
       </div>
-      <div className="w-full text-2xl flex justify-center md:justify-start container">
+      <div className="text-2xl flex justify-center container">
         <Link
           href="/projects"
           target="_blank"
