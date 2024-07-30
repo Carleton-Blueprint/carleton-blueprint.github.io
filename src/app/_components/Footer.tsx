@@ -17,7 +17,7 @@ export default async function Footer() {
   const res = await fetchPages();
 
   return (
-    <div className="flex bg-blueprint pt-16 mt-12 pb-10 text-white">
+    <div className="flex bg-blueprint pt-8 mt-12 pb-10 text-white">
       <div className="container">
         <div className="flex justify-between">
           <div className="flex flex-col text-lg space-y-3">
@@ -32,15 +32,21 @@ export default async function Footer() {
             ))}
           </div>
 
-          <div className="">
-            <Image src={logo} alt="blueprint logo" className="w-[150px] pb-5" />
-            <div className="pb-3">stay in the loop</div>
-            <div className="flex flex-row space-x-2"></div>
+          <div className="flex flex-col items-end justify-center">
+            <Link href="/" className="pb-3">
+              <Image
+                src={logo}
+                alt="blueprint logo"
+                className="w-[200px] px-2 rounded-md hover:shadow-xl transition duration-300 ease-in-out"
+              />
+            </Link>
+            <div className="w-full text-center text-sm">
+              Made with ❤️ by Carleton Blueprint @ Carleton University
+            </div>
+            <div className="w-full text-right text-sm">
+              Ottawa, Ontario, Canada
+            </div>
           </div>
-        </div>
-
-        <div className="w-full text-center text-sm">
-          Made with ❤️ by Carleton Blueprint
         </div>
       </div>
     </div>

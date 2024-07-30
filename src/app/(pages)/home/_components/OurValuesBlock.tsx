@@ -3,11 +3,11 @@ import { StaticImageData } from "next/image";
 import Image from "next/image";
 import BlockContainer from "./BlockContainer";
 import { v4 as uuidv4 } from "uuid";
-import mission from "../_assets/ourValues/mission.png";
-import culture from "../_assets/ourValues/culture.png";
-import innovate from "../_assets/ourValues/innovate.png";
-import personal from "../_assets/ourValues/personal.png";
-import humble from "../_assets/ourValues/humble.png";
+import mission from "../_assets/ourValues/mission.svg";
+import culture from "../_assets/ourValues/culture.svg";
+import innovate from "../_assets/ourValues/innovate.svg";
+import personal from "../_assets/ourValues/personal.svg";
+import humble from "../_assets/ourValues/humble.svg";
 
 const values = [
   {
