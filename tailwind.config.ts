@@ -28,6 +28,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        "xs": "410px"
+      },
       colors: {
         blueprint: {
           50: "#E7F2FE",

@@ -2,6 +2,7 @@ import { NotionRenderer } from "react-notion";
 import { Separator } from "@/components/ui/separator";
 import { EventDataType } from "@/lib/notion/events";
 import getEventPageIds from "@/lib/notion/events";
+import BlockContainer from "../../home/_components/BlockContainer";
 
 export async function generateStaticParams() {
   const events = await getEventPageIds();
@@ -27,12 +28,12 @@ export default async function EventPage({
   const title = (Object.values(blockMap) as any)[0].value.properties
     .title[0][0];
   return (
-    <div className="flex justify-center pt-12">
-      <div className="w-1/2 space-y-8 border-l-4 pl-12 border-slate-200">
-        <h1 className="text-4xl font-bold">{title}</h1>
-        <Separator />
-        <NotionRenderer blockMap={blockMap} />
-      </div>
+    <div className="flex flex-col items-center justify-center pt-12 bg-blue-50">
+      <BlockContainer title={title} roundedCorners inner centered margin>
+        <div className="w-full max-w-3xl space-y-8 p-8 bg-white  rounded-lg">
+          <NotionRenderer blockMap={blockMap} />
+        </div>
+      </BlockContainer>
     </div>
   );
 }
