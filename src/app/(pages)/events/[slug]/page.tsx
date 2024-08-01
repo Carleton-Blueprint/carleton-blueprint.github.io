@@ -8,6 +8,8 @@ import { getAllPageIds } from '@/lib/notion/pages';
 export async function generateStaticParams() {
   const pageIds = await getAllPageIds();
 
+  console.log(pageIds);
+
   return pageIds.map((pageId: string) => ({
     slug: pageId,
   }));

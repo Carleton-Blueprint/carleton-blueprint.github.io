@@ -1,13 +1,11 @@
-import notion from '.';
+import { getEventPageIds } from './events';
+import { getExternalPageIds } from './external';
+import { getProjectPageIds } from './projects';
 
 export const getAllPageIds = async () => {
-  const res = await notion.search({
-    filter: {
-      value: 'page',
-      property: 'object',
-    },
-  });
+  const projectPageIds = await getProjectPageIds();
+  const eventPageIds = await getEventPageIds();
+  const externalPageIds = await getExternalPageIds();
 
-  const pageIds: string[] = res.results.map((result: any) => result.id);
-  return pageIds;
+  return [...projectPageIds, ...eventPageIds, ...externalPageIds];
 };
