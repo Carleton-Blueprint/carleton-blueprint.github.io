@@ -1,6 +1,9 @@
-import { NotionRenderer } from "react-notion";
-import { Separator } from "@/components/ui/separator";
-import { getProjectPageIds } from "@/lib/notion/projects";
+import { Separator } from '@/components/ui/separator';
+import { getProjectPageIds } from '@/lib/notion/projects';
+import { getRecordMap } from '@/lib/notion/utils';
+import NotionPage from '@/components/NotionPage';
+import BlockContainer from '@/components/BlockContainer';
+import { NotionAPI } from 'notion-client';
 
 export async function generateStaticParams() {
   const projects = await getProjectPageIds();
@@ -10,29 +13,23 @@ export async function generateStaticParams() {
   }));
 }
 
-const getBlockMap = async (NOTION_BLOG_ID: string) => {
-  return await fetch(
-    `https://notion-api.splitbee.io/v1/page/${NOTION_BLOG_ID}`
-  ).then((res) => res.json());
+type PropsType = {
+  params: { slug: string };
 };
 
-export default async function ProjectPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const blockMap = await getBlockMap(params.slug);
+export default async function ProjectPage({ params }: PropsType) {
+  const recordMap = await getRecordMap(params.slug);
 
-  const title = (Object.values(blockMap) as any)[0].value.properties
-    .title[0][0];
+  const title = 'hardcode';
 
   return (
-    <div className="flex justify-center pt-12">
-      <div className="w-1/2 space-y-8 border-l-4 pl-12 border-slate-200">
-        <h1 className="text-4xl font-bold">{title}</h1>
-        <Separator />
-        <NotionRenderer blockMap={blockMap} />
-      </div>
-    </div>
+    // <div className='flex justify-center pt-12'>
+    //   <div className='w-1/2 space-y-8 border-l-4 pl-12 border-slate-200'>
+    //     <h1 className='text-4xl font-bold'>{title}</h1>
+    //     <Separator />
+    //     <NotionPage recordMap={recordMap} />
+    //   </div>
+    // </div>
+    <NotionPage recordMap={recordMap} />
   );
 }

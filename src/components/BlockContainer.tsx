@@ -23,7 +23,7 @@ export default function BlockContainer({
 }: Props) {
   return (
     <div
-      className={`py-16
+      className={`py-10
         ${flip ? 'bg-blueprint-50' : 'bg-white'}
         ${roundedCorners === true && 'rounded-[50px]'}
         ${roundedCorners === 'top' && 'rounded-t-[50px]'}
