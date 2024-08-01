@@ -1,4 +1,5 @@
 import NotionPage from '@/components/NotionPage';
+import { parsePageId } from 'notion-utils';
 import { getEventPageIds } from '@/lib/notion/events';
 import { getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
 
@@ -12,7 +13,7 @@ type PropsType = {
 };
 
 export default async function EventPage({ params }: PropsType) {
-  const pageId = params.slug;
+  const pageId = parsePageId(params.slug);
 
   const recordMap = await getRecordMap(pageId);
   const title = await getTitleByPageId(pageId);

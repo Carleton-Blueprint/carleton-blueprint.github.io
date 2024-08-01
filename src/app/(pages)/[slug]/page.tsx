@@ -1,5 +1,6 @@
 import NotionPage from '@/components/NotionPage';
 import { getAllPageIds, getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
+import { parsePageId } from 'notion-utils';
 
 export async function generateStaticParams() {
   const allPageIds = await getAllPageIds();
@@ -13,7 +14,7 @@ type PropsType = {
 };
 
 export default async function ArbitraryNotionPage({ params }: PropsType) {
-  const pageId = params.slug;
+  const pageId = parsePageId(params.slug);
 
   const title = await getTitleByPageId(pageId);
   const recordMap = await getRecordMap(pageId);
