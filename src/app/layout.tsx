@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
-import Providers from "@/lib/providers";
-import Navbar from "@/app/_components/Navbar";
-import Footer from "@/app/_components/Footer";
-import "react-notion/src/styles.css";
+import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
+import Providers from '@/lib/providers';
+import Navbar from '@/app/_components/Navbar';
+import Footer from '@/app/_components/Footer';
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"] });
+import './globals.css';
+import 'react-notion-x/src/styles.css';
+
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
 export const metadata: Metadata = {
-  title: "cuBlueprint",
-  description: "Tech for social good",
+  title: 'Carleton Blueprint',
+  description: 'Tech for Social Good',
 };
 
 export default function RootLayout({
@@ -19,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <Providers>
         <body className={`${poppins.className}`}>
           <Navbar />
