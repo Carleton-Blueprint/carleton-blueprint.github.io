@@ -1,9 +1,12 @@
 import NotionPage from '@/components/NotionPage';
 import { getAllPageIds, getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
+import { parsePageId } from 'notion-utils';
 
 export async function generateStaticParams() {
   const allPageIds = await getAllPageIds();
-  return allPageIds.map((pageId: string) => ({
+  const allPageIdsNoDashes = allPageIds.map(pageId => parsePageId(pageId, { uuid: false }));
+
+  return [...allPageIds, ...allPageIdsNoDashes].map((pageId: string) => ({
     slug: pageId,
   }));
 }
