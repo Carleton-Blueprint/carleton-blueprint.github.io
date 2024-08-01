@@ -1,17 +1,18 @@
-import { getProjectPageIds } from '@/lib/notion/projects';
-import { getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
 import NotionPage from '@/components/NotionPage';
+import { getAllPageIds, getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
 
 export async function generateStaticParams() {
-  const pageIds = await getProjectPageIds();
-  return pageIds.map((slug: string) => ({ slug }));
+  const allPageIds = await getAllPageIds();
+  return allPageIds.map((pageId: string) => ({
+    slug: pageId,
+  }));
 }
 
 type PropsType = {
   params: { slug: string };
 };
 
-export default async function ProjectPage({ params }: PropsType) {
+export default async function ArbitraryNotionPage({ params }: PropsType) {
   const pageId = params.slug;
 
   const title = await getTitleByPageId(pageId);

@@ -1,26 +1,21 @@
 import NotionPage from '@/components/NotionPage';
-import { EventDataType } from '@/lib/notion/events';
-import getEventPageIds from '@/lib/notion/events';
-import BlockContainer from '@/components/BlockContainer';
-import { getRecordMap } from '@/lib/notion/utils';
+import { getEventPageIds } from '@/lib/notion/events';
+import { getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
 
-// export async function generateStaticParams() {
-//   const events = await getEventPageIds();
-
-//   return events.map((event: EventDataType) => ({
-//     slug: event.eventPageId,
-//   }));
-// }
+export async function generateStaticParams() {
+  const pageIds = await getEventPageIds();
+  return pageIds.map((slug: string) => ({ slug }));
+}
 
 type PropsType = {
   params: { slug: string };
 };
 
 export default async function EventPage({ params }: PropsType) {
-  const recordMap = await getRecordMap(params.slug);
+  const pageId = params.slug;
 
-  // const title = (Object.values(blockMap) as any)[0].value.properties.title[0][0];
-  const title = 'hey';
+  const recordMap = await getRecordMap(pageId);
+  const title = await getTitleByPageId(pageId);
 
-  return <NotionPage recordMap={recordMap} />;
+  return <NotionPage recordMap={recordMap} title={title} />;
 }
