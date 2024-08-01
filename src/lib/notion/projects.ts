@@ -79,7 +79,7 @@ export default async function getProjects() {
       page.properties["Logo URL"].rich_text[0]?.plain_text || "/default";
     const externalUrl = page.properties.URL.url;
     const status = page.properties.Status.select.name;
-    const gitHubUrl = page.properties.gitHubUrl;
+    const gitHubUrl = page.properties.gitHubUrl.url;
 
     projects.push({
       pageId,

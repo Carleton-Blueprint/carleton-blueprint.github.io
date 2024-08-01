@@ -14,7 +14,7 @@ export default async function CurrentProjects({
     <BlockContainer title="Current Projects" roundedCorners = "bottom" flip ="light-blue">
           <div className="flex flex-col items-center space-y-5">
           {projects.map((project) => (
-          <ProjectCard key={uuidv4()} data={project} grid />
+          <ProjectCard key={uuidv4()} data={project}/>
         ))}
       
     </div>

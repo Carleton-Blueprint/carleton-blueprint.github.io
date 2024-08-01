@@ -13,7 +13,7 @@ import {
 export default async function PastProjectCard({ data }: { data: ProjectDataType }) {
     console.log(data);
     return (
-        <Card className="bg-blue-400 rounded-2xl flex flex-col justify-between h-full p-4">
+        <div className="bg-gradient-to-t from-[#0170DC] to-[#6191BC] rounded-2xl flex flex-col justify-between h-full p-4">
             {data.logoUrl && (
                 <div className="flex justify-center items-center mb-4">
                     <CldImage
@@ -26,18 +26,15 @@ export default async function PastProjectCard({ data }: { data: ProjectDataType 
                 </div>
             )}
             <div className="flex flex-col justify-between flex-grow">
-                <CardHeader>
-                    <CardTitle className="text-4xl text-center">
+                <div>
+                    <CardTitle className="text-4xl text-center text-white">
                         {data.companyName}
                     </CardTitle>
-                    <CardDescription className="text-sm text-center text-white">
-                        {data.productName}
-                    </CardDescription>
-                </CardHeader>
-                <CardContent className="overflow-hidden text-md text-center">
+                </div>
+                <CardContent className="overflow-hidden text-md text-center text-white">
                     <p>{data.description}</p>
                 </CardContent>
             </div>
-        </Card>
+        </div>
     );
 }
