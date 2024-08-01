@@ -8,14 +8,14 @@ import BlockContainer from './BlockContainer';
 
 type PropsType = {
   recordMap: ExtendedRecordMap;
+  title: string;
 };
 
-export default function NotionPage({ recordMap }: PropsType) {
+export default function NotionPage({ recordMap, title }: PropsType) {
   return (
     <div className='flex flex-col items-center justify-center py-12 bg-blue-50'>
-      <h1 className='text-5xl text-blueprint font-bold mb-10'>{'Social Trivia Night'}</h1>
+      <h1 className='text-5xl text-blueprint font-bold mb-10'>{title}</h1>
 
-      {/* <div className='container py-10 bg-white rounded-2xl'> */}
       <BlockContainer roundedCorners centered>
         <NotionRenderer
           recordMap={recordMap}
@@ -27,7 +27,6 @@ export default function NotionPage({ recordMap }: PropsType) {
           }}
         />
       </BlockContainer>
-      {/* </div> */}
     </div>
   );
 }

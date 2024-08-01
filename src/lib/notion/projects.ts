@@ -1,4 +1,5 @@
 import notion from '.';
+import { getPageIds } from './utils';
 
 export type ProjectDataType = {
   pageId: string;
@@ -11,25 +12,14 @@ export type ProjectDataType = {
   status: 'Not started' | 'Done' | 'In progress' | undefined | null;
 };
 
+export const PROJECTS_DATABASE_ID = 'f0725682a6134d0f8174876e083eee19';
+
 export function isCurrentProject(project: ProjectDataType) {
   return project.status === 'In progress';
 }
 
 export async function getProjectPageIds() {
-  const databaseId = 'f0725682a6134d0f8174876e083eee19';
-
-  const res = await notion.databases.query({
-    database_id: databaseId,
-    sorts: [
-      {
-        property: 'Year',
-        direction: 'descending',
-      },
-    ],
-  });
-
-  const projectPageIds = res.results.map(result => result.id);
-  return projectPageIds;
+  return await getPageIds(PROJECTS_DATABASE_ID);
 }
 
 export async function getFeaturedProjects() {
@@ -58,7 +48,7 @@ export async function getFeaturedProjects() {
   return projects;
 }
 
-export default async function getProjects() {
+export async function getProjects() {
   const projectPageIds = await getProjectPageIds();
   const projects: ProjectDataType[] = [];
 

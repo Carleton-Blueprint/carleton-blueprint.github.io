@@ -1,6 +1,6 @@
 import React from 'react';
 import EventCard from './_components/EventCard'; // Assuming EventCard is in the same directory
-import getEvents from '@/lib/notion/events';
+import { getEvents } from '@/lib/notion/events';
 import BlockContainer from '@/components/BlockContainer';
 
 const EventsPage: React.FC = async () => {
