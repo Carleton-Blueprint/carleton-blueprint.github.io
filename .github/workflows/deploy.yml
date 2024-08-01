@@ -5,7 +5,7 @@ run-name: ${{ github.actor }} is deploying main
 on:
   push:
     branches:
-      - dev
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
