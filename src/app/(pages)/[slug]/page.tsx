@@ -4,7 +4,9 @@ import { parsePageId } from 'notion-utils';
 
 export async function generateStaticParams() {
   const allPageIds = await getAllPageIds();
-  return allPageIds.map((pageId: string) => ({
+  const allPageIdsNoDashes = allPageIds.map(pageId => parsePageId(pageId, { uuid: false }));
+
+  return [...allPageIds, ...allPageIdsNoDashes].map((pageId: string) => ({
     slug: pageId,
   }));
 }
@@ -14,7 +16,7 @@ type PropsType = {
 };
 
 export default async function ArbitraryNotionPage({ params }: PropsType) {
-  const pageId = parsePageId(params.slug);
+  const pageId = params.slug;
 
   const title = await getTitleByPageId(pageId);
   const recordMap = await getRecordMap(pageId);
