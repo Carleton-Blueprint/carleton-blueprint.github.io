@@ -12,7 +12,11 @@ import { getRecordMap } from '@/lib/notion/utils';
 //   }));
 // }
 
-export default async function EventPage({ params }: { params: { slug: string } }) {
+type PropsType = {
+  params: { slug: string };
+};
+
+export default async function EventPage({ params }: PropsType) {
   const recordMap = await getRecordMap(params.slug);
 
   // const title = (Object.values(blockMap) as any)[0].value.properties.title[0][0];
