@@ -28,7 +28,7 @@ export default async function Navbar() {
         <div className="container flex flex-row items-center justify-between">
           <MainLink />
 
-          <div className={`hidden ${NAV_BREAKPOINT}:flex flex-row space-x-5`}>
+          <div className={`hidden ${NAV_BREAKPOINT}:flex flex-row space-x-12`}>
             {res.map((page) => (
               <NavbarLinkItem key={uuidv4()} page={page} />
             ))}
