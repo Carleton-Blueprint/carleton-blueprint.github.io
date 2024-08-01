@@ -41,14 +41,14 @@ export default function BlockContainer({
       >
         {title && (
           <div
-            className={`flex text-blueprint py-2 font-bold text-5xl md:text-6xl
+            className={`flex text-blueprint py-2 font-bold text-center md:text-left text-5xl md:text-6xl
             ${padding === "title only" && !centered && "container"}
-            ${centered && "text-center"}
+            ${centered && "md:text-center"}
             ${flip === "dark-blue" ? "text-white" : "text-blueprint"}
             `}
 
           >
-            {title}
+            <h1 className="w-full">{title}</h1>
           </div>
         )}
         {children}
