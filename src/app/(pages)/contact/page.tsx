@@ -1,48 +1,111 @@
-import React from "react";
-import ContactCard from "./_components/ContactCard";
-import { v4 as uuidv4 } from "uuid";
-import Image from "next/image";
-import image from "./_assets/Adult talking cell phone-rafiki.svg";
-import { fetchContact } from "@/lib/contentful";
+import React from 'react';
+import BlockContainer from '../home/_components/BlockContainer';
+import { GrInstagram } from 'react-icons/gr';
+import { FaLinkedinIn } from 'react-icons/fa';
+import ContactCard from './_components/ContactCard';
+import { MdEmail } from 'react-icons/md';
+import { FaDiscord } from 'react-icons/fa';
+import { FaLocationDot } from 'react-icons/fa6';
 
-export default async function Contact() {
-  const res = await fetchContact();
+interface Props {}
+
+function Page(props: Props) {
+  const {} = props;
 
   return (
-    <div className="bg-blueprint">
-      <div className="container flex flex-col justify-around">
-        <div className="my-24 mt-24 md:mb-12 flex justify-around items-center">
-          <div className="max-w-[350px] md:max-w-[500px] space-y-3">
-            <h1 className="text-4xl md:text-6xl font-bold text-white">For Non-Profits</h1>
-            <p className="text-xl text-white">If you are interested in our services or have a potential project you need help with send us an email</p>
-            <br />
-            <a href="mailto:carletonblueprint@gmail.com" className="text-white hover:text-gray-300 text-xl md:text-3xl">
-              carletonblueprint@gmail.com
+    <div className=''>
+      <div className='bg-blueprint-50 h-[425px] pt-12'>
+        <div className='text-center font-black text-3xl'>
+          Connect With
+          <span className='text-blueprint'> Us</span>
+        </div>
+        <div className='flex container justify-around static pt-48'>
+          <ContactCard>
+            <FaLocationDot className='text-[#3B6E9B] size-28' />
+            <h2 className='text-[#3B6E9B] text-3xl font-black'>Our Office</h2>
+            <a href='https://www.fast.com' target='_blank' className='text-[#3B6E9B]'>
+              insert office location
             </a>
+          </ContactCard>
+          <ContactCard>
+            <MdEmail className='text-[#3B6E9B] size-28' />
+            <h2 className='text-[#3B6E9B] text-3xl font-black'>Email</h2>
+            <a href='https://www.fast.com' target='_blank' className='text-[#3B6E9B]'>
+              insert email
+            </a>
+          </ContactCard>
+          <ContactCard>
+            <FaDiscord className='text-[#3B6E9B] size-28' />
+            <h2 className='text-[#3B6E9B] text-3xl font-black'>Discord</h2>
+            <a href='https://www.fast.com' target='_blank' className='text-[#3B6E9B]'>
+              insert discord link
+            </a>
+          </ContactCard>
+        </div>
+      </div>
+      <div className='bg-blueprint text-white pt-[200px] pb-16'>
+        <BlockContainer>
+          <div className='flex justify-between'>
+            <div className='w-1/3'>
+              <form className='bg-blueprint rounded'>
+                <div className='mb-4'>
+                  <label className='block text-white text-sm font-bold mb-2' htmlFor='email'>
+                    Email
+                  </label>
+                  <input
+                    className='bg-blueprint text-white border-b-2 border-white focus:outline-none w-full py-2 px-3 leading-tight placeholder-white'
+                    id='email'
+                    type='email'
+                    placeholder='Enter a valid email address'
+                  />
+                </div>
+                <div className='mb-4'>
+                  <label className='block text-white text-sm font-bold mb-2' htmlFor='name'>
+                    Name
+                  </label>
+                  <input
+                    className='bg-blueprint text-white border-b-2 border-white focus:outline-none w-full py-2 px-3 leading-tight placeholder-white'
+                    id='name'
+                    type='text'
+                    placeholder='Enter your name'
+                  />
+                </div>
+                <div className='mb-4'>
+                  <label className='block text-white text-sm font-bold mb-2' htmlFor='message'>
+                    Message
+                  </label>
+                  <div
+                    className='bg-blueprint text-white border-b-2 border-white focus:outline-none w-full py-2 px-3 leading-tight'
+                    contentEditable
+                    role='textbox'
+                    id='message'
+                  ></div>
+                </div>
+                <div className='flex items-center justify-center w-full mt-11'>
+                  <button
+                    className='bg-white hover:bg-blueprint-50 text-blueprint font-bold w-11/12 py-2 px-4 rounded-full tracking-[0.3em] hover:tracking-[0.5em] transition-all ease-in-out'
+                    type='button'
+                  >
+                    SUBMIT
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div className='w-[250px] space-y-4'>
+              <h2 className='font-extrabold text-xl'>Get in touch</h2>
+              <p className='text-sm'>
+                We’re here to help and answer any questions you might have. We look forward to hearing from you!
+              </p>
+              <div className='flex space-x-3'>
+                <GrInstagram className='size-6 text-white' />
+                <FaLinkedinIn className='size-6 text-white' />
+              </div>
+            </div>
           </div>
-          <Image src={image} alt="decorative image" className="hidden md:flex w-[400px] pl-16" />
-        </div>
-      </div>
-      <div className="sticky">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 80 1440 200">
-          <path className="fill-blueprint-300" fillOpacity="1" d="M1440,176L1380,192C1320,208,1200,240,1080,250.7C960,261,840,251,720,224C600,197,480,155,360,133.3C240,112,120,112,60,112L0,112L0,320L60,320C120,320,240,320,360,320C480,320,600,320,720,320C840,320,960,320,1080,320C1200,320,1320,320,1380,320L1440,320Z"></path>
-          <path className="fill-blueprint-400" fillOpacity="1" d="M0,176L60,192C120,208,240,240,360,250.7C480,261,600,251,720,224C840,197,960,155,1080,133.3C1200,112,1320,112,1380,112L1440,112L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
-        </svg>
-      </div>
-      <div className="sticky bg-white">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 80 1440 180" transform="scale(-1, -1)">
-          <path className="fill-blueprint-300" fillOpacity="1" d="M1440,176L1380,192C1320,208,1200,240,1080,250.7C960,261,840,251,720,224C600,197,480,155,360,133.3C240,112,120,112,60,112L0,112L0,320L60,320C120,320,240,320,360,320C480,320,600,320,720,320C840,320,960,320,1080,320C1200,320,1320,320,1380,320L1440,320Z"></path>
-          <path className="fill-blueprint-400" fillOpacity="1" d="M50,286L60,282C120,258,310,270,370,260.7C480,261,600,251,720,224C840,197,960,155,1080,133.3C1200,112,1320,112,1380,112L1440,112L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
-        </svg>
-      </div>
-      <div className="flex flex-col items-center pt-20 pb-10 bg-white">
-        <h1 className="text-4xl md:text-6xl max-w-lg text-center text-balance font-bold mb-10 px-1 text-blueprint-400">Find us on Social Media</h1>
-        <div className="w-3/4 flex justify-center md:justify-around flex-wrap py-10 md:p-10">
-          {res.map((data) => (
-            <ContactCard key={uuidv4()} data={data} />
-          ))}
-        </div>
+        </BlockContainer>
       </div>
     </div>
   );
 }
+
+export default Page;
