@@ -32,19 +32,18 @@ export default async function Footer() {
             ))}
           </div>
 
-          <div className="flex flex-col items-end justify-center">
-            <Link href="/" className="pb-3">
+          <div className="flex flex-col items-end justify-center text-[12px] md:text-[14px]">
+            <Link href="/" className="pb-3 flex flex-row-reverse">
               <Image
                 src={logo}
                 alt="blueprint logo"
-                className="w-[200px] px-2 rounded-md hover:shadow-xl transition duration-300 ease-in-out"
+                className="w-[155px] md:w-[200px] rounded-md hover:shadow-xl transition duration-300 ease-in-out"
               />
             </Link>
-            <div className="w-full text-center text-sm">
-              Made with ❤️ by Carleton Blueprint @ Carleton University
-            </div>
-            <div className="w-full text-right text-sm">
-              Ottawa, Ontario, Canada
+            <div className="w-2/3 text-end">Made with ❤️ by</div>
+            <div className="w-2/3 md:w-full text-right">
+              Carleton Blueprint @ Carleton University
+              <br /> Ottawa, Ontario, Canada
             </div>
           </div>
         </div>
