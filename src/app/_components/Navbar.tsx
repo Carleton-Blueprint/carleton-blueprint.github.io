@@ -24,7 +24,7 @@ export default async function Navbar() {
 
   return (
     <div className='h-[80px] sticky top-0 z-[999]'>
-      <div className=' bg-blueprint h-[80px] flex w-screen'>
+      <div className=' bg-blueprint h-[80px] flex'>
         <div className='container flex flex-row items-center justify-between'>
           <MainLink />
 
