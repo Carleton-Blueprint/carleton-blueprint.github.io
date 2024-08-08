@@ -9,8 +9,8 @@ export type ProjectDataType = {
   year: string | undefined | null;
   logoUrl: string | undefined | null;
   externalUrl: string | undefined | null;
-  status: "Not started" | "Done" | "In progress" | undefined | null;
-  gitHubUrl: string | undefined | "";
+  status: 'Not started' | 'Done' | 'In progress' | undefined | null;
+  gitHubUrl: string | undefined | '';
 };
 
 export const PROJECTS_DATABASE_ID = 'f0725682a6134d0f8174876e083eee19';
@@ -43,7 +43,7 @@ export async function getFeaturedProjects() {
         year: '',
         logoUrl,
         externalUrl,
-        status: "Done",
+        status: 'Done',
         gitHubUrl,
       });
     }

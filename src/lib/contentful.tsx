@@ -1,10 +1,10 @@
-import { EntrySkeletonType, createClient } from "contentful";
-import { StaticImageData } from "next/image";
+import { EntrySkeletonType, createClient } from 'contentful';
+import { StaticImageData } from 'next/image';
 
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID ?? "",
-  environment: "master",
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ?? "",
+  space: process.env.CONTENTFUL_SPACE_ID ?? '',
+  environment: 'master',
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ?? '',
 });
 
 export type PageDataType = {
@@ -21,7 +21,7 @@ export type ProjectCardDataType = {
 };
 
 type ProjectCardSkeleton = {
-  contentTypeId: "projectCard";
+  contentTypeId: 'projectCard';
   fields: ProjectCardDataType;
 };
 
@@ -34,17 +34,17 @@ export type ContactCardDataType = {
 
 export async function fetchPages() {
   const res = await client.getEntries({
-    content_type: "navLinks",
-    select: ["fields"],
+    content_type: 'navLinks',
+    select: ['fields'],
     limit: 1,
   });
 
-  if (res.items.length === 0) throw new Error("No pages found");
+  if (res.items.length === 0) throw new Error('No pages found');
 
   const raw = res.items[0].fields.links as { fields: PageDataType }[];
-  if (!raw) throw new Error("No links found");
+  if (!raw) throw new Error('No links found');
 
-  return raw.map((item) => item.fields) as PageDataType[];
+  return raw.map(item => item.fields) as PageDataType[];
 }
 
 // export async function fetchProjects(current: number) {
@@ -87,18 +87,18 @@ export async function fetchPages() {
 
 export async function fetchContact() {
   const res = await client.getEntries({
-    content_type: "contact",
-    select: ["fields"],
+    content_type: 'contact',
+    select: ['fields'],
     limit: 1,
   });
-  if (res.items.length === 0) throw new Error("No contact cards found");
+  if (res.items.length === 0) throw new Error('No contact cards found');
 
   const raw = res.items[0].fields.contactCards as {
     fields: ContactCardDataType;
   }[];
-  if (!raw) throw new Error("No contact cards found");
+  if (!raw) throw new Error('No contact cards found');
 
-  return raw.map((item) => item.fields) as ContactCardDataType[];
+  return raw.map(item => item.fields) as ContactCardDataType[];
 }
 
 export default client;
