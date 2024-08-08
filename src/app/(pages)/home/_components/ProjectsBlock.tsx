@@ -8,14 +8,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();
   return (
-    <BlockContainer title='Current Projects' centered padding='title only'>
-      <div className='flex py-10 selection:justify-center'>
+    <BlockContainer title='Current Projects'>
+      <div className='flex py-10'>
         <Carousel
           opts={{
-            align: 'start',
             loop: true,
           }}
-          className='w-1/3 md:w-2/3 lg:w-full'
+          className=''
         >
           <CarouselContent className=''>
             {featuredProjects.map(project => (
@@ -28,7 +27,7 @@ export default async function ProjectsBlock() {
           <CarouselNext className='hidden md:inline-flex' />
         </Carousel>
       </div>
-      <div className='text-2xl flex justify-center container'>
+      <div className='text-2xl flex container'>
         <Link
           href='/projects'
           target='_blank'
