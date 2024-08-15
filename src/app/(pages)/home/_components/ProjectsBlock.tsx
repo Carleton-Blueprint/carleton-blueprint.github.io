@@ -9,16 +9,15 @@ export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();
   return (
     <BlockContainer title='Current Projects'>
-      <div className='flex py-10'>
+      <div className='py-10 px-4'>
         <Carousel
           opts={{
             loop: true,
           }}
-          className=''
         >
-          <CarouselContent className=''>
+          <CarouselContent>
             {featuredProjects.map(project => (
-              <CarouselItem key={project.pageId} className='md:basis-1/2 lg:basis-1/3'>
+              <CarouselItem key={project.pageId}  className=" md:basis-8/12 lg:basis-4/12">
                 <ProjectCard data={project} />
               </CarouselItem>
             ))}

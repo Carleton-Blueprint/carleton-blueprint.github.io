@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function HomeProjectCard({ data }: { data: ProjectDataType }) {
   return (
-    <div className='w-min'>
+    <div className='flex justify-center items-center'>
       <CldImage
         src={data.logoUrl != '' ? (data.logoUrl as string) : projectLogo}
         alt='project image'
