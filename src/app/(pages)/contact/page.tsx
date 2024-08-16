@@ -6,6 +6,7 @@ import ContactCard from "./_components/ContactCard";
 import { MdEmail } from "react-icons/md";
 import { FaDiscord } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import Form from "./_components/Form";
 
 interface Props {}
 
@@ -58,49 +59,7 @@ function Page(props: Props) {
       <BlockContainer flip="blueprint" roundedCorners="top">
         <div className="flex justify-between text-white text-lg pt-[200px] pb-16">
           <div className="w-1/3">
-            <form className="rounded text-white">
-              <div className="mb-4">
-                <label className="block font-bold mb-2" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  className="bg-blueprint border-b-2 border-white focus:outline-none w-full py-2 px-3 leading-tight placeholder-white"
-                  id="email"
-                  type="email"
-                  placeholder="Enter a valid email address"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block font-bold mb-2" htmlFor="name">
-                  Name
-                </label>
-                <input
-                  className="bg-blueprint border-b-2 border-white focus:outline-none w-full py-2 px-3 leading-tight placeholder-white"
-                  id="name"
-                  type="text"
-                  placeholder="Enter your name"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block font-bold mb-2" htmlFor="message">
-                  Message
-                </label>
-                <div
-                  className="bg-blueprint border-b-2 border-white focus:outline-none w-full py-2 px-3 leading-tight"
-                  contentEditable
-                  role="textbox"
-                  id="message"
-                ></div>
-              </div>
-              <div className="flex items-center justify-center w-full mt-11">
-                <button
-                  className="bg-white hover:bg-blueprint-50 text-blueprint font-bold w-11/12 py-2 px-4 rounded-full tracking-[0.3em] hover:tracking-[0.2em] transition-all ease-in-out"
-                  type="submit"
-                >
-                  SUBMIT
-                </button>
-              </div>
-            </form>
+            <Form />
           </div>
           <div className="w-[350px] space-y-6">
             <h2 className="font-extrabold text-3xl">Get in touch</h2>
