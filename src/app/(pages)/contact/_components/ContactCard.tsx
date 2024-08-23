@@ -1,16 +1,16 @@
-import { StaticImageData } from 'next/image';
-import React, { ReactElement } from 'react';
-import { ContactCardDataType } from '@/lib/contentful';
-import { FaDiscord } from 'react-icons/fa';
-import { GrInstagram } from 'react-icons/gr';
-import { MdOutlineAlternateEmail } from 'react-icons/md';
-import { FaLinkedinIn } from 'react-icons/fa';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import React from 'react';
 
-export default function ContactCard({ children }: Readonly<{ children: React.ReactNode }>) {
+type ContactCardProps = {
+  children: React.ReactNode;
+  link?: string;
+};
+
+export default function ContactCard({ children, link = '' }: ContactCardProps) {
   return (
-    <div className='box-border mb-12 bg-white w-72 h-72 rounded-[50px] flex flex-col items-center py-5 space-y-5'>
-      {children}
-    </div>
+    <a href={link}>
+      <div className='box-border mb-12 bg-white w-72 h-72 rounded-[50px] flex flex-col items-center py-5 space-y-5 justify-center hover:shadow-2xl transition-shadow ease-in-out duration-200'>
+        {children}
+      </div>
+    </a>
   );
 }
