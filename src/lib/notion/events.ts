@@ -1,5 +1,6 @@
-import notion from ".";
-import { parseISO, format } from "date-fns";
+import notion from '.';
+import { parseISO, format } from 'date-fns';
+import { getPageIds } from './utils';
 
 export type EventDataType = {
   eventPageId: string;
@@ -12,13 +13,10 @@ export type EventDataType = {
   homePageURL?: string;
 };
 
+export const EVENTS_DATABASE_ID = 'f988151abd6448ebb70053c5ca1278f9';
+
 export async function getEventPageIds() {
-  const database_id = "f988151abd6448ebb70053c5ca1278f9";
-  const res = await notion.databases.query({
-    database_id: database_id,
-  });
-  const eventPageIds = res.results.map((result) => result.id);
-  return eventPageIds;
+  return await getPageIds(EVENTS_DATABASE_ID);
 }
 
 export async function getFeaturedEvents() {
@@ -29,18 +27,15 @@ export async function getFeaturedEvents() {
     const page = (await notion.pages.retrieve({ page_id: eventPageId })) as any;
     if (page.properties.Featured.checkbox) {
       const eventName = page.properties.Name.title[0].plain_text;
-      const coverURL =
-        page.properties["Cover URL"].rich_text[0]?.plain_text || "/default";
-      const homePageURL =
-        page.properties["Home Cover URL"].rich_text[0]?.plain_text ||
-        "/default";
+      const coverURL = page.properties['Cover URL'].rich_text[0]?.plain_text || '/default';
+      const homePageURL = page.properties['Home Cover URL'].rich_text[0]?.plain_text || '/default';
       const description = page.properties.Description.rich_text[0]?.plain_text;
       events.push({
         eventPageId,
         eventName,
-        date: "",
-        venue: "",
-        status: "",
+        date: '',
+        venue: '',
+        status: '',
         description,
         coverURL,
         homePageURL,
@@ -50,7 +45,7 @@ export async function getFeaturedEvents() {
   return events;
 }
 
-export default async function getEvents() {
+export async function getEvents() {
   const eventPageIds = await getEventPageIds();
   const events: EventDataType[] = [];
 
@@ -58,16 +53,11 @@ export default async function getEvents() {
     const page = (await notion.pages.retrieve({ page_id: eventPageId })) as any;
     const eventName = page.properties.Name.title[0].text.content;
     //const date = parseISO(page.properties.Date.date.start);
-    const date = format(
-      parseISO(page.properties.Date.date.start),
-      "MMMM dd, yyyy h:mm a"
-    );
+    const date = format(parseISO(page.properties.Date.date.start), 'MMMM dd, yyyy h:mm a');
     const venue = page.properties.Venue.rich_text[0].plain_text;
     const status = page.properties.Status.status.name;
-    const description =
-      page.properties.Description.rich_text[0]?.plain_text || "";
-    const coverURL =
-      page.properties["Cover URL"].rich_text[0]?.plain_text || "/default";
+    const description = page.properties.Description.rich_text[0]?.plain_text || '';
+    const coverURL = page.properties['Cover URL'].rich_text[0]?.plain_text || '/default';
 
     events.push({
       eventPageId,

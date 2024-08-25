@@ -1,4 +1,5 @@
-import notion from ".";
+import notion from '.';
+import { getPageIds } from './utils';
 
 export type ProjectDataType = {
   pageId: string;
@@ -8,28 +9,17 @@ export type ProjectDataType = {
   year: string | undefined | null;
   logoUrl: string | undefined | null;
   externalUrl: string | undefined | null;
-  status: "Not started" | "Done" | "In progress" | undefined | null;
+  status: 'Not started' | 'Done' | 'In progress' | undefined | null;
 };
 
+export const PROJECTS_DATABASE_ID = 'f0725682a6134d0f8174876e083eee19';
+
 export function isCurrentProject(project: ProjectDataType) {
-  return project.status === "In progress";
+  return project.status === 'In progress';
 }
 
 export async function getProjectPageIds() {
-  const databaseId = "f0725682a6134d0f8174876e083eee19";
-
-  const res = await notion.databases.query({
-    database_id: databaseId,
-    sorts: [
-      {
-        property: "Year",
-        direction: "descending",
-      },
-    ],
-  });
-
-  const projectPageIds = res.results.map((result) => result.id);
-  return projectPageIds;
+  return await getPageIds(PROJECTS_DATABASE_ID);
 }
 
 export async function getFeaturedProjects() {
@@ -40,27 +30,25 @@ export async function getFeaturedProjects() {
     const page = (await notion.pages.retrieve({ page_id: pageId })) as any;
     if (page.properties.Featured.checkbox) {
       const companyName = page.properties.Name.title[0].plain_text;
-      const productName =
-        page.properties["Product Name"].rich_text[0]?.plain_text || "";
-      const logoUrl =
-        page.properties["Logo URL"].rich_text[0]?.plain_text || "/default";
+      const productName = page.properties['Product Name'].rich_text[0]?.plain_text || '';
+      const logoUrl = page.properties['Logo URL'].rich_text[0]?.plain_text || '/default';
       const externalUrl = page.properties.URL.url;
       projects.push({
         pageId,
         companyName,
         productName,
-        description: "",
-        year: "",
+        description: '',
+        year: '',
         logoUrl,
         externalUrl,
-        status: "Done",
+        status: 'Done',
       });
     }
   }
   return projects;
 }
 
-export default async function getProjects() {
+export async function getProjects() {
   const projectPageIds = await getProjectPageIds();
   const projects: ProjectDataType[] = [];
 
@@ -68,12 +56,10 @@ export default async function getProjects() {
     const page = (await notion.pages.retrieve({ page_id: pageId })) as any;
 
     const companyName = page.properties.Name.title[0].plain_text;
-    const productName =
-      page.properties["Product Name"].rich_text[0]?.plain_text;
+    const productName = page.properties['Product Name'].rich_text[0]?.plain_text;
     const description = page.properties.Description.rich_text[0]?.plain_text;
     const year = page.properties.Year.rich_text[0]?.plain_text;
-    const logoUrl =
-      page.properties["Logo URL"].rich_text[0]?.plain_text || "/default";
+    const logoUrl = page.properties['Logo URL'].rich_text[0]?.plain_text || '/default';
     const externalUrl = page.properties.URL.url;
     const status = page.properties.Status.select.name;
 
