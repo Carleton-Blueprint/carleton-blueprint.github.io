@@ -9,7 +9,7 @@ export default async function Projects() {
   const pastProjects = res.filter(project => !isCurrentProject(project));
 
   return (
-    <div>
+    <div className="space-y-6">
       <CurrentProjects projects={currentProjects} />
       <PastProjects projects={pastProjects} />
     </div>

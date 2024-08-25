@@ -10,21 +10,16 @@ import {
 } from "@/components/ui/card";
 import { ProjectDataType } from "@/lib/notion/projects";
 import { CldImage } from "next-cloudinary";
+import { FaGithub } from "react-icons/fa";
+import { FaArrowCircleRight } from "react-icons/fa";
 
-type ProjectCardPropType = {
-  data: ProjectDataType;
-  grid?: boolean;
-};
 
 export default function ProjectCard({
   data,
-  grid = false,
-}: ProjectCardPropType) {
+}: {data: ProjectDataType}) {
   return (
     <Card
-      className={`flex justify-center items-center w-[300px] ${
-        grid ? "md:w-[800px]" : "md:w-[1000px]"
-      }`}
+      className={`flex justify-center items-center w-[300px] rounded-[30px] md:w-full `}
     >
       {data.logoUrl && (
         <CldImage
@@ -32,42 +27,38 @@ export default function ProjectCard({
           alt={data.companyName}
           width={250}
           height={250}
-          className={`hidden md:block ${
-            grid ? "h-[200px]" : "h-[300px]"
-          } w-auto mx-8`}
+          className={"hidden md:block h-[200px]w-auto ml-8"}
         />
       )}
 
       <div>
         <CardHeader>
-          <CardTitle className={`${grid ? "text-2xl" : "md:text-3xl"}`}>
+          <CardTitle className="text-5xl">
             {data.companyName}
           </CardTitle>
-          <CardDescription className={`${grid ? "text-sm" : "md:text-lg"}`}>
+          <CardDescription className="text-xl">
             {data.productName}
           </CardDescription>
         </CardHeader>
         <CardContent
-          className={`md:h-28 ${
-            grid ? "overflow-hidden text-md" : "md:text-lg"
-          } mb-5`}
+          className={"md:h-24 overflow-hidden text-md mb-5"}
         >
           <p>{data.description}</p>
         </CardContent>
         <CardFooter
-          className={`space-x-4 text-xs ${grid ? "md:text-lg" : "md:text-xl"}`}
+          className={"space-x-4 text-xs md:text-lg"}
         >
+
+          {data.gitHubUrl && (
+          <LinkButton href={data.gitHubUrl} newTab={true} variant="icon"> <FaGithub className="text-5xl text-black"/> </LinkButton>
+          )}  
           {data.pageId && (
-            <LinkButton href={"/projects/" + data.pageId} newTab={true}>
-              Read More
+            <LinkButton href={"/projects/" + data.pageId} newTab={true} variant="icon">
+              <FaArrowCircleRight className="text-5xl"/>
             </LinkButton>
           )}
 
-          {data.externalUrl && (
-            <LinkButton href={data.externalUrl} newTab={true} variant="ghost">
-              View Project
-            </LinkButton>
-          )}
+  
         </CardFooter>
       </div>
     </Card>

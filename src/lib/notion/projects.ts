@@ -9,7 +9,8 @@ export type ProjectDataType = {
   year: string | undefined | null;
   logoUrl: string | undefined | null;
   externalUrl: string | undefined | null;
-  status: 'Not started' | 'Done' | 'In progress' | undefined | null;
+  status: "Not started" | "Done" | "In progress" | undefined | null;
+  gitHubUrl: string | undefined | "";
 };
 
 export const PROJECTS_DATABASE_ID = 'f0725682a6134d0f8174876e083eee19';
@@ -33,6 +34,7 @@ export async function getFeaturedProjects() {
       const productName = page.properties['Product Name'].rich_text[0]?.plain_text || '';
       const logoUrl = page.properties['Logo URL'].rich_text[0]?.plain_text || '/default';
       const externalUrl = page.properties.URL.url;
+      const gitHubUrl = page.properties.gitHubUrl;
       projects.push({
         pageId,
         companyName,
@@ -41,7 +43,8 @@ export async function getFeaturedProjects() {
         year: '',
         logoUrl,
         externalUrl,
-        status: 'Done',
+        status: "Done",
+        gitHubUrl,
       });
     }
   }
@@ -62,6 +65,7 @@ export async function getProjects() {
     const logoUrl = page.properties['Logo URL'].rich_text[0]?.plain_text || '/default';
     const externalUrl = page.properties.URL.url;
     const status = page.properties.Status.select.name;
+    const gitHubUrl = page.properties.gitHubUrl.url;
 
     projects.push({
       pageId,
@@ -72,6 +76,7 @@ export async function getProjects() {
       logoUrl,
       externalUrl,
       status,
+      gitHubUrl,
     });
   }
 
