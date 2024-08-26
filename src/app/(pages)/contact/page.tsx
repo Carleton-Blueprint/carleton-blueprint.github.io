@@ -42,7 +42,7 @@ function Page(props: Props) {
           </div>
           <div className='w-[350px] space-y-6'>
             <h2 className='font-extrabold text-3xl'>Get in touch</h2>
-            <p>We’re here to help and answer any questions you might have. We look forward to hearing from you!</p>
+            <p>We&apos;re here to help and answer any questions you might have. We look forward to hearing from you!</p>
             <div className='flex space-x-8'>
               <GrInstagram className='size-10 text-white' />
               <FaLinkedinIn className='size-10 text-white' />
