@@ -8,18 +8,16 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();
   return (
-    <BlockContainer title='Current Projects' centered padding='title only'>
-      <div className='flex py-10 selection:justify-center'>
+    <BlockContainer title='Current Projects'>
+      <div className='py-10 px-4'>
         <Carousel
           opts={{
-            align: 'start',
             loop: true,
           }}
-          className='w-1/3 md:w-2/3 lg:w-full'
         >
-          <CarouselContent className=''>
+          <CarouselContent>
             {featuredProjects.map(project => (
-              <CarouselItem key={project.pageId} className='md:basis-1/2 lg:basis-1/3'>
+              <CarouselItem key={project.pageId}  className=" md:basis-8/12 lg:basis-4/12">
                 <ProjectCard data={project} />
               </CarouselItem>
             ))}
@@ -28,7 +26,7 @@ export default async function ProjectsBlock() {
           <CarouselNext className='hidden md:inline-flex' />
         </Carousel>
       </div>
-      <div className='text-2xl flex justify-center container'>
+      <div className='text-2xl flex container'>
         <Link
           href='/projects'
           target='_blank'

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import PastProjectCard from './PastProjectCard';
 import { ProjectDataType } from '@/lib/notion/projects';
-import BlockContainer from '../../../../components/BlockContainer';
+import BlockContainer from '@/components/BlockContainer';
 
 export default async function PastProjects({ projects }: { projects: ProjectDataType[] }) {
   return (
