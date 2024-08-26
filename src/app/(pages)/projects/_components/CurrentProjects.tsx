@@ -2,7 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { v4 as uuidv4 } from 'uuid';
 import ProjectCard from './ProjectCard';
 import { ProjectDataType } from '@/lib/notion/projects';
-import BlockContainer from '../../home/_components/BlockContainer';
+import BlockContainer from '../../../../components/BlockContainer';
 import { title } from 'process';
 
 export default async function CurrentProjects({ projects }: { projects: ProjectDataType[] }) {
