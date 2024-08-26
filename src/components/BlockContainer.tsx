@@ -1,47 +1,50 @@
 type Props = {
   children: React.ReactNode;
   title?: string;
-  flip?: boolean;
+  flip?: 'white' | 'light-blue' | 'dark-blue' | 'blueprint' | boolean;
   roundedCorners?: 'top' | 'bottom' | true | false;
   centered?: boolean;
   inner?: boolean;
   margin?: 'top' | 'bottom' | true | false;
   padding?: 'title only' | true | false;
-  shadow?: boolean;
 };
 
 export default function BlockContainer({
   children,
   title,
-  flip = false,
+  flip = 'white',
   roundedCorners = false,
   centered = false,
   inner = false,
   margin = false,
   padding = true,
-  shadow = false,
 }: Props) {
   return (
     <div
-      className={`py-10
-        ${flip ? 'bg-blueprint-50' : 'bg-white'}
+      className={`py-16
+        ${flip === 'light-blue' && 'bg-blueprint-50'}
+        ${flip === 'white' && 'bg-white'}
+        ${flip === 'dark-blue' && 'bg-[#0A1E3A]'}
+        ${flip === 'blueprint' && 'bg-blueprint'}
         ${roundedCorners === true && 'rounded-[50px]'}
         ${roundedCorners === 'top' && 'rounded-t-[50px]'}
         ${roundedCorners === 'bottom' && 'rounded-b-[50px]'}
-        ${inner && 'md:w-fit self-center md:px-10'}
+        ${inner && 'md:w-[90%] self-center'}
         ${margin === true && 'my-12'}
         ${margin === 'top' && 'mt-12'}
-        ${margin === 'bottom' && 'mb-12'}
-        ${shadow === true && 'shadow-lg'}`}
+        ${margin === 'bottom' && 'mb-12'}`}
     >
       <div
-        className={`space-y-2 container
-        ${centered && 'flex flex-col items-center'}`}
+        className={`space-y-12 
+        ${centered && 'flex flex-col items-center'}
+        ${padding === true && 'container'}`}
       >
         {title && (
           <div
-            className={`flex text-blueprint py-2 font-bold text-4xl md:text-5xl
-            ${centered && 'text-center'}`}
+            className={`flex text-blueprint py-2 font-bold text-5xl md:text-6xl
+            ${padding === 'title only' && !centered && 'container'}
+            ${centered && 'text-center'}
+            ${flip === 'dark-blue' || flip === 'blueprint' ? 'text-white' : 'text-blueprint'}`}
           >
             {title}
           </div>
