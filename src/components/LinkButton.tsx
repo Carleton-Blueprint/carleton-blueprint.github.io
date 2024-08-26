@@ -7,7 +7,7 @@ type Props = {
   children: React.ReactNode;
   href: string;
   newTab?: boolean;
-  variant?: "filled" | "ghost";
+  variant?: "filled" | "ghost" | "icon";
   className?: string; // tailwind classes
 };
 
@@ -31,4 +31,13 @@ export default function LinkButton({ children, href, newTab = false, variant = "
       </Link>
     );
   }
+
+  if (variant === "icon") {
+    return (
+      <Link href={href} target={`${newTab && "_blank"}`} rel={`${newTab && "noopener noreferrer"}`} className={mergedClassName}>
+        {children}
+      </Link>
+    );
+  }
+
 }
