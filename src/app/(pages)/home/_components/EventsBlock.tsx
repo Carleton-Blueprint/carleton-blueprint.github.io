@@ -7,7 +7,7 @@ export default async function HomeEvents() {
   const res = await getFeaturedEvents();
   return (
     <BlockContainer title='News and Events' flip margin={'bottom'}>
-      <div className='flex justify-center'>
+      <div className='flex justify-center px-4'>
         <Carousel
           opts={{
             align: 'start',
