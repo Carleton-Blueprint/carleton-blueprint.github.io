@@ -13,7 +13,7 @@ export default function HomeProjectCard({ data }: { data: ProjectDataType }) {
         alt="project image"
         width={320}
         height={320}
-        className="absolute md:w-80 md:h-80 lg:w-72 lg:h-72 rounded-[35px]"
+        className="absolute md:w-80 md:h-80 lg:w-72 lg:h-72 rounded-[40px]"
       />
       <div className="group w-80 h-80 min-w-fit md:w-80 md:h-80 lg:w-72 lg:h-72 relative bg-gradient-to-t from-blueprint/70 to-blueprint/15 from-25% to-65% rounded-[35px]">
         <span className="absolute bottom-0 inset-x-0 px-6 pb-10 text-center text-white translate-y-10 group-hover:translate-y-0 group:transition duration-300 ease-in-out">
