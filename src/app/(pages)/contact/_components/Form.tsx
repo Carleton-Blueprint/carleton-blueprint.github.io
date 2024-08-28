@@ -5,32 +5,28 @@ export default function Form() {
   const { toast } = useToast();
   async function sendEmail(e: React.FormEvent) {
     e.preventDefault();
-    toast({
-      title: "Sorry this form is not currently functional",
-      description: "Email us carletonblueprint@gmail.com",
+
+    const email = (document.getElementById("email") as HTMLInputElement).value;
+    const name = (document.getElementById("name") as HTMLInputElement).value;
+    const message = (document.getElementById("message") as HTMLInputElement)
+      .innerText;
+
+    const res: Response = await fetch("/api/send", {
+      body: JSON.stringify({ email, name, message }),
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
     });
-    // e.preventDefault();
-
-    // const email = (document.getElementById('email') as HTMLInputElement).value;
-    // const name = (document.getElementById('name') as HTMLInputElement).value;
-    // const message = (document.getElementById('message') as HTMLInputElement).innerText;
-
-    // const res: Response = await fetch('/api/send', {
-    //   body: JSON.stringify({ email, name, message }),
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    // });
-    // if (res.ok) {
-    //   toast({
-    //     title: 'Message sent successfully',
-    //     description: "We'll get back to as soon as possible",
-    //   });
-    // } else {
-    //   toast({
-    //     title: 'Error',
-    //     description: 'Failed to send message. Please try again',
-    //   });
-    // }
+    if (res.ok) {
+      toast({
+        title: "Message sent successfully",
+        description: "We'll get back to as soon as possible",
+      });
+    } else {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again",
+      });
+    }
   }
 
   return (

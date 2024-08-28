@@ -25,7 +25,7 @@ function Page(props: Props) {
             <FaInstagram className="text-[#3B6E9B] size-28" />
             <h2 className="text-[#3B6E9B] text-3xl font-black">Instagram</h2>
           </ContactCard>
-          <ContactCard link="mailto:carletonblueprint@gmail.com">
+          <ContactCard link="mailto:info@carletonblueprint.org">
             <MdEmail className="text-[#3B6E9B] size-28" />
             <h2 className="text-[#3B6E9B] text-3xl font-black">Email</h2>
           </ContactCard>
