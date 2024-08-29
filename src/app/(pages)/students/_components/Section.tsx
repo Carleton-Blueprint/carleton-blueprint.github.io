@@ -10,7 +10,11 @@ export type TeamDataType = {
 
 export default function Section({ team }: { team: TeamDataType }) {
   return (
-    <BlockContainer title={team.teamName + " Team"} roundedCorners={true}>
+    <BlockContainer
+      title={team.teamName + " Team"}
+      shadow
+      roundedCorners={true}
+    >
       <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
         {team.teamMembers.map((person) => (
           <TeamProfile student={person} key={uuidv4()} />
