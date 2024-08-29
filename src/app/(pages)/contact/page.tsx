@@ -47,8 +47,12 @@ function Page(props: Props) {
               We look forward to hearing from you!
             </p>
             <div className="flex space-x-8">
-              <GrInstagram className="size-10 text-white" />
-              <FaLinkedinIn className="size-10 text-white" />
+              <a href="https://www.instagram.com/cublueprint/">
+                <GrInstagram className="size-10 text-white hover:text-slate-300 transition-colors ease-in-out duration-300" />
+              </a>
+              <a href="https://www.linkedin.com/company/cublueprint">
+                <FaLinkedinIn className="size-10 text-white hover:text-slate-300 transition-colors ease-in-out duration-300" />
+              </a>
             </div>
           </div>
         </div>
