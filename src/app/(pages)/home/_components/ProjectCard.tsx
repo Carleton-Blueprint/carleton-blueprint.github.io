@@ -1,15 +1,15 @@
-"use client";
-import { IoLogoGithub } from "react-icons/io";
-import projectLogo from "../_assets/projectLogo.svg";
-import { ProjectDataType } from "@/lib/notion/projects";
-import { CldImage } from "next-cloudinary";
-import Link from "next/link";
+'use client';
+import { IoLogoGithub } from 'react-icons/io';
+import projectLogo from '../_assets/projectLogo.svg';
+import { ProjectDataType } from '@/lib/notion/projects';
+import { CldImage } from 'next-cloudinary';
+import Link from 'next/link';
 
 export default function HomeProjectCard({ data }: { data: ProjectDataType }) {
   return (
     <div className="flex justify-center items-center">
       <CldImage
-        src={data.logoUrl != "" ? (data.logoUrl as string) : projectLogo}
+        src={data.logoUrl != '' ? (data.logoUrl as string) : projectLogo}
         alt="project image"
         width={320}
         height={320}
@@ -23,12 +23,12 @@ export default function HomeProjectCard({ data }: { data: ProjectDataType }) {
           </p>
         </span>
         <Link
-          href={"/projects/" + data.pageId}
+          href={'/projects/' + data.pageId}
           className="absolute w-full h-full"
         />
-        <Link href={data.externalUrl || ""} className="absolute top-2 right-2">
+        <Link href={data.externalUrl || ''} className="absolute top-2 right-2">
           <div>
-            <IoLogoGithub className="opacity-0 group-hover:opacity-100 w-20 h-20 transition-color duration-300 ease-in-out hover:text-blueprint-300 text-blueprint" />
+            <IoLogoGithub className="rounded-full bg-blueprint-50 opacity-0 group-hover:opacity-100 w-20 h-20 transition-color duration-300 ease-in-out hover:text-blueprint-300 text-blueprint" />
           </div>
         </Link>
       </div>
