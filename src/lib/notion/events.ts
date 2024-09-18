@@ -58,10 +58,15 @@ export async function getEvents() {
       continue;
     }
     const eventName = page.properties.Name.title[0].text.content;
-    const date = format(
-      parseISO(page.properties.Date.date.start),
-      'MMMM dd, yyyy h:mm a'
-    );
+    let date = '';
+    if (page.properties.Date.date.start.includes('T')) {
+      date = format(
+        parseISO(page.properties.Date.date.start),
+        'MMMM dd, yyyy h:mm a'
+      );
+    } else {
+      date = format(parseISO(page.properties.Date.date.start), 'MMMM dd, yyyy');
+    }
     console.log(date);
     const venue = page.properties.Venue.rich_text[0].plain_text;
     const status = page.properties.Status.status.name;
