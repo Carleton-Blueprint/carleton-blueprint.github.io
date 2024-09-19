@@ -63,9 +63,7 @@ function Value({ data }: { data: ValueDataType }) {
       } flex flex-col md:flex-row md:w-10/12 bg-white rounded-[35px] p-6 md:p-12 md:space-x-20 items-center shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)] relative`}
     >
       <div
-        className={`font-bold text-blueprint text-2xl md:text-4xl mb-3 ${
-          data.flip && "md:text-end"
-        }`}
+        className={`text-[#3B6E9B] font-bold text-2xl md:text-4xl mb-3 text-left`}
       >
         {data.title}
       </div>
