@@ -10,8 +10,8 @@ function TeamProfileBase({ student, hover = false }: { student: StudentDataType;
         hover && 'transition ease-in-out hover:scale-110 hover:bg-blueprint-50 duration-200'
       }`}
     >
-      <div className='rounded-full flex items-center overflow-hidden w-32 h-32 mb-2 border-white border-2'>
-        <CldImage src={student.imageUrl} width={128} height={128} alt={'Picture of ' + (hover ? student.name : "blueprint logo")} />
+      <div className='rounded-full overflow-hidden w-32 h-32 mb-2 border-white border-2'>
+        <CldImage src={student.imageUrl} width={128} height={128} alt={'Picture of ' + student.name} />
       </div>
       <p className='text-black text-lg font-bold'>{student.name}</p>
       <p className='text-black capitalize'>{student.role}</p>
