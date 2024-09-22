@@ -30,7 +30,7 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
 
       <div>
         <CardHeader>
-          <CardTitle className="text-5xl">{data.companyName}</CardTitle>
+          <CardTitle className="text-4xl">{data.companyName}</CardTitle>
           <CardDescription className="text-xl">
             {data.productName}
           </CardDescription>
