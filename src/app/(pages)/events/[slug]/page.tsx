@@ -1,5 +1,5 @@
-import NotionPage from '@/components/NotionPage';
-import { getEventPageIds } from '@/lib/notion/events';
+import { NotionPage, EventDetailsType } from '@/components/NotionPage';
+import { getEvent, getEventPageIds } from '@/lib/notion/events';
 import { getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
 
 export async function generateStaticParams() {
@@ -13,9 +13,21 @@ type PropsType = {
 
 export default async function EventPage({ params }: PropsType) {
   const pageId = params.slug;
+  const event = await getEvent(pageId);
+  const eventDetails: EventDetailsType = {
+    date: event.date,
+    venue: event.venue,
+    status: event.status,
+  };
 
   const recordMap = await getRecordMap(pageId);
   const title = await getTitleByPageId(pageId);
 
-  return <NotionPage recordMap={recordMap} title={title} />;
+  return (
+    <NotionPage
+      recordMap={recordMap}
+      title={title}
+      eventDetails={eventDetails}
+    />
+  );
 }

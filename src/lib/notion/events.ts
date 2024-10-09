@@ -15,6 +15,30 @@ export type EventDataType = {
 
 export const EVENTS_DATABASE_ID = 'f988151abd6448ebb70053c5ca1278f9';
 
+export async function getEvent(id: string) {
+  const page = (await notion.pages.retrieve({ page_id: id })) as any;
+  let date = '';
+  if (page.properties.Date.date.start.includes('T')) {
+    date = format(
+      parseISO(page.properties.Date.date.start),
+      'MMMM dd, yyyy h:mm a'
+    );
+  } else {
+    date = format(parseISO(page.properties.Date.date.start), 'MMMM dd, yyyy');
+  }
+  const event: EventDataType = {
+    eventPageId: id,
+    eventName: page.properties.Name.title[0].text.content,
+    date: date,
+    venue: page.properties.Venue.rich_text[0].plain_text,
+    status: page.properties.Status.status.name,
+    description: page.properties.Description.rich_text[0]?.plain_text || '',
+    coverURL:
+      page.properties['Cover URL'].rich_text[0]?.plain_text || '/default',
+  };
+  return event;
+}
+
 export async function getEventPageIds() {
   return await getPageIds(EVENTS_DATABASE_ID);
 }
@@ -58,11 +82,15 @@ export async function getEvents() {
       continue;
     }
     const eventName = page.properties.Name.title[0].text.content;
-    const date = format(
-      parseISO(page.properties.Date.date.start),
-      'MMMM dd, yyyy h:mm a'
-    );
-    console.log(date);
+    let date = '';
+    if (page.properties.Date.date.start.includes('T')) {
+      date = format(
+        parseISO(page.properties.Date.date.start),
+        'MMMM dd, yyyy h:mm a'
+      );
+    } else {
+      date = format(parseISO(page.properties.Date.date.start), 'MMMM dd, yyyy');
+    }
     const venue = page.properties.Venue.rich_text[0].plain_text;
     const status = page.properties.Status.status.name;
     const description =
