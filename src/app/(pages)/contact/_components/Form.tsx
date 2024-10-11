@@ -1,30 +1,35 @@
-"use client";
-import { useToast } from "@/components/ui/use-toast";
+'use client';
+import { useToast } from '@/components/ui/use-toast';
+import React, { useState } from 'react';
 
 export default function Form() {
   const { toast } = useToast();
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  //const [message, setMessage] = useState("");
+
   async function sendEmail(e: React.FormEvent) {
     e.preventDefault();
-
-    const email = (document.getElementById("email") as HTMLInputElement).value;
-    const name = (document.getElementById("name") as HTMLInputElement).value;
-    const message = (document.getElementById("message") as HTMLInputElement)
+    const message = (document.getElementById('message') as HTMLInputElement)
       .innerText;
 
-    const res: Response = await fetch("/api/send", {
+    const res: Response = await fetch('/api/send', {
       body: JSON.stringify({ email, name, message }),
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
     });
     if (res.ok) {
       toast({
-        title: "Message sent successfully",
+        title: 'Message sent successfully',
         description: "We'll get back to as soon as possible",
       });
+      setEmail('');
+      setName('');
+      (document.getElementById('message') as HTMLInputElement).innerText = '';
     } else {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again",
+        title: 'Error',
+        description: 'Failed to send message. Please try again',
       });
     }
   }
@@ -41,6 +46,8 @@ export default function Form() {
           id="email"
           type="email"
           placeholder="Enter a valid email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div className="mb-4">
@@ -52,6 +59,8 @@ export default function Form() {
           id="name"
           type="text"
           placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
       </div>
       <div className="mb-4">
