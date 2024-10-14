@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   try {
     const { data, error } = await resend.emails.send({
       from: 'Carleton Blueprint <onboarding@resend.dev>',
-      to: ['carletonblueprint@gmail.com'],
+      to: ['info@carletonblueprint.org'],
       subject: 'Message from Blueprint Contact Form',
       react: EmailTemplate({ name: name, email: email, message: message }),
     });
