@@ -38,7 +38,7 @@ export default async function Footer() {
             </Link>
             <div className='w-2/3 text-end'>Made with ❤️ by</div>
             <div className='w-2/3 md:w-full text-right'>
-              Carleton Blueprint @ Carleton University
+              Blueprint @ Carleton University
               <br /> Ottawa, Ontario, Canada
             </div>
           </div>
