@@ -5,7 +5,3 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
-    # environment:
-    #   - MY_ENV_VAR=my_value
-    # volumes:
-    #   - ./data:/app/data
