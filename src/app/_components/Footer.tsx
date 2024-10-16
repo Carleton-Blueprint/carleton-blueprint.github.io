@@ -23,7 +23,7 @@ export default async function Footer() {
           <div className='flex flex-col text-lg space-y-3'>
             {res.map(page => (
               <Link key={uuidv4()} href={page.href} className='hover:text-blueprint-100'>
-                {page.name} 
+                {page.name}
               </Link>
             ))}
           </div>
@@ -39,7 +39,7 @@ export default async function Footer() {
             <div className='w-2/3 text-end'>Made with ❤️ by</div>
             <div className='w-2/3 md:w-full text-right'>
               Blueprint @ Carleton University
-              <br /> Ottawa, Ontario, Canada
+              <br /> Neyha and Omar and Thomas and Hasith
             </div>
           </div>
         </div>
