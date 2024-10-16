@@ -4,8 +4,8 @@ import { NextResponse } from 'next/server';
 
 // const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request: Request) {
-  const data = await request.json();
+export async function POST() {
+  // const data = await request.json();
   // const { name, email, message } = data;
 
   // try {
@@ -25,6 +25,6 @@ export async function POST(request: Request) {
   //   return NextResponse.json({ error }, { status: 500 });
   // }
 
-  // echo response
-  return NextResponse.json(data);
+  // respond with HTTP status service down
+  return NextResponse.json({ error: 'Service not available' }, { status: 503 });
 }
