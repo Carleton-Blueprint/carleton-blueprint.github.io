@@ -27,6 +27,13 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Warning: These will be included as plaintext in the Docker image, as well as any Docker build logs.
+# Ensure that these API keys have READ-ONLY access, and do not have access to non-public data.
+ARG CONTENTFUL_SPACE_ID
+ARG CONTENTFUL_ACCESS_TOKEN
+ARG NOTION_KEY
+ARG NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
   elif [ -f package-lock.json ]; then npm run build; \
