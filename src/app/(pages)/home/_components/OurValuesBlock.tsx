@@ -69,8 +69,8 @@ function Value({ data }: { data: ValueDataType }) {
 
       <div
         className={cn(
-          "hidden md:flex top-1/2 w-[100px]  md:w-[180px] lg:w-[260px] aspect-square transform absolute -translate-y-1/2  justify-center items-center z-4 right-2 translate-x-full",
-          data.flip && "-left-2 -translate-x-full",
+          'hidden md:flex top-1/2 w-[100px]  md:w-[180px] lg:w-[260px] aspect-square transform absolute -translate-y-1/2  justify-center items-center z-4 right-2 translate-x-full',
+          data.flip && '-left-2 -translate-x-full',
         )}
       >
         <Image src={data.image} alt={data.title} fill className="object-contain" />
