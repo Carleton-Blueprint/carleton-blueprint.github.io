@@ -2,16 +2,8 @@ import { fetchPages } from '@/lib/contentful';
 import Link from 'next/link';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import logo from '@/app/_assets/blueprint_banner_negative.png';
-
-function SocialIcon({ src }: { src: StaticImageData }) {
-  return (
-    <Link href="https://linktr.ee/cublueprint">
-      <Image src={src} alt="social media icon" className="w-6" />
-    </Link>
-  );
-}
 
 export default async function Footer() {
   const res = await fetchPages();

@@ -8,11 +8,7 @@ import { FaDiscord } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 import Form from './_components/Form';
 
-interface Props {}
-
-function Page(props: Props) {
-  const {} = props;
-
+function Page() {
   return (
     <div className="bg-blueprint-50">
       <div className="bg-blueprint-50 h-[200px] md:h-[425px] pt-12">
