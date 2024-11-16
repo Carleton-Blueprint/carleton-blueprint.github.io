@@ -11,9 +11,9 @@ const NAV_BREAKPOINT = 'md';
 
 function MainLink() {
   return (
-    <Link href='/'>
-      <div className='relative w-[150px]'>
-        <Image src={logo} alt='blueprint logo' />
+    <Link href="/">
+      <div className="relative w-[150px]">
+        <Image src={logo} alt="blueprint logo" />
       </div>
     </Link>
   );
@@ -23,9 +23,9 @@ export default async function Navbar() {
   const res = await fetchPages();
 
   return (
-    <div className='h-[80px] sticky top-0 z-[999]'>
-      <div className=' bg-blueprint h-[80px] flex'>
-        <div className='container flex flex-row items-center justify-between'>
+    <div className="h-[80px] sticky top-0 z-[999]">
+      <div className=" bg-blueprint h-[80px] flex">
+        <div className="container flex flex-row items-center justify-between">
           <MainLink />
 
           <div className={`hidden ${NAV_BREAKPOINT}:flex flex-row space-x-12`}>

@@ -3,7 +3,7 @@ import { PageDataType } from '@/lib/contentful';
 
 export default function NavbarLinkItem({ page }: { page: PageDataType }) {
   return (
-    <Link href={page.href} className='text-white hover:text-blueprint-100'>
+    <Link href={page.href} className="text-white hover:text-blueprint-100">
       {page.name}
     </Link>
   );

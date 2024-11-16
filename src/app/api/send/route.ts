@@ -8,10 +8,7 @@ export async function POST(req: NextRequest) {
   const { name, email, message, captcha } = await req.json();
 
   if (!captcha) {
-    return NextResponse.json(
-      { message: 'Captcha is required' },
-      { status: 400 }
-    );
+    return NextResponse.json({ message: 'Captcha is required' }, { status: 400 });
   }
 
   const secretKey = process.env.RECAPTCHA_SECRET_KEY; // Replace with your Secret Key
@@ -21,10 +18,7 @@ export async function POST(req: NextRequest) {
   const captchaData = await captchaResponse.json();
 
   if (!captchaData.success) {
-    return NextResponse.json(
-      { message: 'Captcha verification failed' },
-      { status: 400 }
-    );
+    return NextResponse.json({ message: 'Captcha verification failed' }, { status: 400 });
   }
 
   try {

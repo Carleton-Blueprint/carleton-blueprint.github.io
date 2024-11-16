@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 type EmailTemplateProps = {
   name: string;
@@ -6,11 +6,7 @@ type EmailTemplateProps = {
   message: string;
 };
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
-  name,
-  email,
-  message,
-}) => (
+export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ name, email, message }) => (
   <div>
     <h2>New Contact Form Submission</h2>
     <p>Name: {name}</p>

@@ -5,8 +5,8 @@ import BlockContainer from '@/components/BlockContainer';
 
 export default async function CurrentProjects({ projects }: { projects: ProjectDataType[] }) {
   return (
-    <BlockContainer title='Current Projects' roundedCorners='bottom' flip='light-blue'>
-      <div className='flex flex-col items-center space-y-5'>
+    <BlockContainer title="Current Projects" roundedCorners="bottom" flip="light-blue">
+      <div className="flex flex-col items-center space-y-5">
         {projects.map(project => (
           <ProjectCard key={uuidv4()} data={project} />
         ))}
