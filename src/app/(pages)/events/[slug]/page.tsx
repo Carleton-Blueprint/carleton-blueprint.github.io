@@ -23,11 +23,5 @@ export default async function EventPage({ params }: PropsType) {
   const recordMap = await getRecordMap(pageId);
   const title = await getTitleByPageId(pageId);
 
-  return (
-    <NotionPage
-      recordMap={recordMap}
-      title={title}
-      eventDetails={eventDetails}
-    />
-  );
+  return <NotionPage recordMap={recordMap} title={title} eventDetails={eventDetails} />;
 }

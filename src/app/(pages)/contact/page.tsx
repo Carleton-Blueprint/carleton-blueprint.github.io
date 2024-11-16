@@ -1,18 +1,14 @@
-import React from "react";
-import BlockContainer from "@/components/BlockContainer";
-import { GrInstagram } from "react-icons/gr";
-import { FaLinkedinIn } from "react-icons/fa";
-import ContactCard from "./_components/ContactCard";
-import { MdEmail } from "react-icons/md";
-import { FaDiscord } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import Form from "./_components/Form";
+import React from 'react';
+import BlockContainer from '@/components/BlockContainer';
+import { GrInstagram } from 'react-icons/gr';
+import { FaLinkedinIn } from 'react-icons/fa';
+import ContactCard from './_components/ContactCard';
+import { MdEmail } from 'react-icons/md';
+import { FaDiscord } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
+import Form from './_components/Form';
 
-interface Props {}
-
-function Page(props: Props) {
-  const {} = props;
-
+function Page() {
   return (
     <div className="bg-blueprint-50">
       <div className="bg-blueprint-50 h-[200px] md:h-[425px] pt-12">
@@ -42,10 +38,7 @@ function Page(props: Props) {
           </div>
           <div className="w-[340px] space-y-6">
             <h2 className="font-extrabold text-3xl">Get in touch</h2>
-            <p>
-              We&apos;re here to help and answer any questions you might have.
-              We look forward to hearing from you!
-            </p>
+            <p>We&apos;re here to help and answer any questions you might have. We look forward to hearing from you!</p>
             <div className="flex space-x-8">
               <a href="https://www.instagram.com/cublueprint/">
                 <GrInstagram className="size-10 text-white hover:text-slate-300 transition-colors ease-in-out duration-300" />

@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <div>
       <HeroBlock />
-      <div className='flex flex-col'>
+      <div className="flex flex-col">
         <AboutUsBlock />
         <ProjectsBlock />
         <EventsBlock />
