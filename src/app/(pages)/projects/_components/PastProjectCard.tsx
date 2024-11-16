@@ -1,12 +1,12 @@
-"use client";
-import React from "react";
-import { ProjectDataType } from "@/lib/notion/projects";
-import { CldImage } from "next-cloudinary";
-import { CardContent, CardTitle } from "@/components/ui/card";
+'use client';
+import React from 'react';
+import { ProjectDataType } from '@/lib/notion/projects';
+import { CldImage } from 'next-cloudinary';
+import { CardContent, CardTitle } from '@/components/ui/card';
 
 export default function PastProjectCard({ data }: { data: ProjectDataType }) {
   return (
-    <a href={"/projects/" + data.pageId}>
+    <a href={'/projects/' + data.pageId}>
       <div className="bg-gradient-to-t from-[#0170DC] to-[#6191BC] rounded-[40px] flex flex-col max-h-[500px] p-4 outline hover:outline-white hover:outline-4 transition-all ease-in-out duration-150">
         {data.logoUrl && (
           <div className="flex justify-center items-center mb-4">

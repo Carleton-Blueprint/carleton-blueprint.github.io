@@ -12,8 +12,7 @@ export default function Form() {
 
   async function sendEmail(e: React.FormEvent) {
     e.preventDefault();
-    const message = (document.getElementById('message') as HTMLInputElement)
-      .innerText;
+    const message = (document.getElementById('message') as HTMLInputElement).innerText;
 
     await recaptchaRef.current?.executeAsync();
     const recaptchaValue = recaptchaRef.current?.getValue();
@@ -52,7 +51,7 @@ export default function Form() {
           type="email"
           placeholder="Enter a valid email address"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={e => setEmail(e.target.value)}
         />
       </div>
       <div className="mb-4">
@@ -65,7 +64,7 @@ export default function Form() {
           type="text"
           placeholder="Enter your name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={e => setName(e.target.value)}
         />
       </div>
       <div className="mb-4">

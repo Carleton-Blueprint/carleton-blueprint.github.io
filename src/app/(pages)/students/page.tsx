@@ -15,7 +15,7 @@ export default async function Students() {
   const teamNamesArray = Array.from(teamNamesSet);
   const teams: TeamDataType[] = [];
   for (const teamName of teamNamesArray) {
-    const teamMembers = students.filter((student) => student.team == teamName);
+    const teamMembers = students.filter(student => student.team == teamName);
     teams.push({ teamName, teamMembers });
   }
 
@@ -30,7 +30,7 @@ export default async function Students() {
             <Image src={bluePeople} width={188.5} alt="Image of blue figures" />
           </div>
           <div className="flex flex-col space-y-24 text-center">
-            {teams.map((team) => (
+            {teams.map(team => (
               <Section team={team} key={uuidv4()} />
             ))}
           </div>

@@ -8,34 +8,34 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();
   return (
-    <BlockContainer title='Current Projects'>
-      <div className='py-10 px-4'>
+    <BlockContainer title="Current Projects">
+      <div className="py-10 px-4">
         <Carousel
           opts={{
-            align: "start",
+            align: 'start',
             loop: true,
           }}
         >
-          <CarouselContent className=''>
+          <CarouselContent className="">
             {featuredProjects.map(project => (
-              <CarouselItem key={project.pageId}  className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={project.pageId} className="md:basis-1/2 lg:basis-1/3">
                 <ProjectCard data={project} />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className='hidden md:inline-flex' />
-          <CarouselNext className='hidden md:inline-flex' />
+          <CarouselPrevious className="hidden md:inline-flex" />
+          <CarouselNext className="hidden md:inline-flex" />
         </Carousel>
       </div>
-      <div className='text-2xl flex container'>
+      <div className="text-2xl flex container">
         <Link
-          href='/projects'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-blueprint group font-bold flex flex-row w-fit items-center'
+          href="/projects"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blueprint group font-bold flex flex-row w-fit items-center"
         >
           <p>Check out all projects</p>
-          <MdDoubleArrow className='ml-2 group-hover:ml-4 transition-spacing ease-in-out' />
+          <MdDoubleArrow className="ml-2 group-hover:ml-4 transition-spacing ease-in-out" />
         </Link>
       </div>
     </BlockContainer>
