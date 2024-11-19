@@ -7,6 +7,7 @@ type Props = {
   inner?: boolean;
   margin?: "top" | "bottom" | true | false;
   shadow?: boolean;
+  padding?: "less" | "more" | boolean;
 };
 
 export default function BlockContainer({
@@ -18,10 +19,12 @@ export default function BlockContainer({
   inner = false,
   margin = false,
   shadow = false,
+  padding = true,
 }: Props) {
   return (
     <div
-      className={`py-16
+      className={`${padding && "py-16"}
+      ${padding === "less" && "py-8"}
         ${flip === "light-blue" && "bg-blueprint-50"}
         ${flip === "white" && "bg-white"}
         ${flip === "dark-blue" && "bg-[#0A1E3A]"}
