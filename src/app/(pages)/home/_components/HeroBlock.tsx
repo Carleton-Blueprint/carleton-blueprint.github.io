@@ -3,10 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import home from '../_assets/home.svg';
 import button from '../_assets/button.svg';
+import CallOut from './CallOut';
 
 export default function HeroBlock() {
   return (
     <div className=" bg-[#0A1E3A] h-fit overflow-hidden relative">
+      <CallOut/>
       <div className="flex items-center w-full h-screen container">
         <div className="md:w-1/2 md:m-0 flex items-center justify-center">
           <div className="text-white items-center h-min">
