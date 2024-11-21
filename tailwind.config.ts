@@ -20,6 +20,7 @@ const config = {
         // "2xl": "6rem",
       },
       screens: {
+        xs: "400px",
         sm: "600px",
         md: "728px",
         lg: "944px",

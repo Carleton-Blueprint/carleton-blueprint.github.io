@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import home from '../_assets/home.svg';
 import button from '../_assets/button.svg';
+import heroBlockLarge from '../_assets/mobile/heroBlockLarge.svg';
 
 export default function HeroBlock() {
   return (
@@ -24,6 +25,7 @@ export default function HeroBlock() {
             </Link>
             <Image src={button} alt='Join Us' />
           </div>
+          <Image src={heroBlockLarge} alt='heroBlock' className='block xs:hidden w-[100vw] h-auto object-cover mt-6'/>
         </div>
       </div>
       <Image src={home} className='hidden md:block absolute top-0 right-0 md:w-1/2 2xl:w-1/3' alt='Home' />
