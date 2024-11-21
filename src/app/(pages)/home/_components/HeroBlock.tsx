@@ -12,6 +12,7 @@ export default function HeroBlock() {
           <div className="text-white items-center h-min">
             <h1 className="text-6xl font-bold">Carleton Blueprint</h1>
             <h2 className="text-3xl mb-6">Tech for social good.</h2>
+            
             <Link
               href={'https://discord.com/invite/7gkkW5nJPW'}
               target="_blank"
