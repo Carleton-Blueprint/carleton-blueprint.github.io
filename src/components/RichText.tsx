@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils';
+
 export type RichTextType = {
   annotations: Annotations; // Adjust this for specific annotation properties
   plain_text: string;
@@ -13,7 +15,9 @@ type Annotations = {
   color: string;
 };
 
-export default function RichText({ text }: { text: RichTextType[] }) {
+type RichTextProps = React.HTMLAttributes<HTMLSpanElement> & string;
+
+export default function RichText({ className, text }: { className: RichTextProps; text: RichTextType[] }) {
   return text.map((textBlock, index) => {
     const { plain_text, annotations, href } = textBlock;
     const { bold, italic, strikethrough, underline, color } = annotations;
@@ -27,12 +31,15 @@ export default function RichText({ text }: { text: RichTextType[] }) {
     return (
       <span
         key={index}
-        className={`${bold ? 'font-bold' : ''} ${italic ? 'italic' : ''} ${
-          strikethrough ? 'line-through' : ''
-        } ${underline ? 'underline' : ''} ${textColor}`}
+        className={cn(textColor, className, {
+          'font-bold': bold,
+          italic: italic,
+          'line-through': strikethrough,
+          underline: underline,
+        })}
       >
         {href ? (
-          <a href={href} target="_blank" rel="noreferrer" className="underline">
+          <a href={href} target="_blank" rel="noreferrer" className="underline text-blue-600">
             {plain_text}
           </a>
         ) : (
