@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import home from '../_assets/home.svg';
@@ -6,9 +8,16 @@ import button from '../_assets/button.svg';
 import CallOut from './CallOut';
 
 export default function HeroBlock() {
+  const [isCallOutVisible, setCallOutVisible] = useState(true);
+
+  const toggleCallOutVisibility = () => {
+    setCallOutVisible(!isCallOutVisible);
+  };
+
   return (
-    <div className=" bg-[#0A1E3A] h-fit overflow-hidden relative">
-      <CallOut/>
+    <div className="bg-[#0A1E3A] h-fit overflow-hidden relative">
+      {/* Render CallOut if visible */}
+      {isCallOutVisible && <CallOut toggleVisibility={toggleCallOutVisibility} />}
       <div className="flex items-center w-full h-screen container">
         <div className="md:w-1/2 md:m-0 flex items-center justify-center">
           <div className="text-white items-center h-min">
@@ -28,7 +37,11 @@ export default function HeroBlock() {
           </div>
         </div>
       </div>
-      <Image src={home} className="hidden md:block absolute top-0 right-0 md:w-1/2 2xl:w-1/3" alt="Home" />
+      <Image
+        src={home}
+        className="hidden md:block absolute top-0 right-0 md:w-1/2 2xl:w-1/3"
+        alt="Home"
+      />
     </div>
   );
 }
