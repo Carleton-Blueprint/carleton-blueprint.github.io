@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -36,11 +36,7 @@ export default function HeroBlock() {
           </div>
         </div>
       </div>
-      <Image
-        src={home}
-        className="hidden md:block absolute top-0 right-0 md:w-1/2 2xl:w-1/3"
-        alt="Home"
-      />
+      <Image src={home} className="hidden md:block absolute top-0 right-0 md:w-1/2 2xl:w-1/3" alt="Home" />
     </div>
   );
 }
