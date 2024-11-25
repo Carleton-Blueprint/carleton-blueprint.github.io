@@ -4,7 +4,7 @@ import callOutIcon from '../_assets/callout.svg';
 
 export default function CallOut({ toggleVisibility }: { toggleVisibility: () => void }) {
   return (
-    <div className="absolute top-4 left-4 z-50"> {/* Adjust placement here */}
+    <div className="absolute top-4 left-4 z-50"> 
       <div
         className="bg-white text-gray-900 p-6 rounded-md shadow-lg max-w-sm cursor-pointer hover:shadow-xl transition-shadow relative"
       >

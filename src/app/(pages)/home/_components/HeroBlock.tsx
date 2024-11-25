@@ -16,7 +16,6 @@ export default function HeroBlock() {
 
   return (
     <div className="bg-[#0A1E3A] h-fit overflow-hidden relative">
-      {/* Render CallOut if visible */}
       {isCallOutVisible && <CallOut toggleVisibility={toggleCallOutVisibility} />}
       <div className="flex items-center w-full h-screen container">
         <div className="md:w-1/2 md:m-0 flex items-center justify-center">
