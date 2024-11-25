@@ -1,4 +1,4 @@
-export type RichText = {
+export type RichTextType = {
   annotations: Annotations; // Adjust this for specific annotation properties
   plain_text: string;
   href: string | null;
@@ -13,10 +13,10 @@ type Annotations = {
   color: string;
 };
 
-export default function RichText({ text }: { text: RichText[] }) {
+export default function RichText({ text }: { text: RichTextType[] }) {
   return text.map((textBlock, index) => {
     const { plain_text, annotations, href } = textBlock;
-    const { bold, italic, strikethrough, underline, code, color } = annotations;
+    const { bold, italic, strikethrough, underline, color } = annotations;
     let textColor;
     if (color === 'default') {
       textColor = 'text-black';
