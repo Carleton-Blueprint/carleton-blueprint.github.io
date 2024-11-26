@@ -9,7 +9,7 @@ export default function SponsorsBlock() {
     {
       name: 'Server.pro',
       description:
-        'Some description of the sponsor here. Some description of the sponsor here. Some description of the sponsor here. Some description of the sponsor here. Some description of the sponsor here.',
+        "Server.pro offers powerful game server hosting for serious gamers. Carleton Blueprint uses Server.pro's Virtual Private Servers for the development and testing of our projects.",
       logo: ServerProLogo,
     },
   ];
