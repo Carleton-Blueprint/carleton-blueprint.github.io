@@ -1,5 +1,5 @@
 import BlockContainer from '@/components/BlockContainer';
-import SponsorButton from './SponsorButton';
+import LinkButton from '@/components/LinkButton';
 import SponsorCard from './SponsorCard';
 import ServerProLogo from '../_assets/server_pro_logo.png';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
@@ -38,7 +38,11 @@ export default function SponsorsBlock() {
           </CarouselContent>
         </Carousel>
       </div>
-      <SponsorButton />
+      <div className="w-full flex justify-end">
+        <LinkButton href="/contact" newTab={true} variant="filled">
+          Become a Sponsor!
+        </LinkButton>
+      </div>
     </BlockContainer>
   );
 }
