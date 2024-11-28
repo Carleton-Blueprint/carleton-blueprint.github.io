@@ -7,15 +7,9 @@ const EventsPage: React.FC = async () => {
   const res = await getEvents();
   return (
     <div className="bg-blueprint-50 flex justify-center">
-      <BlockContainer
-        title="Blueprint Events"
-        roundedCorners
-        inner
-        centered
-        margin
-      >
+      <BlockContainer title="Blueprint Events" roundedCorners inner centered margin>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 px-4 sm:px-16 lg:px-12">
-          {res.map((event) => (
+          {res.map(event => (
             <EventCard
               id={event.eventPageId}
               key={event.eventName}

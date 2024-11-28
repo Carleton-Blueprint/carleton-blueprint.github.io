@@ -1,5 +1,4 @@
-import { EntrySkeletonType, createClient } from 'contentful';
-import { StaticImageData } from 'next/image';
+import { createClient } from 'contentful';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID ?? '',
@@ -18,11 +17,6 @@ export type ProjectCardDataType = {
   description: string;
   logo: string;
   link: string;
-};
-
-type ProjectCardSkeleton = {
-  contentTypeId: 'projectCard';
-  fields: ProjectCardDataType;
 };
 
 export type ContactCardDataType = {
