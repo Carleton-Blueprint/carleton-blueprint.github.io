@@ -27,8 +27,8 @@ export default function NotionPage({ recordMap, title, eventDetails }: PropsType
       <h1 className="text-5xl text-blueprint font-bold mb-10 text-center">{title}</h1>
 
       <BlockContainer roundedCorners centered>
-        <div className="px-[96px] w-full">
-          {eventDetails && (
+        {eventDetails && (
+          <div className="px-[96px] w-full">
             <div className="mb-10">
               <h1 className="text-3xl text-gray-800 font-semibold mb-5">Event Details</h1>
               <div className="grid grid-cols-2 gap-2 w-[500px] items-center">
@@ -52,8 +52,8 @@ export default function NotionPage({ recordMap, title, eventDetails }: PropsType
                 )}
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
         <NotionRenderer
           recordMap={recordMap}
           // fullPage={true}
