@@ -8,8 +8,8 @@ import heroBlockLarge from '../_assets/mobile/heroBlockLarge.svg';
 export default function HeroBlock() {
   return (
     <div className=" bg-[#0A1E3A] h-fit overflow-hidden relative">
-      <div className="flex items-center w-full h-screen container">
-        <div className="md:w-1/2 md:m-0 flex items-center justify-center">
+      <div className="flex items-center w-full xs:h-min sm:h-screen xs:pt-[30px] container">
+        <div className="md:w-1/2 md:m-0 flex flex-col items-center justify-center">
           <div className="text-white items-center h-min">
             <h1 className="text-6xl font-bold">Carleton Blueprint</h1>
             <h2 className="text-3xl mb-6">Tech for social good.</h2>
@@ -25,7 +25,7 @@ export default function HeroBlock() {
             </Link>
             <Image src={button} alt="Join Us" />
           </div>
-          <Image src={heroBlockLarge} alt='heroBlock' className='block xs:hidden w-[100vw] h-auto object-cover mt-6'/>
+            <Image src={heroBlockLarge} alt='heroBlock' className='block sm:hidden w-[100vw] h-auto object-cover mt-6'/>
         </div>
       </div>
       <Image src={home} className="hidden md:block absolute top-0 right-0 md:w-1/2 2xl:w-1/3" alt="Home" />

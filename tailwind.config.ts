@@ -15,7 +15,6 @@ const config = {
         // "2xl": "6rem",
       },
       screens: {
-        xs: "400px",
         sm: "600px",
         md: "728px",
         lg: "944px",
@@ -25,7 +24,7 @@ const config = {
     },
     extend: {
       screens: {
-        xs: '410px',
+        xs: '500px',
       },
       colors: {
         blueprint: {
