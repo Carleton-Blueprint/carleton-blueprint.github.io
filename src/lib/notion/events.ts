@@ -4,6 +4,7 @@ import { getPageIds } from './utils';
 
 export type EventDataType = {
   eventPageId: string;
+  slug: string;
   eventName: string;
   date: string;
   venue: string;
@@ -15,23 +16,10 @@ export type EventDataType = {
 
 export const EVENTS_DATABASE_ID = 'f988151abd6448ebb70053c5ca1278f9';
 
-export async function getEvent(id: string) {
-  const page = (await notion.pages.retrieve({ page_id: id })) as any;
-  let date = '';
-  if (page.properties.Date.date.start.includes('T')) {
-    date = format(parseISO(page.properties.Date.date.start), 'MMMM dd, yyyy h:mm a');
-  } else {
-    date = format(parseISO(page.properties.Date.date.start), 'MMMM dd, yyyy');
-  }
-  const event: EventDataType = {
-    eventPageId: id,
-    eventName: page.properties.Name.title[0].text.content,
-    date: date,
-    venue: page.properties.Venue.rich_text[0].plain_text,
-    status: page.properties.Status.status.name,
-    description: page.properties.Description.rich_text[0]?.plain_text || '',
-    coverURL: page.properties['Cover URL'].rich_text[0]?.plain_text || '/default',
-  };
+export async function getEvent(slug: string) {
+  const events = await getEvents();
+  const event = events.find(e => e.slug === slug);
+  if (!event) throw new Error(`Event with slug ${slug} not found`);
   return event;
 }
 
@@ -40,40 +28,22 @@ export async function getEventPageIds() {
 }
 
 export async function getFeaturedEvents() {
-  const eventPageIds = await getEventPageIds();
-  const events: EventDataType[] = [];
-
-  for (const eventPageId of eventPageIds) {
-    const page = (await notion.pages.retrieve({ page_id: eventPageId })) as any;
-    if (page.properties.Featured.checkbox) {
-      const eventName = page.properties.Name.title[0].plain_text;
-      const coverURL = page.properties['Cover URL'].rich_text[0]?.plain_text || '/default';
-      const homePageURL = page.properties['Home Cover URL'].rich_text[0]?.plain_text || '/default';
-      const description = page.properties.Description.rich_text[0]?.plain_text;
-      events.push({
-        eventPageId,
-        eventName,
-        date: '',
-        venue: '',
-        status: '',
-        description,
-        coverURL,
-        homePageURL,
-      });
-    }
-  }
-  return events;
+  return await getEvents({ featuredOnly: true });
 }
 
-export async function getEvents() {
+export async function getEvents(options?: { featuredOnly: boolean }) {
+  const featuredOnly = options?.featuredOnly ?? false;
+
   const eventPageIds = await getEventPageIds();
   const events: EventDataType[] = [];
 
   for (const eventPageId of eventPageIds) {
     const page = (await notion.pages.retrieve({ page_id: eventPageId })) as any;
-    if (!page.properties.Visibility.checkbox) {
+
+    if ((featuredOnly && !page.properties.Featured.checkbox) || !page.properties.Visibility.checkbox) {
       continue;
     }
+
     const eventName = page.properties.Name.title[0].text.content;
     let date = '';
     if (page.properties.Date.date.start.includes('T')) {
@@ -81,10 +51,12 @@ export async function getEvents() {
     } else {
       date = format(parseISO(page.properties.Date.date.start), 'MMMM dd, yyyy');
     }
+
     const venue = page.properties.Venue.rich_text[0].plain_text;
     const status = page.properties.Status.status.name;
     const description = page.properties.Description.rich_text[0]?.plain_text || '';
     const coverURL = page.properties['Cover URL'].rich_text[0]?.plain_text || '/default';
+    const slug = page.properties.Slug.rich_text[0]?.plain_text || eventPageId;
 
     events.push({
       eventPageId,
@@ -94,6 +66,7 @@ export async function getEvents() {
       status,
       description,
       coverURL,
+      slug,
     });
   }
 
