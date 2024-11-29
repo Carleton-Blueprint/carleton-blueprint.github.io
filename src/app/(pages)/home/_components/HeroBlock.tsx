@@ -1,22 +1,17 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import home from '../_assets/home.svg';
 import button from '../_assets/button.svg';
-import CallOut from './CallOut';
+import { getLatestCallout } from '@/lib/notion/announcements';
+import CallOutWrapper from './CallOutWrapper';
 
-export default function HeroBlock() {
-  const [isCallOutVisible, setCallOutVisible] = useState(true);
-
-  const toggleCallOutVisibility = () => {
-    setCallOutVisible(!isCallOutVisible);
-  };
+export default async function HeroBlock() {
+  const text = await getLatestCallout();
 
   return (
     <div className="bg-[#0A1E3A] h-fit overflow-hidden relative">
-      {isCallOutVisible && <CallOut toggleVisibility={toggleCallOutVisibility} />}
+      <CallOutWrapper text={text} />
       <div className="flex items-center w-full h-screen container">
         <div className="md:w-1/2 md:m-0 flex items-center justify-center">
           <div className="text-white items-center h-min">
