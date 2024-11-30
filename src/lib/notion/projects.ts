@@ -73,6 +73,6 @@ export async function getProjects(options?: { featuredOnly: boolean }) {
 export async function getProject(slug: string) {
   const projects = await getProjects();
   const project = projects.find(p => p.slug === slug);
-  if (!project) throw new Error(`Project with slug ${slug} not found`);
+  if (!project) return undefined;
   return project;
 }

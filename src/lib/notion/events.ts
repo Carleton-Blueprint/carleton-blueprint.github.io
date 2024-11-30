@@ -19,7 +19,7 @@ export const EVENTS_DATABASE_ID = 'f988151abd6448ebb70053c5ca1278f9';
 export async function getEvent(slug: string) {
   const events = await getEvents();
   const event = events.find(e => e.slug === slug);
-  if (!event) throw new Error(`Event with slug ${slug} not found`);
+  if (!event) return undefined;
   return event;
 }
 

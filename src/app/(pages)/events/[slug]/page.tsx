@@ -1,6 +1,7 @@
 import NotionPage, { EventDetailsType } from '@/components/NotionPage';
 import { getEvent, getEvents } from '@/lib/notion/events';
 import { getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const events = await getEvents();
@@ -15,6 +16,9 @@ type PropsType = {
 
 export default async function EventPage({ params }: PropsType) {
   const event = await getEvent(params.slug);
+
+  if (!event) notFound();
+
   const eventDetails: EventDetailsType = {
     date: event.date,
     venue: event.venue,
