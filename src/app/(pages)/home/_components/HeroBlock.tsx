@@ -11,7 +11,7 @@ export default async function HeroBlock() {
 
   return (
     <div className="bg-[#0A1E3A] h-fit overflow-hidden relative">
-      <CallOutWrapper text={text} />
+      {text && <CallOutWrapper text={text} />}
       <div className="flex items-center w-full h-screen container">
         <div className="md:w-1/2 md:m-0 flex items-center justify-center">
           <div className="text-white items-center h-min">
