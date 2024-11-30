@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import home from '../../_assets/home.svg';
 import button from '../../_assets/button.svg';
 import heroBlockLarge from '../../_assets/mobile/heroBlockLarge.svg';
 
@@ -27,7 +26,7 @@ export default function HeroBlockMobile() {
           </div>
         </div>
       </div>
-      <Image src={heroBlockLarge} alt='heroBlock' className='block w-[100vw] h-auto object-cover mt-6'/>
+      <Image src={heroBlockLarge} alt="heroBlock" className="block w-[100vw] h-auto object-cover mt-6" />
     </div>
   );
 }

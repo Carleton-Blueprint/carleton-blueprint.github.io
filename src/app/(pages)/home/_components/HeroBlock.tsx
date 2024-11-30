@@ -25,7 +25,7 @@ export default function HeroBlock() {
             </Link>
             <Image src={button} alt="Join Us" />
           </div>
-            <Image src={heroBlockLarge} alt='heroBlock' className='block sm:hidden w-[100vw] h-auto object-cover mt-6'/>
+          <Image src={heroBlockLarge} alt="heroBlock" className="block sm:hidden w-[100vw] h-auto object-cover mt-6" />
         </div>
       </div>
       <Image src={home} className="hidden md:block absolute top-0 right-0 md:w-1/2 2xl:w-1/3" alt="Home" />

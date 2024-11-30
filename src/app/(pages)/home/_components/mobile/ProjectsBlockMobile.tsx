@@ -1,7 +1,5 @@
 import BlockContainer from '@/components/BlockContainer';
 import ProjectCard from './../ProjectCard';
-import Link from 'next/link';
-import { MdDoubleArrow } from 'react-icons/md';
 import { getFeaturedProjects } from '@/lib/notion/projects';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 

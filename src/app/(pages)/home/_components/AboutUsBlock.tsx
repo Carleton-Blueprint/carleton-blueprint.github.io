@@ -10,7 +10,7 @@ export default function AboutUsBlock() {
       <div className="flex flex-row mt-[-20px]">
         <div className="md:w-2/3 text-2xl space-y-8">
           <h1 className="text-blueprint font-bold text-5xl">Our Mission</h1>
-          <p className='text-lg xs:font-normal'>
+          <p className="text-lg xs:font-normal">
             Started at UC Berkeley, Blueprint strives to make technology more accessible and useful for those who create
             communities and promote public welfare. This chapter at Carleton University is no different.
           </p>

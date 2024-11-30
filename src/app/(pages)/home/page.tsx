@@ -10,7 +10,7 @@ import ProjectsBlockMobile from './_components/mobile/ProjectsBlockMobile';
 export default async function Home() {
   return (
     <div>
-      <div className='hidden md:block'>
+      <div className="hidden md:block">
         <HeroBlock />
         <div className="flex flex-col">
           <AboutUsBlock />
@@ -19,8 +19,8 @@ export default async function Home() {
           <OurValuesBlock />
         </div>
       </div>
-      <div className='block md:hidden'>
-        <HeroBlockMobile/>
+      <div className="block md:hidden">
+        <HeroBlockMobile />
         <div className="flex flex-col">
           <AboutUsBlockMobile />
           <ProjectsBlockMobile />
