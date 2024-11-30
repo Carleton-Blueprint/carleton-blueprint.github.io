@@ -1,5 +1,5 @@
 import NotionPage, { EventDetailsType } from '@/components/NotionPage';
-import { getEvent, getEvents } from '@/lib/notion/events';
+import { getEventPageBySlug, getEvents } from '@/lib/notion/events';
 import { getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
 import { notFound } from 'next/navigation';
 
@@ -15,7 +15,7 @@ type PropsType = {
 };
 
 export default async function EventPage({ params }: PropsType) {
-  const event = await getEvent(params.slug);
+  const event = await getEventPageBySlug(params.slug);
 
   if (!event) notFound();
 

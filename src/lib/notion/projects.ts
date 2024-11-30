@@ -1,5 +1,5 @@
 import notion from '.';
-import { getPageIds } from './utils';
+import { getPageBySlug, getPageIds } from './utils';
 
 export type ProjectDataType = {
   pageId: string;
@@ -70,9 +70,6 @@ export async function getProjects(options?: { featuredOnly: boolean }) {
   return projects;
 }
 
-export async function getProject(slug: string) {
-  const projects = await getProjects();
-  const project = projects.find(p => p.slug === slug);
-  if (!project) return undefined;
-  return project;
+export async function getProjectPageBySlug(slug: string) {
+  return getPageBySlug(PROJECTS_DATABASE_ID, slug);
 }

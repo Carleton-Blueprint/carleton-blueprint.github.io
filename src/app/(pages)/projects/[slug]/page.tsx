@@ -1,4 +1,4 @@
-import { getProject, getProjects } from '@/lib/notion/projects';
+import { getProjectPageBySlug, getProjects } from '@/lib/notion/projects';
 import { getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
 import NotionPage from '@/components/NotionPage';
 import { notFound } from 'next/navigation';
@@ -15,12 +15,12 @@ type PropsType = {
 };
 
 export default async function ProjectPage({ params }: PropsType) {
-  const project = await getProject(params.slug);
+  const project = await getProjectPageBySlug(params.slug);
 
   if (!project) notFound();
 
-  const title = await getTitleByPageId(project.pageId);
-  const recordMap = await getRecordMap(project.pageId);
+  const title = await getTitleByPageId(project.id);
+  const recordMap = await getRecordMap(project.id);
 
   return <NotionPage recordMap={recordMap} title={title} />;
 }
