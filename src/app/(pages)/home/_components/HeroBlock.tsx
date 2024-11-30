@@ -10,9 +10,9 @@ export default function HeroBlock() {
     <div className=" bg-[#0A1E3A] h-fit overflow-hidden relative">
       <div className="flex items-center w-full xs:h-min sm:h-screen xs:pt-[30px] container">
         <div className="md:w-1/2 md:m-0 flex flex-col items-center justify-center">
-          <div className="text-white items-center h-min">
-            <h1 className="text-6xl font-bold">Carleton Blueprint</h1>
-            <h2 className="text-3xl mb-6">Tech for social good.</h2>
+          <div className="text-white items-center h-min pt-[25px]">
+            <h1 className="text-5xl sm:text-6xl font-bold">Carleton Blueprint</h1>
+            <h2 className="text-2xl sm:text-3xl mb-6">Tech for social good.</h2>
             <Link
               href={'https://discord.com/invite/7gkkW5nJPW'}
               target="_blank"
