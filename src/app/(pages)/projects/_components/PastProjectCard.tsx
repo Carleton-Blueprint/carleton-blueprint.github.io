@@ -23,9 +23,7 @@ export default function PastProjectCard({ data }: { data: ProjectDataType }) {
             </div>
           )}
           <div className="flex flex-col items-center text-center gap-4">
-            <CardTitle className="flex md:items-center text-4xl text-white md:h-[80px]">
-              {data.companyName}
-            </CardTitle>
+            <CardTitle className="flex md:items-center text-4xl text-white md:h-[80px]">{data.companyName}</CardTitle>
             <CardContent className="text-2xl md:text-base text-white">
               <p className="hidden md:line-clamp-4 h-[100px]">{data.description}</p>
               <p className="block md:hidden">{data.productName}</p>
@@ -33,7 +31,7 @@ export default function PastProjectCard({ data }: { data: ProjectDataType }) {
           </div>
         </div>
       </a>
-      <LinkButton href={data.gitHubUrl ?? "/projects"} newTab={true} variant="icon" className="absolute top-0 right-0">
+      <LinkButton href={data.gitHubUrl ?? '/projects'} newTab={true} variant="icon" className="absolute top-0 right-0">
         <FaGithub className="h-[80px] w-[80px] md:h-12 md:w-12 text-white" />{' '}
       </LinkButton>
     </div>

@@ -8,7 +8,9 @@ import { FaArrowCircleRight } from 'react-icons/fa';
 
 export default function ProjectCard({ data }: { data: ProjectDataType }) {
   return (
-    <Card className={`flex justify-center items-center w-full rounded-[40px] md:h-auto shadow-[2px_6px_4px_0px_rgba(0,0,0,0.25)]`}>
+    <Card
+      className={`flex justify-center items-center w-full rounded-[40px] md:h-auto shadow-[2px_6px_4px_0px_rgba(0,0,0,0.25)]`}
+    >
       {data.logoUrl && (
         <CldImage
           src={data.logoUrl}
@@ -21,17 +23,13 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
 
       <div className="flex flex-col justify-end md:justify-between min-h-[320px] md:min-h-full">
         <CardHeader className="flex flex-col justify-between items-start pr-2 md:items-center md:block">
-            <CardTitle className="text-4xl font-bold">{data.companyName}</CardTitle>
+          <CardTitle className="text-4xl font-bold">{data.companyName}</CardTitle>
           <div className="flex flex-row md:pt-0 md:items-center">
-            <CardDescription className="text-2xl md:text-xl font-medium pt-2 md:pt-0">{data.productName}</CardDescription>
+            <CardDescription className="text-2xl md:text-xl font-medium pt-2 md:pt-0">
+              {data.productName}
+            </CardDescription>
             {data.logoUrl && (
-            <CldImage
-              src={data.logoUrl}
-              alt={data.companyName}
-              width={120}
-              height={120}
-              className="md:hidden"
-            />
+              <CldImage src={data.logoUrl} alt={data.companyName} width={120} height={120} className="md:hidden" />
             )}
           </div>
         </CardHeader>
