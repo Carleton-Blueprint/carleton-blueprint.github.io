@@ -31,7 +31,7 @@ export default function PastProjectCard({ data }: { data: ProjectDataType }) {
           </div>
         </div>
       </a>
-      <LinkButton href={data.gitHubUrl ?? '/projects'} newTab={true} variant="icon" className="absolute top-0 right-0">
+      <LinkButton href={data.gitHubUrl ?? '/projects'} newTab={true} variant="icon" className="md:hidden absolute top-0 right-0">
         <FaGithub className="h-[80px] w-[80px] md:h-12 md:w-12 text-white" />{' '}
       </LinkButton>
     </div>
