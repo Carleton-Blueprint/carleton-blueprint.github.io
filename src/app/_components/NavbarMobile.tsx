@@ -28,7 +28,7 @@ export default function NavbarMobile({ data, breakpoint = 'md' }: PropType) {
   return (
     <Sheet>
       <SheetTrigger className={styles.sheetTrigger[breakpoint]}>
-        <GiHamburgerMenu className="size-7 text-white" />
+        <GiHamburgerMenu className="size-12 text-white" />
       </SheetTrigger>
       <SheetContent className="w-[250px] bg-blueprint text-2xl flex justify-center items-center">
         <SheetHeader className="h-4/5">

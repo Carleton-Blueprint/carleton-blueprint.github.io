@@ -12,7 +12,7 @@ const NAV_BREAKPOINT = 'md';
 function MainLink() {
   return (
     <Link href="/">
-      <div className="relative w-[150px]">
+      <div className="relative w-[200px]">
         <Image src={logo} alt="blueprint logo" />
       </div>
     </Link>
