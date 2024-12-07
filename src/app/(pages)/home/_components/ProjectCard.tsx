@@ -22,7 +22,7 @@ export default function HomeProjectCard({ data }: { data: ProjectDataType }) {
             {data.productName}
           </p>
         </span>
-        <Link href={'/projects/' + data.pageId} className="absolute w-full h-full" />
+        <Link href={'/projects/' + data.slug} className="absolute w-full h-full" />
         <Link href={data.externalUrl || ''} className="absolute top-2 right-2">
           <div>
             <IoLogoGithub className="rounded-full bg-blueprint-50 opacity-0 group-hover:opacity-100 w-20 h-20 transition-color duration-300 ease-in-out hover:text-blueprint-300 text-blueprint" />
