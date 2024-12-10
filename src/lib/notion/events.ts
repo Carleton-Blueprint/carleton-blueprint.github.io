@@ -68,6 +68,7 @@ function getEventPageProperties(page: any, pageId: string) {
     status: page.properties.Status.status.name,
     description: page.properties.Description.rich_text[0]?.plain_text || '',
     coverURL: page.properties['Cover URL'].rich_text[0]?.plain_text || '/default',
+    homePageURL: page.properties['Home Cover URL'].rich_text[0]?.plain_text || '/default',
     slug: page.properties.Slug.rich_text[0]?.plain_text || pageId,
   };
 }
