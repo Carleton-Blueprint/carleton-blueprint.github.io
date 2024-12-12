@@ -10,6 +10,7 @@ type Props = {
   margin?: 'top' | 'bottom' | true | false;
   shadow?: boolean;
   padding?: 'less' | 'more' | boolean;
+  gap?: 'less' | boolean;
 };
 
 export default function BlockContainer({
@@ -22,6 +23,7 @@ export default function BlockContainer({
   margin = false,
   shadow = false,
   padding = true,
+  gap = true,
 }: Props) {
   return (
     <div
@@ -41,7 +43,7 @@ export default function BlockContainer({
         ${shadow && 'shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)]'}`}
     >
       <div
-        className={`space-y-12 container
+        className={`${gap === 'less' ? 'space-y-6 pb-8' : 'space-y-12'} container
         ${centered && 'flex flex-col items-center'}`}
       >
         {title && (

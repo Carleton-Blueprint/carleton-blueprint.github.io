@@ -22,14 +22,20 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
       )}
 
       <div className="flex flex-col justify-end md:justify-between min-h-[320px] md:min-h-full">
-        <CardHeader className="flex flex-col justify-between items-start pr-2 md:items-center md:block">
+        <CardHeader className="flex flex-col justify-between items-start md:items-center md:block">
           <CardTitle className="text-4xl font-bold">{data.companyName}</CardTitle>
           <div className="flex flex-row md:pt-0 md:items-center">
-            <CardDescription className="text-2xl md:text-xl font-medium pt-2 md:pt-0">
+            <CardDescription className="text-2xl md:text-xl font-medium pt-2 leading-9 md:pt-0">
               {data.productName}
             </CardDescription>
             {data.logoUrl && (
-              <CldImage src={data.logoUrl} alt={data.companyName} width={120} height={120} className="md:hidden" />
+              <CldImage 
+                src={data.logoUrl} 
+                alt={data.companyName} 
+                width={120} 
+                height={120} 
+                className="md:hidden object-contain max-h-[120px] max-w-[120px]" 
+              />
             )}
           </div>
         </CardHeader>
