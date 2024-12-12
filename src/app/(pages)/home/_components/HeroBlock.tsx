@@ -8,6 +8,7 @@ import CallOutWrapper from './CallOutWrapper';
 
 export default async function HeroBlock() {
   const text = await getLatestCallout();
+  console.log(text);
 
   return (
     <div className="bg-[#0A1E3A] h-fit overflow-hidden relative">
