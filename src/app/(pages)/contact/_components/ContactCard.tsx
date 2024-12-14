@@ -8,7 +8,7 @@ type ContactCardProps = {
 export default function ContactCard({ children, link = '' }: ContactCardProps) {
   return (
     <a href={link} target="_blank" rel="noopener noreferrer">
-      <div className="box-border mb-12 bg-white w-72 h-72 rounded-[50px] flex flex-col items-center py-5 space-y-5 justify-center hover:shadow-2xl transition-shadow ease-in-out duration-200">
+      <div className="mb-12 box-border flex h-72 w-72 flex-col items-center justify-center space-y-5 rounded-[50px] bg-white py-5 transition-shadow duration-200 ease-in-out hover:shadow-2xl">
         {children}
       </div>
     </a>

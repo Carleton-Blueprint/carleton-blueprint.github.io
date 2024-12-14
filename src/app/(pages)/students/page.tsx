@@ -20,11 +20,11 @@ export default async function Students() {
   }
 
   return (
-    <div className="bg-blueprint-50 min-h-screen overflow-x-hidden">
-      <div className="flex flex-col space-y-24 relative pb-24 content container">
+    <div className="min-h-screen overflow-x-hidden bg-blueprint-50">
+      <div className="content container relative flex flex-col space-y-24 pb-24">
         <div className="flex flex-col space-y-2">
-          <div className="m-8 flex flex-row items-center gap-5 justify-center md:justify-start">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-8 pt-6">
+          <div className="m-8 flex flex-row items-center justify-center gap-5 md:justify-start">
+            <h1 className="mb-8 pt-6 text-4xl font-extrabold md:text-5xl">
               Meet our <span className="text-blueprint-500">Team</span>
             </h1>
             <Image src={bluePeople} width={188.5} alt="Image of blue figures" />
