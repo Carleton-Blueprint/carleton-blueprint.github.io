@@ -8,8 +8,8 @@ export default function AboutUsBlock() {
   return (
     <BlockContainer flip="light-blue" roundedCorners="bottom">
       <div className="flex flex-row">
-        <div className="md:w-2/3 text-2xl space-y-8">
-          <h1 className="text-blueprint font-bold text-4xl md:text-5xl">Our Mission</h1>
+        <div className="space-y-8 text-2xl md:w-2/3">
+          <h1 className="text-4xl font-bold text-blueprint md:text-5xl">Our Mission</h1>
           <p>
             Started at UC Berkeley, Blueprint strives to make technology more accessible and useful for those who create
             communities and promote public welfare. This chapter at Carleton University is no different.
@@ -18,13 +18,13 @@ export default function AboutUsBlock() {
             href="https://calblueprint.org/chapters"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blueprint group font-bold flex flex-row w-fit items-center text-sm md:text-2xl"
+            className="group flex w-fit flex-row items-center text-sm font-bold text-blueprint md:text-2xl"
           >
             <p>Check out our other Blueprint chapters</p>
-            <MdDoubleArrow className="ml-2 group-hover:ml-4 transition-spacing ease-in-out" />
+            <MdDoubleArrow className="ml-2 transition-spacing ease-in-out group-hover:ml-4" />
           </Link>
         </div>
-        <div className="hidden md:flex w-1/3 justify-end">
+        <div className="hidden w-1/3 justify-end md:flex">
           <Image src={image} alt="decorative image" className="flex w-[300px]" />
         </div>
       </div>

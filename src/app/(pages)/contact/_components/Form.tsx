@@ -40,11 +40,11 @@ export default function Form() {
   return (
     <form className="rounded text-white" onSubmit={sendEmail}>
       <div className="mb-4">
-        <label className="block font-bold mb-2" htmlFor="email">
+        <label className="mb-2 block font-bold" htmlFor="email">
           Email
         </label>
         <input
-          className="bg-blueprint border-b-2 border-white focus:outline-none w-full py-2 px-3 leading-tight placeholder-white"
+          className="w-full border-b-2 border-white bg-blueprint px-3 py-2 leading-tight placeholder-white focus:outline-none"
           name="email"
           id="email"
           type="email"
@@ -54,11 +54,11 @@ export default function Form() {
         />
       </div>
       <div className="mb-4">
-        <label className="block font-bold mb-2" htmlFor="name">
+        <label className="mb-2 block font-bold" htmlFor="name">
           Name
         </label>
         <input
-          className="bg-blueprint border-b-2 border-white focus:outline-none w-full py-2 px-3 leading-tight placeholder-white"
+          className="w-full border-b-2 border-white bg-blueprint px-3 py-2 leading-tight placeholder-white focus:outline-none"
           id="name"
           type="text"
           placeholder="Enter your name"
@@ -67,20 +67,20 @@ export default function Form() {
         />
       </div>
       <div className="mb-4">
-        <label className="block font-bold mb-2" htmlFor="message">
+        <label className="mb-2 block font-bold" htmlFor="message">
           Message
         </label>
         <div
-          className="bg-blueprint border-b-2 border-white focus:outline-none w-full py-2 px-3 leading-tight"
+          className="w-full border-b-2 border-white bg-blueprint px-3 py-2 leading-tight focus:outline-none"
           contentEditable
           role="textbox"
           id="message"
         ></div>
       </div>
-      <div className="flex items-center justify-center w-full mt-11">
+      <div className="mt-11 flex w-full items-center justify-center">
         <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!} ref={recaptchaRef} size="invisible" />
         <button
-          className="bg-white hover:bg-blueprint-50 text-blueprint font-bold w-11/12 py-2 px-4 rounded-full tracking-[0.3em] hover:tracking-[0.2em] transition-all ease-in-out"
+          className="w-11/12 rounded-full bg-white px-4 py-2 font-bold tracking-[0.3em] text-blueprint transition-all ease-in-out hover:bg-blueprint-50 hover:tracking-[0.2em]"
           type="submit"
         >
           SUBMIT

@@ -6,7 +6,7 @@ import BlockContainer from '@/components/BlockContainer';
 export default async function PastProjects({ projects }: { projects: ProjectDataType[] }) {
   return (
     <BlockContainer title="Past Projects" roundedCorners="top" flip="dark-blue">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
         {projects.map(project => (
           <PastProjectCard key={uuidv4()} data={project} />
         ))}
