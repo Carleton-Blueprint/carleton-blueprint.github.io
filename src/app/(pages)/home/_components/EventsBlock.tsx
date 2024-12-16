@@ -2,9 +2,12 @@ import BlockContainer from '@/components/BlockContainer';
 import EventCard from './EventCard';
 import { getFeaturedEvents } from '@/lib/notion/events';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { getFeaturedAnnouncements } from '@/lib/notion/announcements';
 
 export default async function HomeEvents() {
   const res = await getFeaturedEvents();
+  const news = await getFeaturedAnnouncements();
+
   return (
     <BlockContainer title="News and Events" flip="light-blue" margin={'bottom'}>
       <div className="flex justify-center px-4">
@@ -16,6 +19,11 @@ export default async function HomeEvents() {
           className="w-full"
         >
           <CarouselContent>
+            {news.map(announcement => (
+              <CarouselItem key={announcement.announcementPageId} className="md:basis-1/2 lg:basis-1/3">
+                <EventCard data={announcement} />
+              </CarouselItem>
+            ))}
             {res.map(event => (
               <CarouselItem key={event.eventPageId} className="md:basis-1/2 lg:basis-1/3">
                 <EventCard data={event} />

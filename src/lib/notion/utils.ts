@@ -3,6 +3,7 @@ import { getExternalPageIds } from './external';
 import notion from '.';
 import { getEventPageIds } from './events';
 import { getProjectPageIds } from './projects';
+import { getAnnouncementsPageIds } from './announcements';
 
 /*
  * `notion-client` is the unofficial notion API library (not the same as – @notionhq/client)
@@ -20,8 +21,9 @@ export async function getAllPageIds() {
   const eventPageIds = await getEventPageIds();
   const externalPageIds = await getExternalPageIds();
   const projectPageIds = await getProjectPageIds();
+  const newsPageIds = await getAnnouncementsPageIds();
 
-  const results: string[] = [...eventPageIds, ...externalPageIds, ...projectPageIds];
+  const results: string[] = [...eventPageIds, ...externalPageIds, ...projectPageIds, ...newsPageIds];
   return results;
 }
 
