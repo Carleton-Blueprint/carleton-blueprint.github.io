@@ -23,11 +23,11 @@ export default async function Students() {
     <div className="bg-blueprint-50 min-h-screen overflow-x-hidden">
       <div className="flex flex-col space-y-24 relative pb-24 content container">
         <div className="flex flex-col space-y-2">
-          <div className="m-8 flex flex-row items-center gap-5 justify-center md:justify-start">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-8 pt-6">
+          <div className="sm:m-8 flex flex-row items-center gap-5 justify-start sm:justify-center md:justify-start">
+            <h1 className="text-5xl sm:text-4xl md:text-5xl font-black sm:font-extrabold mb-4 sm:mb-8 pt-6">
               Meet our <span className="text-blueprint-500">Team</span>
             </h1>
-            <Image src={bluePeople} width={188.5} alt="Image of blue figures" />
+            <Image src={bluePeople} width={188.5} alt="Image of blue figures" className="sm:block hidden" />
           </div>
           <div className="flex flex-col space-y-24 text-center">
             {teams.map(team => (
