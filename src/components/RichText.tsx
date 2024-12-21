@@ -40,7 +40,7 @@ export default function RichText({ className, text }: { className: RichTextProps
         })}
       >
         {href ? (
-          <a href={href} target="_blank" rel="noreferrer" className="underline text-blue-600">
+          <a href={href} target="_blank" rel="noreferrer" className="text-blue-600 underline">
             {plain_text}
           </a>
         ) : (

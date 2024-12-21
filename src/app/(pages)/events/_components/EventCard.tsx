@@ -19,25 +19,25 @@ const EventCard: React.FC<EventCardProps> = ({ slug, imgURL, title, venue, time,
       href={`/events/${slug}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex flex-col bg-white rounded-[30px] overflow-hidden shadow-md transition-transform duration-200 mt-12 max-w-md w-full relative hover:shadow-xl transform hover:-translate-y-1 cursor-pointer"
+      className="relative mt-12 flex w-full max-w-md transform cursor-pointer flex-col overflow-hidden rounded-[30px] bg-white shadow-md transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl"
     >
-      <div className="relative w-full h-72">
+      <div className="relative h-72 w-full">
         <div className="max-h-full overflow-hidden">
           <CldImage src={imgURL} alt={title} width={400} height={400} className="rounded-lg" />
         </div>
       </div>
-      <div className="p-4 md:p-6 flex flex-col items-center justify-center text-center">
-        <h2 className="text-xl font-bold mb-1 md:mb-3">{title}</h2>
-        <hr className="w-full border-t-2 border-gray-300 my-1 md:my-3" />
-        <p className="text-lg text-indigo-600 font-semibold md:py-2">Location: {venue}</p>
+      <div className="flex flex-col items-center justify-center p-4 text-center md:p-6">
+        <h2 className="mb-1 text-xl font-bold md:mb-3">{title}</h2>
+        <hr className="my-1 w-full border-t-2 border-gray-300 md:my-3" />
+        <p className="text-lg font-semibold text-indigo-600 md:py-2">Location: {venue}</p>
         <p className="text-md italic text-gray-800 md:py-2">{time}</p>
-        <p className="text-gray-700 py-1 md:py-2">{description}</p>
+        <p className="py-1 text-gray-700 md:py-2">{description}</p>
         {isUpcoming ? (
-          <span className="px-3 py-1 text-white bg-green-500 rounded-full text-xs font-bold absolute top-4 right-4">
+          <span className="absolute right-4 top-4 rounded-full bg-green-500 px-3 py-1 text-xs font-bold text-white">
             Upcoming
           </span>
         ) : (
-          <span className="px-3 py-1 text-white bg-gray-400 rounded-full text-xs font-bold absolute top-4 right-4">
+          <span className="absolute right-4 top-4 rounded-full bg-gray-400 px-3 py-1 text-xs font-bold text-white">
             Passed
           </span>
         )}

@@ -59,17 +59,17 @@ function Value({ data }: { data: ValueDataType }) {
   return (
     <div
       className={`${
-        data.flip && 'md:self-end md:flex-row-reverse md:space-x-reverse'
-      } flex flex-col md:flex-row md:w-10/12 bg-white rounded-[35px] p-6 md:p-12 md:space-x-20 items-center shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)] relative`}
+        data.flip && 'md:flex-row-reverse md:space-x-reverse md:self-end'
+      } relative flex flex-col items-center rounded-[35px] bg-white p-6 shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)] md:w-10/12 md:flex-row md:space-x-20 md:p-12`}
     >
-      <div className={`text-[#3B6E9B] font-bold text-2xl md:text-4xl mb-3 text-left`}>{data.title}</div>
-      <div className={`${!data.flip && 'md:text-end'} text-justify md:text-start text-md md:text-lg`}>
+      <div className={`mb-3 text-left text-2xl font-bold text-[#3B6E9B] md:text-4xl`}>{data.title}</div>
+      <div className={`${!data.flip && 'md:text-end'} text-md text-justify md:text-start md:text-lg`}>
         {data.description}
       </div>
 
       <div
         className={cn(
-          'hidden md:flex top-1/2 w-[100px]  md:w-[180px] lg:w-[260px] aspect-square transform absolute -translate-y-1/2  justify-center items-center z-4 right-2 translate-x-full',
+          'z-4 absolute right-2 top-1/2 hidden aspect-square w-[100px] -translate-y-1/2 translate-x-full transform items-center justify-center md:flex md:w-[180px] lg:w-[260px]',
           data.flip && '-left-2 -translate-x-full',
         )}
       >
@@ -82,7 +82,7 @@ function Value({ data }: { data: ValueDataType }) {
 export default function OurValuesBlock() {
   return (
     <BlockContainer title="Our Values" flip="light-blue" inner roundedCorners margin="bottom">
-      <div className="flex flex-col space-y-12 py-10 ">
+      <div className="flex flex-col space-y-12 py-10">
         {values.map(value => (
           <Value key={uuidv4()} data={value} />
         ))}

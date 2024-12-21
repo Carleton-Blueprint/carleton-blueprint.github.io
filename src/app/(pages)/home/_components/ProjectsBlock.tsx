@@ -9,7 +9,7 @@ export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();
   return (
     <BlockContainer title="Current Projects">
-      <div className="py-10 px-4">
+      <div className="px-4 py-10">
         <Carousel
           opts={{
             align: 'start',
@@ -27,15 +27,15 @@ export default async function ProjectsBlock() {
           <CarouselNext className="hidden md:inline-flex" />
         </Carousel>
       </div>
-      <div className="text-2xl flex container">
+      <div className="container flex text-2xl">
         <Link
           href="/projects"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blueprint group font-bold flex flex-row w-fit items-center"
+          className="group flex w-fit flex-row items-center font-bold text-blueprint"
         >
           <p>Check out all projects</p>
-          <MdDoubleArrow className="ml-2 group-hover:ml-4 transition-spacing ease-in-out" />
+          <MdDoubleArrow className="ml-2 transition-spacing ease-in-out group-hover:ml-4" />
         </Link>
       </div>
     </BlockContainer>

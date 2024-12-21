@@ -25,7 +25,7 @@ export default function LinkButton({ children, href, newTab = false, variant = '
         rel={`${newTab && 'noopener noreferrer'}`}
         className={mergedClassName}
       >
-        <button className="self-start px-5 py-2 rounded-full text-white bg-blueprint ease-in-out duration-300 hover:bg-blueprint-300">
+        <button className="self-start rounded-full bg-blueprint px-5 py-2 text-white duration-300 ease-in-out hover:bg-blueprint-300">
           {children}
         </button>
       </Link>
@@ -41,7 +41,7 @@ export default function LinkButton({ children, href, newTab = false, variant = '
         className={mergedClassName}
       >
         {children}
-        <FaChevronRight className="ms-2 group-hover:ms-5 transition-all" />
+        <FaChevronRight className="ms-2 transition-all group-hover:ms-5" />
       </Link>
     );
   }
