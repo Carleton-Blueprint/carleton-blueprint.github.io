@@ -12,6 +12,7 @@ export type ProjectDataType = {
   externalUrl: string | undefined | null;
   status: 'Not started' | 'Done' | 'In progress' | undefined | null;
   gitHubUrl: string | undefined | '';
+  projectTitle: string | undefined | null;
 };
 
 export const PROJECTS_DATABASE_ID = 'f0725682a6134d0f8174876e083eee19';
