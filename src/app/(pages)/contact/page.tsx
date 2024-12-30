@@ -31,7 +31,7 @@ function Page() {
           </ContactCard>
         </div>
       </div>
-      <BlockContainer flip="blueprint">
+      <BlockContainer bg="blueprint">
         <div className="flex flex-col md:flex-row justify-between text-white text-lg pt-[5px] md:pt-[200px] md:pb-16 gap-24">
           <div className="w-full md:w-1/3">
             <Form />
