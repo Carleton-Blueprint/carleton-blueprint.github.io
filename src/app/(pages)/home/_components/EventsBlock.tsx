@@ -6,7 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 export default async function HomeEvents() {
   const res = await getFeaturedEvents();
   return (
-    <BlockContainer title="News and Events" flip="light-blue" margin={'bottom'}>
+    <BlockContainer title="News and Events" bg="light-blue" margin={'bottom'}>
       <div className="flex justify-center px-4">
         <Carousel
           opts={{

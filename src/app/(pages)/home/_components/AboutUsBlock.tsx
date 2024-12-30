@@ -6,7 +6,7 @@ import { MdDoubleArrow } from 'react-icons/md';
 
 export default function AboutUsBlock() {
   return (
-    <BlockContainer flip="light-blue" roundedCorners="bottom">
+    <BlockContainer bg="light-blue" roundedCorners="bottom">
       <div className="flex flex-row">
         <div className="md:w-2/3 text-2xl space-y-8">
           <h1 className="text-blueprint font-bold text-4xl md:text-5xl">Our Mission</h1>
