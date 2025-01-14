@@ -37,7 +37,7 @@ export default function PastProjectCard({ data }: { data: ProjectDataType }) {
         variant="icon"
         className="md:hidden absolute top-0 right-0"
       >
-        <FaGithub className="h-[80px] w-[80px] md:h-12 md:w-12 text-white" />{' '}
+        <FaGithub className="h-[50px] w-[50px] min-[376px]:h-[80px] min-[376px]:w-[80px] md:h-12 md:w-12 text-white" />
       </LinkButton>
     </div>
   );
