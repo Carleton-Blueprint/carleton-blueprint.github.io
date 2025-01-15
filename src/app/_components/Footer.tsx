@@ -7,7 +7,7 @@ import logo from '@/app/_assets/blueprint_banner_negative.png';
 
 export default async function Footer({ pages }: { pages: PageDataType[] }) {
   return (
-    <div className="flex bg-blueprint pt-8 pb-10 text-white">
+    <div className="flex bg-red-100 pt-8 pb-10 text-white">
       <div className="container">
         <div className="flex justify-between">
           <div className="flex flex-col text-lg space-y-3">
