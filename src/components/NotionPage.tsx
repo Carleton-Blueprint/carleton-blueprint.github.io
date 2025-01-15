@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ExtendedRecordMap } from 'notion-types';
+import { ExtendedRecordMap } from 'notion-client/node_modules/notion-types';
 import { NotionRenderer } from 'react-notion-x';
 import BlockContainer from './BlockContainer';
 import { BsCalendar3 } from 'react-icons/bs';
