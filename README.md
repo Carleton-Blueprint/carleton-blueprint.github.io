@@ -1,4 +1,6 @@
-<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>
+# cublueprint.org
+
+[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg)](https://www.netlify.com)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/02b05bac-6473-4668-b48a-1f225ed3e7c1/deploy-status)](https://app.netlify.com/sites/cublueprint/deploys)
 
