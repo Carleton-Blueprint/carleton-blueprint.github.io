@@ -7,7 +7,7 @@ import logo from '@/app/_assets/blueprint_banner_negative.png';
 
 export default async function Footer({ pages }: { pages: PageDataType[] }) {
   return (
-    <div className="flex bg-blueprint pt-8 pb-10 text-white">
+    <div className="flex bg-red-100 pt-8 pb-10 text-white">
       <div className="container">
         <div className="flex justify-between">
           <div className="flex flex-col text-lg space-y-3">
@@ -29,7 +29,7 @@ export default async function Footer({ pages }: { pages: PageDataType[] }) {
             <div className="w-2/3 text-end">Made with ❤️ by</div>
             <div className="w-2/3 md:w-full text-right">
               Blueprint @ Carleton University
-              <br /> Ottawa, Ontario, Canada
+              <br /> Trudeauland
             </div>
           </div>
         </div>
