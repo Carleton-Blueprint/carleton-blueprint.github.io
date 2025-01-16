@@ -9,7 +9,7 @@ import { FaGithub } from 'react-icons/fa';
 export default function PastProjectCard({ data }: { data: ProjectDataType }) {
   return (
     <div className="relative">
-      <a href={'/projects/' + data.pageId}>
+      <a href={'/projects/' + data.slug}>
         <div className="flex flex-col justify-end items-center min-h-[400px] max-h-[500px] p-4 rounded-[40px] hover:outline hover:outline-4 hover:outline-white transition-all ease-in-out duration-150 bg-gradient-to-t from-[#0170DC] to-[#6191BC]">
           {data.logoUrl && (
             <div className="mb-4">

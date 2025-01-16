@@ -50,7 +50,7 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
             </LinkButton>
           )}
           {data.pageId && (
-            <LinkButton href={'/projects/' + data.pageId} newTab={true} variant="icon">
+            <LinkButton href={'/projects/' + data.slug} newTab={true} variant="icon">
               <FaArrowCircleRight className="text-6xl md:text-5xl" />
             </LinkButton>
           )}
