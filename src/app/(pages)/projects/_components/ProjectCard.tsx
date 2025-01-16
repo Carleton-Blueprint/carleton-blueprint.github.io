@@ -29,12 +29,12 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
               {data.productName}
             </CardDescription>
             {data.logoUrl && (
-              <CldImage 
-                src={data.logoUrl} 
-                alt={data.companyName} 
-                width={120} 
-                height={120} 
-                className="md:hidden object-contain max-h-[120px] max-w-[120px]" 
+              <CldImage
+                src={data.logoUrl}
+                alt={data.companyName}
+                width={120}
+                height={120}
+                className="md:hidden object-contain max-h-[120px] max-w-[120px]"
               />
             )}
           </div>
