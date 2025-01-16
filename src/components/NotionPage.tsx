@@ -49,7 +49,9 @@ export default function NotionPage({ recordMap, title, eventDetails }: PropsType
                       Upcoming
                     </span>
                   ) : (
-                    <span className="px-3 py-1 text-white bg-gray-400 rounded-full text-xs font-bold w-fit">Passed</span>
+                    <span className="px-3 py-1 text-white bg-gray-400 rounded-full text-xs font-bold w-fit">
+                      Passed
+                    </span>
                   )}
                 </div>
               </div>
