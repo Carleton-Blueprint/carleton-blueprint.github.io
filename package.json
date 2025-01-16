@@ -8,7 +8,7 @@
     "lint": "npx eslint . --ext .ts,.tsx,.js,.jsx",
     "quality": "npm run format-check && npm run lint",
     "dev": "next dev",
-    "build": "npm run quality && next build",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
