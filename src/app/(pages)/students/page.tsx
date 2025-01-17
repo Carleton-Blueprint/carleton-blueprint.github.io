@@ -27,7 +27,7 @@ export default async function Students() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 md:mb-8 pt-6">
               Meet our <span className="text-blueprint-500">Team</span>
             </h1>
-            <Image src={bluePeople} width={188.5} alt="Image of blue figures" className="hidden md:block"/>
+            <Image src={bluePeople} width={188.5} alt="Image of blue figures" className="hidden md:block" />
           </div>
           <div className="flex flex-col space-y-12 md:space-y-24 text-center">
             {teams.map(team => (
