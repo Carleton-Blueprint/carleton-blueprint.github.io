@@ -11,6 +11,7 @@ type Props = {
   shadow?: boolean;
   padding?: 'less' | 'more' | boolean;
   gap?: 'less' | boolean;
+  titleSize?: 'sm';
 };
 
 export default function BlockContainer({
@@ -24,11 +25,11 @@ export default function BlockContainer({
   shadow = false,
   padding = true,
   gap = true,
+  titleSize = 'sm',
 }: Props) {
   return (
     <div
-      className={`${padding && 'py-16'}
-      ${padding === 'less' && 'py-8'}
+      className={`${padding === 'less' ? 'py-8' : padding && 'py-16'}
         ${flip === 'light-blue' && 'bg-blueprint-50'}
         ${flip === 'white' && 'bg-white'}
         ${flip === 'dark-blue' && 'bg-[#0A1E3A]'}
@@ -43,12 +44,14 @@ export default function BlockContainer({
         ${shadow && 'shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)]'}`}
     >
       <div
-        className={`${gap === 'less' ? 'space-y-6 pb-8' : 'space-y-12'} container
+        className={`container
+        ${gap === 'less' ? 'space-y-6 pb-8' : 'space-y-12'}
         ${centered && 'flex flex-col items-center'}`}
       >
         {title && (
           <div
-            className={`flex text-blueprint py-2 font-bold text-5xl md:text-6xl
+            className={`flex text-blueprint py-2 font-bold
+            ${titleSize === 'sm' ? 'text-3xl md:text-4xl' : 'text-5xl md:text-6xl'}
             ${centered && 'text-center'}
             ${flip === 'dark-blue' || flip === 'blueprint' ? 'text-white' : 'text-blueprint'}`}
           >

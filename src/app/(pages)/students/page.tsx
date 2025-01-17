@@ -23,13 +23,13 @@ export default async function Students() {
     <div className="bg-blueprint-50 min-h-screen overflow-x-hidden">
       <div className="flex flex-col space-y-24 relative pb-24 content container">
         <div className="flex flex-col space-y-2">
-          <div className="m-8 flex flex-row items-center gap-5 justify-center md:justify-start">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-8 pt-6">
+          <div className="m-4 ml-0 md:m-8 flex flex-row gap-5 md:justify-start">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 md:mb-8 pt-6">
               Meet our <span className="text-blueprint-500">Team</span>
             </h1>
-            <Image src={bluePeople} width={188.5} alt="Image of blue figures" />
+            <Image src={bluePeople} width={188.5} alt="Image of blue figures" className="hidden md:block" />
           </div>
-          <div className="flex flex-col space-y-24 text-center">
+          <div className="flex flex-col space-y-12 md:space-y-24 text-center">
             {teams.map(team => (
               <Section team={team} key={uuidv4()} />
             ))}

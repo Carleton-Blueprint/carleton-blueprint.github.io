@@ -18,8 +18,8 @@ function TeamProfileBase({ student, hover = false }: { student: StudentDataType;
           alt={'Picture of ' + (hover ? student.name : 'blueprint logo')}
         />
       </div>
-      <p className="text-black text-lg font-bold">{student.name}</p>
-      <p className="text-black capitalize">{student.role}</p>
+      <p className="text-md md:text-lg font-bold">{student.name}</p>
+      <p className="text-sm md:text-base capitalize">{student.role}</p>
     </div>
   );
 }
