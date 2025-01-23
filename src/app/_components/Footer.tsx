@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
-import logo from '../_assets/blueprint_banner_negative.png';
+import logo from '@/app/_assets/blueprint_banner_negative.svg';
 
 export default async function Footer({ pages }: { pages: PageDataType[] }) {
   return (
