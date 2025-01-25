@@ -9,7 +9,7 @@ export default function AboutUsBlock() {
     <BlockContainer bg="light-blue" roundedCorners="bottom">
       <div className="flex flex-row">
         <div className="space-y-8 text-2xl md:w-2/3">
-          <h1 className="text-4xl font-bold text-blueprint md:text-5xl">Our Mission</h1>
+          <h1 className="text-5xl font-bold text-blueprint md:text-6xl">Our Mission</h1>
           <p>
             Started at UC Berkeley, Blueprint strives to make technology more accessible and useful for those who create
             communities and promote public welfare. This chapter at Carleton University is no different.

@@ -30,7 +30,7 @@ export default function BlockContainer({
   shadow = false,
   padding = true,
   gap = true,
-  titleSize = 'sm',
+  titleSize,
 }: Props) {
   return (
     <div
@@ -54,11 +54,13 @@ export default function BlockContainer({
       <div
         className={cn('container space-y-12', {
           'flex flex-col items-center': centered,
+          'space-y-6 pb-8': gap === 'less',
         })}
       >
         {title && (
           <div
             className={cn('flex py-2 text-5xl font-bold text-blueprint md:text-6xl', {
+              'text-3xl md:text-4xl': titleSize === 'sm',
               'text-center': centered,
               'text-white': bg === 'dark-blue' || bg === 'blueprint',
             })}

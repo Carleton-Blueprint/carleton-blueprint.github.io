@@ -12,7 +12,7 @@ function Page() {
   return (
     <div className="bg-blueprint-50">
       <div className="h-[200px] bg-blueprint-50 pt-12 md:h-[425px]">
-        <div className="text-center text-4xl font-black md:text-5xl">
+        <div className="text-center text-5xl font-black md:text-6xl">
           <span className="text-blueprint">Connect </span>
           With Us
         </div>
