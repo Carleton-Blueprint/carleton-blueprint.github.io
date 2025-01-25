@@ -12,6 +12,8 @@ type Props = {
   margin?: 'top' | 'bottom' | true | false;
   shadow?: boolean;
   padding?: 'less' | 'more' | boolean;
+  gap?: 'less' | boolean;
+  titleSize?: 'sm';
 };
 
 type BlockContainerProps = React.HTMLAttributes<HTMLDivElement> & string;
@@ -27,6 +29,8 @@ export default function BlockContainer({
   margin = false,
   shadow = false,
   padding = true,
+  gap = true,
+  titleSize = 'sm',
 }: Props) {
   return (
     <div
