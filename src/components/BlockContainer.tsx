@@ -44,7 +44,7 @@ export default function BlockContainer({
         'rounded-[50px]': roundedCorners === true,
         'rounded-t-[50px]': roundedCorners === 'top',
         'rounded-b-[50px]': roundedCorners === 'bottom',
-        'md:w-max self-center md:px-12': inner,
+        'self-center md:w-max md:px-12': inner,
         'my-12': margin === true,
         'mt-12': margin === 'top',
         'mb-12': margin === 'bottom',
@@ -52,13 +52,13 @@ export default function BlockContainer({
       })}
     >
       <div
-        className={cn('space-y-12 container', {
+        className={cn('container space-y-12', {
           'flex flex-col items-center': centered,
         })}
       >
         {title && (
           <div
-            className={cn('flex text-blueprint py-2 font-bold text-5xl md:text-6xl', {
+            className={cn('flex py-2 text-5xl font-bold text-blueprint md:text-6xl', {
               'text-center': centered,
               'text-white': bg === 'dark-blue' || bg === 'blueprint',
             })}
