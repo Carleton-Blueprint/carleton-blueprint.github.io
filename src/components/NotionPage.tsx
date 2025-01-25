@@ -25,30 +25,30 @@ export default function NotionPage({ recordMap, title, eventDetails }: PropsType
   return (
     <div className="flex flex-col items-center justify-center bg-blue-50 py-12">
       <h1 className="mb-10 text-center text-5xl font-bold text-blueprint">{title}</h1>
-      <div className="md:w-auto w-full">
+      <div className="w-full md:w-auto">
         <BlockContainer roundedCorners centered>
           {eventDetails && (
-            <div className="md:px-[96px] w-full">
+            <div className="w-full md:px-[96px]">
               <div className="mb-10">
-                <h1 className="text-3xl text-gray-800 font-semibold mb-5">Event Details</h1>
-                <div className="grid grid-cols-2 gap-2 md:w-[500px] items-center">
-                  <p className="flex gap-1 items-center text-md text-gray-800">
+                <h1 className="mb-5 text-3xl font-semibold text-gray-800">Event Details</h1>
+                <div className="grid grid-cols-2 items-center gap-2 md:w-[500px]">
+                  <p className="text-md flex items-center gap-1 text-gray-800">
                     <BsCalendar3 /> Date
                   </p>
                   <p className="text-md text-gray-800">{eventDetails.date}</p>
-                  <p className="flex gap-1 items-center text-md text-gray-800">
+                  <p className="text-md flex items-center gap-1 text-gray-800">
                     <MdOutlineLocationCity /> Venue
                   </p>
                   <p className="text-md text-gray-800">{eventDetails.venue}</p>
-                  <p className="flex gap-1 items-center text-md text-gray-800">
+                  <p className="text-md flex items-center gap-1 text-gray-800">
                     <MdOutlineUpcoming /> Status
                   </p>
                   {eventDetails.status === 'Scheduled' ? (
-                    <span className="px-3 py-1 text-white bg-green-500 rounded-full text-xs font-bold w-fit">
+                    <span className="w-fit rounded-full bg-green-500 px-3 py-1 text-xs font-bold text-white">
                       Upcoming
                     </span>
                   ) : (
-                    <span className="px-3 py-1 text-white bg-gray-400 rounded-full text-xs font-bold w-fit">
+                    <span className="w-fit rounded-full bg-gray-400 px-3 py-1 text-xs font-bold text-white">
                       Passed
                     </span>
                   )}

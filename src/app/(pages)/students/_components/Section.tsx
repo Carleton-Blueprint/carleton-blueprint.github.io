@@ -18,7 +18,7 @@ export default function Section({ team }: { team: TeamDataType }) {
       gap="less"
       titleSize="sm"
     >
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+      <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
         {team.teamMembers.map(person => (
           <TeamProfile student={person} key={uuidv4()} />
         ))}
