@@ -10,8 +10,8 @@ type SponsorDataType = {
 
 export default function SponsorCard({ sponsor }: { sponsor: SponsorDataType }) {
   return (
-    <div className="flex flex-col md:flex-row justify-between text-white bg-gradient-to-b md:bg-gradient-to-r from-blueprint from-45% to-white space-y-6 md:space-y-0 to-85% md:-mx-20 rounded-[50px] p-6 md:pl-20 hover:shadow-[0px_4px_4px_0_rgba(0,0,0,0.25)] transition-shadow ease-in-out duration-300">
-      <div className="space-y-4 h-2/3 md:w-2/3 flex flex-col justify-center">
+    <div className="flex flex-col justify-between space-y-6 rounded-[50px] bg-gradient-to-b from-blueprint from-45% to-white to-85% p-6 text-white transition-shadow duration-300 ease-in-out hover:shadow-[0px_4px_4px_0_rgba(0,0,0,0.25)] md:-mx-20 md:flex-row md:space-y-0 md:bg-gradient-to-r md:pl-20">
+      <div className="flex h-2/3 flex-col justify-center space-y-4 md:w-2/3">
         <CardHeader className="p-0">
           <CardTitle className="text-5xl font-semibold">{sponsor.name}</CardTitle>
         </CardHeader>
@@ -19,7 +19,7 @@ export default function SponsorCard({ sponsor }: { sponsor: SponsorDataType }) {
           <p>{sponsor.description}</p>
         </CardContent>
       </div>
-      <div className="h-1/3 md:w-1/4 flex justify-center md:justify-end">
+      <div className="flex h-1/3 justify-center md:w-1/4 md:justify-end">
         <Image className="w-[175px] rounded-full" src={sponsor.logo} alt={`${sponsor.name} logo`} />
       </div>
     </div>

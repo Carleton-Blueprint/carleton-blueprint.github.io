@@ -29,31 +29,14 @@ export default function BlockContainer({
 }: Props) {
   return (
     <div
-      className={`${padding === 'less' ? 'py-8' : padding && 'py-16'}
-        ${flip === 'light-blue' && 'bg-blueprint-50'}
-        ${flip === 'white' && 'bg-white'}
-        ${flip === 'dark-blue' && 'bg-[#0A1E3A]'}
-        ${flip === 'blueprint' && 'bg-blueprint'}
-        ${roundedCorners === true && 'rounded-[50px]'}
-        ${roundedCorners === 'top' && 'rounded-t-[50px]'}
-        ${roundedCorners === 'bottom' && 'rounded-b-[50px]'}
-        ${inner && 'md:w-max self-center md:px-12'}
-        ${margin === true && 'my-12'}
-        ${margin === 'top' && 'mt-12'}
-        ${margin === 'bottom' && 'mb-12'}
-        ${shadow && 'shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)]'}`}
+      className={`${padding === 'less' ? 'py-8' : padding && 'py-16'} ${flip === 'light-blue' && 'bg-blueprint-50'} ${flip === 'white' && 'bg-white'} ${flip === 'dark-blue' && 'bg-[#0A1E3A]'} ${flip === 'blueprint' && 'bg-blueprint'} ${roundedCorners === true && 'rounded-[50px]'} ${roundedCorners === 'top' && 'rounded-t-[50px]'} ${roundedCorners === 'bottom' && 'rounded-b-[50px]'} ${inner && 'self-center md:w-max md:px-12'} ${margin === true && 'my-12'} ${margin === 'top' && 'mt-12'} ${margin === 'bottom' && 'mb-12'} ${shadow && 'shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)]'}`}
     >
       <div
-        className={`container
-        ${gap === 'less' ? 'space-y-6 pb-8' : 'space-y-12'}
-        ${centered && 'flex flex-col items-center'}`}
+        className={`container ${gap === 'less' ? 'space-y-6 pb-8' : 'space-y-12'} ${centered && 'flex flex-col items-center'}`}
       >
         {title && (
           <div
-            className={`flex text-blueprint py-2 font-bold
-            ${titleSize === 'sm' ? 'text-3xl md:text-4xl' : 'text-5xl md:text-6xl'}
-            ${centered && 'text-center'}
-            ${flip === 'dark-blue' || flip === 'blueprint' ? 'text-white' : 'text-blueprint'}`}
+            className={`flex py-2 font-bold text-blueprint ${titleSize === 'sm' ? 'text-3xl md:text-4xl' : 'text-5xl md:text-6xl'} ${centered && 'text-center'} ${flip === 'dark-blue' || flip === 'blueprint' ? 'text-white' : 'text-blueprint'}`}
           >
             {title}
           </div>

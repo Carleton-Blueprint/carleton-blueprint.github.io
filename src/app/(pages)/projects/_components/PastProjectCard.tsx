@@ -10,7 +10,7 @@ export default function PastProjectCard({ data }: { data: ProjectDataType }) {
   return (
     <div className="relative">
       <a href={'/projects/' + data.slug}>
-        <div className="flex flex-col justify-end items-center min-h-[400px] max-h-[500px] p-4 rounded-[40px] hover:outline hover:outline-4 hover:outline-white transition-all ease-in-out duration-150 bg-gradient-to-t from-[#0170DC] to-[#6191BC]">
+        <div className="flex max-h-[500px] min-h-[400px] flex-col items-center justify-end rounded-[40px] bg-gradient-to-t from-[#0170DC] to-[#6191BC] p-4 transition-all duration-150 ease-in-out hover:outline hover:outline-4 hover:outline-white">
           {data.logoUrl && (
             <div className="mb-4">
               <CldImage
@@ -18,14 +18,14 @@ export default function PastProjectCard({ data }: { data: ProjectDataType }) {
                 alt={data.companyName}
                 width={250}
                 height={250}
-                className="w-48 h-48 object-fill"
+                className="h-48 w-48 object-fill"
               />
             </div>
           )}
-          <div className="flex flex-col items-center text-center gap-4">
-            <CardTitle className="flex md:items-center text-4xl text-white md:h-[80px]">{data.companyName}</CardTitle>
-            <CardContent className="text-2xl md:text-base text-white">
-              <p className="hidden md:line-clamp-4 h-[100px]">{data.description}</p>
+          <div className="flex flex-col items-center gap-4 text-center">
+            <CardTitle className="flex text-4xl text-white md:h-[80px] md:items-center">{data.companyName}</CardTitle>
+            <CardContent className="text-2xl text-white md:text-base">
+              <p className="hidden h-[100px] md:line-clamp-4">{data.description}</p>
               <p className="block md:hidden">{data.productName}</p>
             </CardContent>
           </div>
@@ -35,9 +35,9 @@ export default function PastProjectCard({ data }: { data: ProjectDataType }) {
         href={data.gitHubUrl ?? '/projects'}
         newTab={true}
         variant="icon"
-        className="md:hidden absolute top-0 right-0"
+        className="absolute right-0 top-0 md:hidden"
       >
-        <FaGithub className="h-[50px] w-[50px] min-[376px]:h-[80px] min-[376px]:w-[80px] md:h-12 md:w-12 text-white" />
+        <FaGithub className="h-[50px] w-[50px] text-white min-[376px]:h-[80px] min-[376px]:w-[80px] md:h-12 md:w-12" />
       </LinkButton>
     </div>
   );
