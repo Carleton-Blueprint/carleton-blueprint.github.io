@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import logo from '@/app/_assets/blueprint_banner_negative.png';
+import logo from '@/app/_assets/blueprint_banner_negative.svg';
 import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
 import NavbarMobile from './NavbarMobile';
