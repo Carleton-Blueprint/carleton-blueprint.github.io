@@ -12,7 +12,7 @@ function Page() {
   return (
     <div className="bg-blueprint-50">
       <div className="h-[200px] bg-blueprint-50 pt-12 md:h-[425px]">
-        <div className="text-center text-4xl font-black md:text-5xl">
+        <div className="text-center text-5xl font-black md:text-6xl">
           <span className="text-blueprint">Connect </span>
           With Us
         </div>
@@ -31,7 +31,7 @@ function Page() {
           </ContactCard>
         </div>
       </div>
-      <BlockContainer flip="blueprint">
+      <BlockContainer bg="blueprint">
         <div className="flex flex-col justify-between gap-24 pt-[5px] text-lg text-white md:flex-row md:pb-16 md:pt-[200px]">
           <div className="w-full md:w-1/3">
             <Form />
