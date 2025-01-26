@@ -7,7 +7,7 @@ export type AnnouncementDataType = {
   slug: string;
   title: string;
   description: string;
-  homePageURL: string;
+  homePageImageURL: string;
   callout: RichTextType[];
   latest: boolean;
 };
@@ -57,7 +57,7 @@ function getAnnouncementPageProperties(page: any, pageId: string) {
     slug: page.properties.Slug.rich_text[0]?.plain_text || pageId,
     title: page.properties.Name.title[0].text.content,
     description: page.properties.Description.rich_text[0]?.text.content,
-    homePageURL: page.properties['Cover URL'].rich_text[0]?.plain_text || '/default',
+    homePageImageURL: page.properties['Cover URL'].rich_text[0]?.plain_text || '/default',
     callout: page.properties.Callout.rich_text,
     latest: page.properties['Latest Callout'].checkbox,
   };

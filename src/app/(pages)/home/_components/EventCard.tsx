@@ -21,7 +21,7 @@ export default function EventCard({ data }: { data: EventDataType | Announcement
       <Link href={path} className="relative p-1">
         <Card className="relative h-[23rem] min-w-fit overflow-hidden rounded-[50px] shadow-[0px_4px_4px_0_rgba(0,0,0,0.3)] md:h-[36rem]">
           <CldImage
-            src={data.homePageURL || '/default'}
+            src={data.homePageImageURL || '/default'}
             alt={'image for ' + title}
             width={688}
             height={600}
