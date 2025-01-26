@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import logo from '@/app/_assets/blueprint_banner_negative.png';
+import logo from '@/app/_assets/blueprint_banner_negative.svg';
 import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
 import NavbarMobile from './NavbarMobile';
@@ -21,8 +21,8 @@ function MainLink() {
 
 export default async function Navbar({ pages }: { pages: PageDataType[] }) {
   return (
-    <div className="h-[80px] sticky top-0 z-[999]">
-      <div className=" bg-blueprint h-[80px] flex">
+    <div className="sticky top-0 z-[999] h-[80px]">
+      <div className="flex h-[80px] bg-blueprint">
         <div className="container flex flex-row items-center justify-between">
           <MainLink />
 

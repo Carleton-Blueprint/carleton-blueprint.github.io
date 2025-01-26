@@ -1,7 +1,7 @@
 import BlockContainer from '@/components/BlockContainer';
 import LinkButton from '@/components/LinkButton';
 import SponsorCard from './SponsorCard';
-import ServerProLogo from '../_assets/server_pro_logo.png';
+import ServerProLogo from '../_assets/server_pro_logo.svg';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 
 export default function SponsorsBlock() {
@@ -16,7 +16,7 @@ export default function SponsorsBlock() {
 
   return (
     <BlockContainer title="Our Sponsors" padding="less" inner margin="bottom">
-      <div className="space-y-10 hidden md:flex flex-col">
+      <div className="hidden flex-col space-y-10 md:flex">
         {sponsors.map(sponsor => (
           <SponsorCard key={sponsor.name} sponsor={sponsor} />
         ))}
@@ -38,7 +38,7 @@ export default function SponsorsBlock() {
           </CarouselContent>
         </Carousel>
       </div>
-      <div className="w-full flex justify-end">
+      <div className="flex w-full justify-end">
         <LinkButton href="/contact" newTab={true} variant="filled">
           Become a Sponsor!
         </LinkButton>

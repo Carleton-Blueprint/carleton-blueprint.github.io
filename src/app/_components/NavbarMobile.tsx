@@ -30,9 +30,9 @@ export default function NavbarMobile({ data, breakpoint = 'md' }: PropType) {
       <SheetTrigger className={styles.sheetTrigger[breakpoint]}>
         <GiHamburgerMenu className="size-7 text-white" />
       </SheetTrigger>
-      <SheetContent className="w-[250px] bg-blueprint text-2xl flex justify-center items-center">
+      <SheetContent className="flex w-[250px] items-center justify-center bg-blueprint text-2xl">
         <SheetHeader className="h-4/5">
-          <div className="h-3/6 flex flex-col justify-between">
+          <div className="flex h-3/6 flex-col justify-between">
             {data.map(page => (
               <NavbarLinkItem key={uuidv4()} page={page} />
             ))}
