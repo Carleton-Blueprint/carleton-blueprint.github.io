@@ -9,8 +9,8 @@ export default async function HomeEvents() {
   const news = await getFeaturedAnnouncements();
 
   return (
-    <BlockContainer title="News and Events" bg="light-blue" margin={'bottom'}>
-      <div className="flex justify-center px-4">
+    <BlockContainer title="News & Events" bg="light-blue" padding="less">
+      <div className="-mx-6 flex justify-center px-4">
         <Carousel
           opts={{
             align: 'start',
