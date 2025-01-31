@@ -9,7 +9,7 @@ export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();
   return (
     <BlockContainer title="Projects" padding="less">
-      <div className="-mx-8 px-4">
+      <div className="-mx-8 px-4 md:mx-auto">
         <Carousel
           opts={{
             align: 'start',
