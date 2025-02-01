@@ -18,7 +18,7 @@ export default async function HomeEvents() {
           }}
           className="w-full"
         >
-          <CarouselContent>
+          <CarouselContent className="px-1 py-4">
             {news.map(announcement => (
               <CarouselItem key={announcement.announcementPageId} className="md:basis-1/2 lg:basis-1/3">
                 <EventCard data={announcement} />
