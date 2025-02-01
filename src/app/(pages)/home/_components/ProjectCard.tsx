@@ -5,12 +5,36 @@ import { ProjectDataType } from '@/lib/notion/projects';
 import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 
-export default function HomeProjectCard({ data }: { data: ProjectDataType }) {
+type HomeProjectCardProps = {
+  data: ProjectDataType;
+  mobile?: boolean;
+};
+
+export default function HomeProjectCard({ data, mobile = false }: HomeProjectCardProps) {
+  if (mobile) {
+    return (
+      <div className="relative flex items-center justify-end">
+        <CldImage
+          src={data.logoUrl != '' ? (data.logoUrl as string) : projectLogo}
+          alt={`logo of ${data.companyName}`}
+          width={75}
+          height={75}
+          className="absolute mr-6 rounded-[40px]"
+        />
+        <div className="group relative h-24 w-full min-w-fit rounded-[35px] bg-gradient-to-t from-blueprint from-10% to-blueprint/15 to-85% px-6">
+          <h2 className="absolute bottom-2 line-clamp-1 w-11/12 text-3xl font-semibold text-white">
+            {data.companyName}
+          </h2>
+        </div>
+        <Link href={'/projects/' + data.slug} className="absolute h-full w-full" />
+      </div>
+    );
+  }
   return (
     <div className="flex items-center justify-center">
       <CldImage
         src={data.logoUrl != '' ? (data.logoUrl as string) : projectLogo}
-        alt="project image"
+        alt={`logo of ${data.companyName}`}
         width={320}
         height={320}
         className="absolute rounded-[40px] md:h-80 md:w-80 lg:h-72 lg:w-72"

@@ -52,7 +52,7 @@ export default function BlockContainer({
       })}
     >
       <div
-        className={cn('container space-y-12', {
+        className={cn('container space-y-10', {
           'flex flex-col items-center': centered,
           'space-y-6 pb-8': gap === 'less',
         })}

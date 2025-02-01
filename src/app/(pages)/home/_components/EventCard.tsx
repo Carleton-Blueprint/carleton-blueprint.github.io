@@ -18,8 +18,8 @@ export default function EventCard({ data }: { data: EventDataType | Announcement
 
   return (
     <div className="group">
-      <Link href={path} className="relative p-1">
-        <Card className="relative h-[23rem] min-w-fit overflow-hidden rounded-[50px] shadow-[0px_4px_4px_0_rgba(0,0,0,0.3)] md:h-[36rem]">
+      <Link href={path} className="relative">
+        <Card className="relative h-[18rem] min-w-fit overflow-hidden rounded-[50px] shadow-[0px_4px_4px_0_rgba(0,0,0,0.3)] md:h-[36rem]">
           <CldImage
             src={data.homePageImageURL || '/default'}
             alt={'image for ' + title}
