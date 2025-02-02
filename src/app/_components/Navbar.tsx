@@ -7,12 +7,10 @@ import NavbarMobile from './NavbarMobile';
 import NavbarLinkItem from './NavbarLinkItem';
 import { PageDataType } from '@/lib/types';
 
-const NAV_BREAKPOINT = 'md';
-
 function MainLink() {
   return (
     <Link href="/">
-      <div className="relative w-[150px]">
+      <div className={`relative w-[200px] pt-2 md:w-[150px] md:pt-0`}>
         <Image src={logo} alt="blueprint logo" />
       </div>
     </Link>
@@ -22,17 +20,17 @@ function MainLink() {
 export default async function Navbar({ pages }: { pages: PageDataType[] }) {
   return (
     <div className="sticky top-0 z-[999] h-[80px]">
-      <div className="flex h-[80px] bg-blueprint">
-        <div className="container flex flex-row items-center justify-between">
+      <div className="flex h-[80px] justify-center bg-blueprint">
+        <div className={`mx-4 flex w-full flex-row items-center justify-between md:container`}>
           <MainLink />
 
-          <div className={`hidden ${NAV_BREAKPOINT}:flex flex-row space-x-12`}>
+          <div className={`hidden flex-row space-x-12 md:flex`}>
             {pages.map(page => (
               <NavbarLinkItem key={uuidv4()} page={page} />
             ))}
           </div>
 
-          <NavbarMobile data={pages} breakpoint={NAV_BREAKPOINT} />
+          <NavbarMobile data={pages} />
         </div>
       </div>
 
