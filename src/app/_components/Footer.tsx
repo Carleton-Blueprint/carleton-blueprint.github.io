@@ -5,8 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 import logo from '@/app/_assets/blueprint_banner_negative.svg';
 
-const FOOTER_BREAKPOINT = 'md';
-
 export default async function Footer({ pages }: { pages: PageDataType[] }) {
   return (
     <div className={`flex bg-blueprint p-6 text-white md:p-0 md:pb-10 md:pt-8`}>
