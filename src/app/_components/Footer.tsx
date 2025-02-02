@@ -22,9 +22,7 @@ export default async function Footer({ pages }: { pages: PageDataType[] }) {
             ))}
           </div>
 
-          <div
-            className={`flex w-2/3 flex-col justify-center text-[14px] ${FOOTER_BREAKPOINT}:items-end ${FOOTER_BREAKPOINT}:text-[18px]`}
-          >
+          <div className={`flex w-2/3 flex-col justify-center text-[14px] ${FOOTER_BREAKPOINT}:text-[18px]`}>
             <Link href="/" className={`flex pb-2 ${FOOTER_BREAKPOINT}:flex-row-reverse`}>
               <Image
                 src={logo}
@@ -32,11 +30,13 @@ export default async function Footer({ pages }: { pages: PageDataType[] }) {
                 className={`w-[300px] rounded-md transition duration-300 ease-in-out hover:shadow-xl ${FOOTER_BREAKPOINT}:w-[250px]`}
               />
             </Link>
-            <div className={`${FOOTER_BREAKPOINT}:w-2/3 ${FOOTER_BREAKPOINT}:text-end`}>Made with ❤️ by Carleton</div>
-            <div className={`${FOOTER_BREAKPOINT}:w-full ${FOOTER_BREAKPOINT}:text-right`}>
+            <div className={`${FOOTER_BREAKPOINT}:w-full ${FOOTER_BREAKPOINT}:text-end`}>Made with ❤️ by Carleton</div>
+            <div className={`${FOOTER_BREAKPOINT}:w-full ${FOOTER_BREAKPOINT}:text-end`}>
               Blueprint @ Carleton University
             </div>
-            <div className={`mt-1 text-[16px] ${FOOTER_BREAKPOINT}:text-[20px]`}>Ottawa, Ontario, Canada</div>
+            <div className={`mt-1 text-[16px] ${FOOTER_BREAKPOINT}:text-[20px] ${FOOTER_BREAKPOINT}:text-end`}>
+              Ottawa, Ontario, Canada
+            </div>
           </div>
         </div>
       </div>

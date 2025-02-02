@@ -22,7 +22,7 @@ function MainLink() {
 export default async function Navbar({ pages }: { pages: PageDataType[] }) {
   return (
     <div className="sticky top-0 z-[999] h-[80px]">
-      <div className="flex h-[80px] bg-blueprint">
+      <div className="flex h-[80px] justify-center bg-blueprint">
         <div className={`mx-4 flex w-full flex-row items-center justify-between ${NAV_BREAKPOINT}:container`}>
           <MainLink />
 
