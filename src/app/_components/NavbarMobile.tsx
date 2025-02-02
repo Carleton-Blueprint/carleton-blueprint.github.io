@@ -6,7 +6,6 @@ import NavbarLinkItem from './NavbarLinkItem';
 
 type PropType = {
   data: PageDataType[];
-  breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 };
 
 /*
@@ -24,10 +23,10 @@ const styles = {
   },
 };
 
-export default function NavbarMobile({ data, breakpoint = 'md' }: PropType) {
+export default function NavbarMobile({ data }: PropType) {
   return (
     <Sheet>
-      <SheetTrigger className={styles.sheetTrigger[breakpoint]}>
+      <SheetTrigger className={styles.sheetTrigger['md']}>
         <IoMenu className="-pt-4 size-16 text-white" />
       </SheetTrigger>
       <SheetContent className="flex w-[250px] items-center justify-center bg-blueprint text-2xl">
