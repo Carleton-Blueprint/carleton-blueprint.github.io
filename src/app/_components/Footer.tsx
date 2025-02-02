@@ -12,7 +12,7 @@ export default async function Footer({ pages }: { pages: PageDataType[] }) {
     <div
       className={`flex bg-blueprint p-6 text-white ${FOOTER_BREAKPOINT}:p-0 ${FOOTER_BREAKPOINT}:pb-10 ${FOOTER_BREAKPOINT}:pt-8`}
     >
-      <div className={`w-full ${FOOTER_BREAKPOINT}:container`}>
+      <div className={`w-full md:container`}>
         <div className="flex space-x-6">
           <div className={`flex w-1/3 flex-col justify-center space-y-1 text-2xl ${FOOTER_BREAKPOINT}:space-y-3`}>
             {pages.map(page => (
