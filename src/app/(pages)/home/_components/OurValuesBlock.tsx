@@ -60,7 +60,7 @@ function Value({ data }: { data: ValueDataType }) {
     <div
       className={`${
         data.flip && 'md:flex-row-reverse md:space-x-reverse md:self-end'
-      } relative -mx-[1.5rem] flex flex-col rounded-[35px] bg-white p-6 px-10 shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)] md:mx-0 md:w-10/12 md:flex-row md:items-center md:space-x-20 md:p-12`}
+      } relative -mx-[1.5rem] flex flex-col rounded-[35px] bg-white p-6 px-10 pb-10 shadow-[2px_6px_4px_0_rgba(0,0,0,0.3)] md:mx-0 md:w-10/12 md:flex-row md:items-center md:space-x-20 md:p-12`}
     >
       <div className={`mb-3 text-left text-2xl font-bold text-[#3B6E9B] md:text-4xl`}>{data.title}</div>
       <div className={`${!data.flip && 'md:text-end'} text-md z-20 text-left md:z-auto md:text-lg`}>

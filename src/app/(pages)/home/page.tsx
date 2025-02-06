@@ -7,7 +7,7 @@ import SponsorsBlock from './_components/SponsorsBlock';
 
 export default async function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <HeroBlock />
       <div className="flex flex-col">
         <AboutUsBlock />
