@@ -41,7 +41,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.29.5-appdir.0",
+    "@netlify/plugin-nextjs": "^5.9.4",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^20",
     "@types/react": "^18",
