@@ -4,5 +4,5 @@ import { revalidatePath } from 'next/cache';
 
 export async function POST() {
   revalidatePath('/students');
-  return NextResponse.json({ message: 'Hit endpoint', status: 200 });
+  return NextResponse.json({ message: 'Successfully revalidated /', status: 200 });
 }
