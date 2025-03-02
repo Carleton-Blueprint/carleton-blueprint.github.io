@@ -21,7 +21,7 @@ const EventCard: React.FC<EventCardProps> = ({ slug, imgURL, title, venue, time,
       rel="noopener noreferrer"
       className="relative mt-12 flex w-full max-w-md transform cursor-pointer flex-col overflow-hidden rounded-[30px] bg-white shadow-md transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl"
     >
-      <div className="relative h-72 w-full">
+      <div className="relative w-full overflow-hidden md:h-64">
         <div className="max-h-full overflow-hidden">
           <CldImage src={imgURL} alt={title} width={400} height={400} className="rounded-lg" />
         </div>
