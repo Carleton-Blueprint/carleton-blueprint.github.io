@@ -21,10 +21,10 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
         />
       )}
 
-      <div className="flex min-h-[320px] flex-col justify-end md:min-h-full md:justify-between">
+      <div className="w-full flex min-h-[320px] flex-col justify-end md:min-h-full md:justify-between">
         <CardHeader className="flex flex-col items-start justify-between md:block md:items-center">
           <CardTitle className="text-4xl font-bold">{data.companyName}</CardTitle>
-          <div className="flex flex-row md:items-center md:pt-0">
+          <div className="w-full flex flex-row md:items-center md:pt-0 justify-between">
             <CardDescription className="pt-2 text-2xl font-medium leading-9 md:pt-0 md:text-xl">
               {data.productName}
             </CardDescription>
@@ -39,7 +39,7 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
             )}
           </div>
         </CardHeader>
-        <CardContent className={'text-md mb-5 hidden overflow-hidden md:block md:h-24'}>
+        <CardContent className={'text-md mb-5 hidden md:block md:h-24'}>
           <p>{data.description}</p>
         </CardContent>
         <CardFooter className={'justify-end space-x-4 pb-4 text-xs md:justify-start md:pb-6 md:text-lg'}>
