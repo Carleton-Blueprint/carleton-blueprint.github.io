@@ -21,6 +21,7 @@ const EventsPage: React.FC = async () => {
               time={event.date}
               description={event.description}
               isUpcoming={event.status === 'Scheduled'}
+              imageURL={event.imageURL}
             />
           ))}
         </div>

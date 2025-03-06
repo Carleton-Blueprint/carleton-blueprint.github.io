@@ -12,6 +12,7 @@ export type EventDataType = {
   description: string;
   coverURL: string;
   homePageImageURL?: string;
+  imageURL: string;
 };
 
 export const EVENTS_DATABASE_ID = 'f988151abd6448ebb70053c5ca1278f9';
@@ -70,5 +71,6 @@ function getEventPageProperties(page: any, pageId: string) {
     coverURL: page.properties['Cover URL'].rich_text[0]?.plain_text || '/default',
     homePageImageURL: page.properties['Home Cover URL'].rich_text[0]?.plain_text || '/default',
     slug: page.properties.Slug.rich_text[0]?.plain_text || pageId,
+    imageURL: page.properties['Image'].files[0].file.url,
   };
 }
