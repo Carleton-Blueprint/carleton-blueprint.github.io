@@ -4,6 +4,7 @@ import notion from '.';
 import { getEventPageIds } from './events';
 import { getProjectPageIds } from './projects';
 import { getAnnouncementsPageIds } from './announcements';
+import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 /*
  * `notion-client` is the unofficial notion API library (not the same as – @notionhq/client)
@@ -38,7 +39,8 @@ export async function getPageIds(database_id: string): Promise<string[]> {
 
 export async function getTitleByPageId(page_id: string) {
   const res = await notion.pages.retrieve({ page_id });
-  const typedRes = res as any;
+  const typedRes = res as PageObjectResponse;
+  if (typedRes.properties.Name.type !== 'title') return 'Untitled';
   return typedRes.properties.Name.title[0].plain_text;
 }
 
@@ -55,5 +57,5 @@ export async function getPageBySlug(database_id: string, slug: string) {
 
   if (!res.results.length) return undefined;
 
-  return res.results[0];
+  return res.results[0] as PageObjectResponse;
 }
