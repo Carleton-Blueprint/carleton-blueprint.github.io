@@ -57,7 +57,15 @@ export async function getProjects(options?: { featuredOnly: boolean }) {
 }
 
 export async function getProjectPageBySlug(slug: string) {
-  return getPageBySlug(PROJECTS_DATABASE_ID, slug);
+  const projectPage = await getPageBySlug(PROJECTS_DATABASE_ID, slug);
+  if (!projectPage) return undefined;
+  if (!isFullPage(projectPage)) return undefined;
+
+  const projectPageId = projectPage.id;
+  const properties = getProjectPageProperties(projectPage, projectPageId);
+  if (!properties) return undefined;
+
+  return { projectPageId, ...properties };
 }
 
 function getProjectPageProperties(page: PageObjectResponse, pageId: string) {

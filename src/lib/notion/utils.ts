@@ -41,7 +41,7 @@ export async function getTitleByPageId(page_id: string) {
   const res = await notion.pages.retrieve({ page_id });
   const typedRes = res as PageObjectResponse;
   if (typedRes.properties.Name.type !== 'title') return 'Untitled';
-  return typedRes.properties.Name.title[0].plain_text;
+  return typedRes.properties.Name.title[0].plain_text || 'Untitled';
 }
 
 export async function getPageBySlug(database_id: string, slug: string) {
