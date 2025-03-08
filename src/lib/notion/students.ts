@@ -1,3 +1,4 @@
+import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import notion from '.';
 import { cache } from 'react';
 
@@ -28,10 +29,21 @@ export const getStudents = cache(async () => {
 
   const studentsArray: StudentDataType[] = [];
 
-  for (const student of res.results as any) {
-    const name = student.properties.Name.title[0].plain_text;
-    const team = student.properties.Team.select.name;
-    const role = student.properties.Roles.select.name;
+  for (const student of res.results as PageObjectResponse[]) {
+    if (student.properties.Visibility.type !== 'checkbox') continue;
+    if (!student.properties.Visibility.checkbox) {
+      continue;
+    }
+
+    if (student.properties.Name.type !== 'title') continue;
+    if (student.properties.Team.type !== 'select') continue;
+    if (student.properties.Roles.type !== 'select') continue;
+    if (student.properties.Photo.type !== 'rich_text') continue;
+    if (student.properties.Link.type !== 'url') continue;
+
+    const name = student.properties.Name.title[0]?.plain_text || 'Name';
+    const team = student.properties.Team.select?.name || 'Executive';
+    const role = student.properties.Roles.select?.name || 'Role';
     const imageUrl = student.properties.Photo.rich_text[0]?.plain_text || '/default';
     const personalUrl = student.properties.Link.url !== null ? student.properties.Link.url : 'No URL';
     studentsArray.push({ name, team, role, imageUrl, personalUrl });

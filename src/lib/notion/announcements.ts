@@ -1,6 +1,8 @@
+import { isFullPage } from '@notionhq/client';
 import notion from '.';
 import { getPageBySlug, getPageIds } from './utils';
 import { RichTextType } from '@/components/RichText';
+import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 export type AnnouncementDataType = {
   announcementPageId: string;
@@ -28,14 +30,21 @@ export async function getAnnouncements(options?: { featuredOnly: boolean }) {
   const announcementsPageIds = await getAnnouncementsPageIds();
   const announcements: AnnouncementDataType[] = [];
   for (const announcementPageId of announcementsPageIds) {
-    const page = (await notion.pages.retrieve({ page_id: announcementPageId })) as any;
+    const page = await notion.pages.retrieve({ page_id: announcementPageId });
 
-    if (featuredOnly && !page.properties.Featured.checkbox) {
+    if (!isFullPage(page)) continue;
+    if (page.properties.Featured.type !== 'checkbox') continue;
+    if (page.properties.Visibility.type !== 'checkbox') continue;
+
+    if ((featuredOnly && !page.properties.Featured.checkbox) || !page.properties.Visibility.checkbox) {
       continue;
     }
 
+    const properties = getAnnouncementPageProperties(page, announcementPageId);
+    if (!properties) continue;
+
     announcements.push({
-      ...getAnnouncementPageProperties(page, announcementPageId),
+      ...properties,
     });
   }
   return announcements;
@@ -51,12 +60,19 @@ export async function getNewsPageBySlug(slug: string) {
   return { newsPageId, ...getAnnouncementPageProperties(newsPage, newsPageId) };
 }
 
-function getAnnouncementPageProperties(page: any, pageId: string) {
+function getAnnouncementPageProperties(page: PageObjectResponse, pageId: string) {
+  if (page.properties.Name.type !== 'title') return null;
+  if (page.properties.Description.type !== 'rich_text') return null;
+  if (page.properties['Cover URL'].type !== 'rich_text') return null;
+  if (page.properties.Callout.type !== 'rich_text') return null;
+  if (page.properties['Latest Callout'].type !== 'checkbox') return null;
+  if (page.properties.Slug.type !== 'rich_text') return null;
+
   return {
     announcementPageId: pageId,
     slug: page.properties.Slug.rich_text[0]?.plain_text || pageId,
-    title: page.properties.Name.title[0].text.content,
-    description: page.properties.Description.rich_text[0]?.text.content,
+    title: page.properties.Name.title[0].plain_text || 'Title',
+    description: page.properties.Description.rich_text[0]?.plain_text || '',
     homePageImageURL: page.properties['Cover URL'].rich_text[0]?.plain_text || '/default',
     callout: page.properties.Callout.rich_text,
     latest: page.properties['Latest Callout'].checkbox,
@@ -84,6 +100,9 @@ export async function getLatestCallout() {
     },
   });
   if (res.results.length === 0) {
+    return null;
+  }
+  if (!isFullPage(res.results[0])) {
     return null;
   }
   return getAnnouncementPageProperties(res.results[0], res.results[0].id);
