@@ -3,6 +3,8 @@ import EventCard from './_components/EventCard'; // Assuming EventCard is in the
 import { getEvents } from '@/lib/notion/events';
 import BlockContainer from '@/components/BlockContainer';
 
+export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
+
 const EventsPage: React.FC = async () => {
   const res = await getEvents();
   return (

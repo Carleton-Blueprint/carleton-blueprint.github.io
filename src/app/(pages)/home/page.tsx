@@ -5,6 +5,8 @@ import ProjectsBlock from './_components/ProjectsBlock';
 import EventsBlock from './_components/EventsBlock';
 import SponsorsBlock from './_components/SponsorsBlock';
 
+export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
+
 export default async function Home() {
   return (
     <div className="overflow-x-hidden">
