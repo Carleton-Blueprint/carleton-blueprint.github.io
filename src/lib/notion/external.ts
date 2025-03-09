@@ -1,3 +1,4 @@
+import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import notion from '.';
 import { getPageIds } from './utils';
 
@@ -13,9 +14,9 @@ export async function getExternalPageSlugs(): Promise<string[]> {
   });
 
   const results = res.results.map(result => {
-    const typedResult = result as any;
+    const typedResult = result as PageObjectResponse;
+    if (typedResult.properties.Slug.type !== 'url' || !typedResult.properties.Slug.url) return '';
     const slug = typedResult.properties.Slug.url;
-    // const slug = encodeURI(title);
     return slug;
   });
 

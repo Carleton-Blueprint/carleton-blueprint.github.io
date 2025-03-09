@@ -4,6 +4,8 @@ import { getFeaturedEvents } from '@/lib/notion/events';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { getFeaturedAnnouncements } from '@/lib/notion/announcements';
 
+export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
+
 export default async function HomeEvents() {
   const res = await getFeaturedEvents();
   const news = await getFeaturedAnnouncements();
