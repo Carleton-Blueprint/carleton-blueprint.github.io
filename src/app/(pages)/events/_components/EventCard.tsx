@@ -1,12 +1,10 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-// import { CldImage } from 'next-cloudinary';
 import Image from 'next/image';
 
 interface EventCardProps {
   slug: string;
-  imgURL: string;
   title: string;
   venue: string;
   time: string;
@@ -15,17 +13,7 @@ interface EventCardProps {
   imageURL: string;
 }
 
-const EventCard: React.FC<EventCardProps> = ({
-  slug,
-  imgURL,
-  title,
-  venue,
-  time,
-  description,
-  isUpcoming,
-  imageURL,
-}) => {
-  console.log(imgURL);
+const EventCard: React.FC<EventCardProps> = ({ slug, title, venue, time, description, isUpcoming, imageURL }) => {
   return (
     <Link
       href={`/events/${slug}`}
@@ -35,7 +23,6 @@ const EventCard: React.FC<EventCardProps> = ({
     >
       <div className="relative w-full overflow-hidden md:h-64">
         <div className="max-h-full overflow-hidden">
-          {/* <CldImage src={imgURL} alt={title} width={400} height={400} className="rounded-lg" /> */}
           <Image src={imageURL} alt={title} width={400} height={400} className="rounded-lg" />
         </div>
       </div>

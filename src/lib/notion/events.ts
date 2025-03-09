@@ -12,7 +12,6 @@ export type EventDataType = {
   venue: string;
   status: string;
   description: string;
-  coverURL: string;
   homePageImageURL?: string;
   imageURL: string;
 };
@@ -71,9 +70,14 @@ function getEventPageProperties(page: PageObjectResponse, pageId: string) {
   if (page.properties.Venue.type !== 'rich_text') return false;
   if (page.properties.Status.type !== 'status' || !page.properties.Status.status) return false;
   if (page.properties.Description.type !== 'rich_text') return false;
-  if (page.properties['Cover URL'].type !== 'rich_text') return false;
-  if (page.properties['Home Cover URL'].type !== 'rich_text') return false;
   if (page.properties.Slug.type !== 'rich_text') return false;
+  if (page.properties.Image.type !== 'files') return false;
+
+  if (page.properties.Image.files[0] && !('file' in page.properties.Image.files[0])) return false;
+  if (page.properties.Image.files[1] && !('file' in page.properties.Image.files[1])) return false;
+
+  const homeImage =
+    page.properties.Image.files[1]?.file.url || page.properties.Image.files[0]?.file.url || '/default.png';
 
   let date = '';
   if (!page.properties.Date.date) {
@@ -91,10 +95,9 @@ function getEventPageProperties(page: PageObjectResponse, pageId: string) {
     date,
     venue: page.properties.Venue.rich_text[0]?.plain_text || 'Carleton University',
     status: page.properties.Status.status.name,
-    description: page.properties.Description.rich_text[0]?.plain_text || 'Description',
-    coverURL: page.properties['Cover URL'].rich_text[0]?.plain_text || '/default',
-    homePageImageURL: page.properties['Home Cover URL'].rich_text[0]?.plain_text || '/default',
+    description: page.properties.Description.rich_text[0]?.plain_text || '',
+    homePageImageURL: homeImage,
     slug: page.properties.Slug.rich_text[0]?.plain_text || pageId,
-    imageURL: page.properties['Image'].files[0].file.url,
+    imageURL: page.properties['Image'].files[0]?.file.url || '/default.png',
   };
 }
