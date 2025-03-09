@@ -17,7 +17,7 @@ export default async function HeroBlock() {
       {text && <CallOutWrapper text={text} />}
       <div className="container flex h-[calc(100vh-80px)] w-full pt-12">
         <div className="flex flex-col justify-around md:m-0 md:w-1/2 md:items-center md:justify-center md:pt-0">
-          <div className="top-0 h-min items-center text-white scale-100 md:scale-120 lg:scale-125 xl:scale-350 transition-transform duration-300">
+          <div className="md:scale-120 xl:scale-350 top-0 h-min scale-100 items-center text-white transition-transform duration-300 lg:scale-125">
             <h1 className="text-6xl font-bold">Carleton Blueprint</h1>
             <h2 className="mb-6 text-3xl">Tech for social good.</h2>
             <Link
