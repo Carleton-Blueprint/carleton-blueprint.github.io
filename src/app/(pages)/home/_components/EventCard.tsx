@@ -1,8 +1,8 @@
 'use client';
-import { CldImage } from 'next-cloudinary';
 import { EventDataType } from '@/lib/notion/events';
 import { Card, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
+import Image from 'next/image';
 import { AnnouncementDataType } from '@/lib/notion/announcements';
 
 export default function EventCard({ data }: { data: EventDataType | AnnouncementDataType }) {
@@ -20,8 +20,8 @@ export default function EventCard({ data }: { data: EventDataType | Announcement
     <div className="group">
       <Link href={path} className="relative">
         <Card className="relative h-[18rem] min-w-fit overflow-hidden rounded-[50px] shadow-[0px_4px_4px_0_rgba(0,0,0,0.3)] md:h-[36rem]">
-          <CldImage
-            src={data.homePageImageURL || '/default'}
+          <Image
+            src={data.homePageImageURL || '/default.png'}
             alt={'image for ' + title}
             width={688}
             height={600}

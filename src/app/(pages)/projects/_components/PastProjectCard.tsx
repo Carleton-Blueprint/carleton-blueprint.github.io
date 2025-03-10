@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { ProjectDataType } from '@/lib/notion/projects';
-import { CldImage } from 'next-cloudinary';
+import Image from 'next/image';
 import { CardContent, CardTitle } from '@/components/ui/card';
 import LinkButton from '@/components/LinkButton';
 import { FaGithub } from 'react-icons/fa';
@@ -13,7 +13,7 @@ export default function PastProjectCard({ data }: { data: ProjectDataType }) {
         <div className="flex max-h-[500px] min-h-[400px] flex-col items-center justify-end rounded-[40px] bg-gradient-to-t from-[#0170DC] to-[#6191BC] p-4 transition-all duration-150 ease-in-out hover:outline hover:outline-4 hover:outline-white">
           {data.logoUrl && (
             <div className="mb-4">
-              <CldImage
+              <Image
                 src={data.logoUrl}
                 alt={data.companyName}
                 width={250}

@@ -1,7 +1,7 @@
 'use client';
 import { StudentDataType } from '@/lib/notion/students';
 import Link from 'next/link';
-import { CldImage } from 'next-cloudinary';
+import Image from 'next/image';
 
 function TeamProfileBase({ student, hover = false }: { student: StudentDataType; hover: boolean }) {
   return (
@@ -11,7 +11,7 @@ function TeamProfileBase({ student, hover = false }: { student: StudentDataType;
       }`}
     >
       <div className="mb-2 flex h-32 w-32 items-center overflow-hidden rounded-full border-2 border-white">
-        <CldImage
+        <Image
           src={student.imageUrl}
           width={128}
           height={128}
