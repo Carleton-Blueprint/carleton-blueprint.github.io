@@ -40,11 +40,14 @@ export const getStudents = cache(async () => {
     if (student.properties.Roles.type !== 'select') continue;
     if (student.properties.Photo.type !== 'rich_text') continue;
     if (student.properties.Link.type !== 'url') continue;
+    if (student.properties.Image.type !== 'files') continue;
+
+    if (student.properties.Image.files[0] && !('file' in student.properties.Image.files[0])) continue;
 
     const name = student.properties.Name.title[0]?.plain_text || 'Name';
     const team = student.properties.Team.select?.name || 'Executive';
     const role = student.properties.Roles.select?.name || 'Role';
-    const imageUrl = student.properties.Photo.rich_text[0]?.plain_text || '/default';
+    const imageUrl = student.properties['Image'].files[0]?.file.url || '/default.png';
     const personalUrl = student.properties.Link.url !== null ? student.properties.Link.url : 'No URL';
     studentsArray.push({ name, team, role, imageUrl, personalUrl });
   }

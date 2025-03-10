@@ -2,8 +2,8 @@
 import { IoLogoGithub } from 'react-icons/io';
 import projectLogo from '../_assets/projectLogo.svg';
 import { ProjectDataType } from '@/lib/notion/projects';
-import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type HomeProjectCardProps = {
   data: ProjectDataType;
@@ -14,7 +14,7 @@ export default function HomeProjectCard({ data, mobile = false }: HomeProjectCar
   if (mobile) {
     return (
       <div className="relative flex items-center justify-end">
-        <CldImage
+        <Image
           src={data.logoUrl != '' ? (data.logoUrl as string) : projectLogo}
           alt={`logo of ${data.companyName}`}
           width={75}
@@ -32,7 +32,7 @@ export default function HomeProjectCard({ data, mobile = false }: HomeProjectCar
   }
   return (
     <div className="flex items-center justify-center">
-      <CldImage
+      <Image
         src={data.logoUrl != '' ? (data.logoUrl as string) : projectLogo}
         alt={`logo of ${data.companyName}`}
         width={320}

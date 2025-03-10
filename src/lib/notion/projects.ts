@@ -78,13 +78,16 @@ function getProjectPageProperties(page: PageObjectResponse, pageId: string) {
   if (page.properties.Status.type !== 'status' || !page.properties.Status.status) return false;
   if (page.properties.gitHubUrl.type !== 'url') return false;
   if (page.properties.Slug.type !== 'rich_text') return false;
+  if (page.properties.Image.type !== 'files') return false;
+
+  if (page.properties.Image.files[0] && !('file' in page.properties.Image.files[0])) return false;
 
   return {
     companyName: page.properties.Name.title[0]?.plain_text || 'Company Name',
     productName: page.properties['Product Name'].rich_text[0]?.plain_text,
     description: page.properties.Description.rich_text[0]?.plain_text,
     year: page.properties.Year.rich_text[0]?.plain_text,
-    logoUrl: page.properties['Logo URL'].rich_text[0]?.plain_text || '/default',
+    logoUrl: page.properties['Image'].files[0]?.file.url || '/default.png',
     externalUrl: page.properties.URL.url,
     status: page.properties.Status.status.name,
     gitHubUrl: page.properties.gitHubUrl.url || '',
