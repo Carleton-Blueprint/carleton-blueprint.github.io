@@ -73,7 +73,6 @@ function getProjectPageProperties(page: PageObjectResponse, pageId: string) {
   if (page.properties['Product Name'].type !== 'rich_text') return false;
   if (page.properties.Description.type !== 'rich_text') return false;
   if (page.properties.Year.type !== 'rich_text') return false;
-  if (page.properties['Logo URL'].type !== 'rich_text') return false;
   if (page.properties.URL.type !== 'url') return false;
   if (page.properties.Status.type !== 'status' || !page.properties.Status.status) return false;
   if (page.properties.gitHubUrl.type !== 'url') return false;
