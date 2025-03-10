@@ -2,7 +2,7 @@
 import LinkButton from '@/components/LinkButton';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ProjectDataType } from '@/lib/notion/projects';
-import { CldImage } from 'next-cloudinary';
+import Image from 'next/image';
 import { FaGithub } from 'react-icons/fa';
 import { FaArrowCircleRight } from 'react-icons/fa';
 
@@ -12,7 +12,7 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
       className={`flex w-full items-center justify-center rounded-[40px] shadow-[2px_6px_4px_0px_rgba(0,0,0,0.25)] md:h-auto`}
     >
       {data.logoUrl && (
-        <CldImage
+        <Image
           src={data.logoUrl}
           alt={data.companyName}
           width={250}
@@ -29,7 +29,7 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
               {data.productName}
             </CardDescription>
             {data.logoUrl && (
-              <CldImage
+              <Image
                 src={data.logoUrl}
                 alt={data.companyName}
                 width={120}
