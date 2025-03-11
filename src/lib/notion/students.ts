@@ -38,7 +38,6 @@ export const getStudents = cache(async () => {
     if (student.properties.Name.type !== 'title') continue;
     if (student.properties.Team.type !== 'select') continue;
     if (student.properties.Roles.type !== 'select') continue;
-    if (student.properties.Photo.type !== 'rich_text') continue;
     if (student.properties.Link.type !== 'url') continue;
     if (student.properties.Image.type !== 'files') continue;
 

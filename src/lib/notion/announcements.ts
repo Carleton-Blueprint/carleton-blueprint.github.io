@@ -63,7 +63,6 @@ export async function getNewsPageBySlug(slug: string) {
 function getAnnouncementPageProperties(page: PageObjectResponse, pageId: string) {
   if (page.properties.Name.type !== 'title') return null;
   if (page.properties.Description.type !== 'rich_text') return null;
-  if (page.properties['Cover URL'].type !== 'rich_text') return null;
   if (page.properties.Callout.type !== 'rich_text') return null;
   if (page.properties['Latest Callout'].type !== 'checkbox') return null;
   if (page.properties.Slug.type !== 'rich_text') return null;
