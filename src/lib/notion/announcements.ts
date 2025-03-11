@@ -67,13 +67,16 @@ function getAnnouncementPageProperties(page: PageObjectResponse, pageId: string)
   if (page.properties.Callout.type !== 'rich_text') return null;
   if (page.properties['Latest Callout'].type !== 'checkbox') return null;
   if (page.properties.Slug.type !== 'rich_text') return null;
+  if (page.properties.Image.type !== 'files') return null;
+
+  if (page.properties.Image.files[0] && !('file' in page.properties.Image.files[0])) return null;
 
   return {
     announcementPageId: pageId,
     slug: page.properties.Slug.rich_text[0]?.plain_text || pageId,
     title: page.properties.Name.title[0].plain_text || 'Title',
     description: page.properties.Description.rich_text[0]?.plain_text || '',
-    homePageImageURL: page.properties['Cover URL'].rich_text[0]?.plain_text || '/default',
+    homePageImageURL: page.properties['Image'].files[0]?.file.url || '/default.png',
     callout: page.properties.Callout.rich_text,
     latest: page.properties['Latest Callout'].checkbox,
   };
