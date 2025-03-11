@@ -39,8 +39,8 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
             )}
           </div>
         </CardHeader>
-        <CardContent className={'text-md mb-5 hidden md:block md:h-24'}>
-          <p>{data.description}</p>
+        <CardContent className={'text-md mb-5 hidden overflow-hidden md:block md:h-24'}>
+          <p className="line-clamp-4">{data.description}</p>
         </CardContent>
         <CardFooter className={'justify-end space-x-4 pb-4 text-xs md:justify-start md:pb-6 md:text-lg'}>
           {data.gitHubUrl && (
