@@ -21,10 +21,10 @@ export default function ProjectCard({ data }: { data: ProjectDataType }) {
         />
       )}
 
-      <div className="flex min-h-[320px] flex-col justify-end md:min-h-full md:justify-between">
+      <div className="flex min-h-[320px] w-full flex-col justify-end md:min-h-full md:justify-between">
         <CardHeader className="flex flex-col items-start justify-between md:block md:items-center">
           <CardTitle className="text-4xl font-bold">{data.companyName}</CardTitle>
-          <div className="flex flex-row md:items-center md:pt-0">
+          <div className="flex w-full flex-row justify-between md:items-center md:pt-0">
             <CardDescription className="pt-2 text-2xl font-medium leading-9 md:pt-0 md:text-xl">
               {data.productName}
             </CardDescription>
