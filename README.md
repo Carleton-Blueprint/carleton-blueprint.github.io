@@ -1,6 +1,6 @@
 # Carleton Blueprint
 
-[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg)](https://www.netlify.com)
+[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-dark.svg)](https://www.netlify.com)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/02b05bac-6473-4668-b48a-1f225ed3e7c1/deploy-status)](https://app.netlify.com/sites/cublueprint/deploys)
 
 The official website for Carleton Blueprint - a student-led organization that builds technology for social good. We partner with non-profits and other organizations to create custom software solutions that help them better serve their communities.
