@@ -35,7 +35,7 @@ export default async function HeroBlock() {
           <Image src={mobileHome} className="bottom-0 right-0 block w-full md:hidden" alt="Home" />
         </div>
       </div>
-      <Image src={home} className="absolute -right-24 top-0 hidden md:block md:w-1/2" alt="Home" />
+      <Image src={home} className="absolute left-[55%] top-0 hidden h-full w-auto md:block" alt="Home" />
     </div>
   );
 }
