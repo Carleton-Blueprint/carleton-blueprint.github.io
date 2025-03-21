@@ -21,8 +21,8 @@ export default function LinkButton({ children, href, newTab = false, variant = '
     return (
       <Link
         href={href}
-        target={`${newTab && '_blank'}`}
-        rel={`${newTab && 'noopener noreferrer'}`}
+        target={`${newTab ? '_blank' : ''}`}
+        rel={`${newTab ? 'noopener noreferrer' : ''}`}
         className={mergedClassName}
       >
         <button className="self-start rounded-full bg-blueprint px-5 py-2 text-white duration-300 ease-in-out hover:bg-blueprint-300">

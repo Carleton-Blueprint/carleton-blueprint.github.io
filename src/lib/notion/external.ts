@@ -34,5 +34,9 @@ export async function getExternalPageIdBySlug(slug: string): Promise<string> {
     },
   });
 
+  if (res.results.length === 0) {
+    return '';
+  }
+
   return res.results[0].id;
 }
