@@ -32,7 +32,10 @@ export default function NavbarMobile({ data }: PropType) {
       <SheetTrigger className={styles.sheetTrigger['md']}>
         <IoMenu className="-pt-4 size-16 text-white" />
       </SheetTrigger>
-      <SheetContent className="top-[75px] flex w-[250px] items-center justify-center bg-blueprint text-2xl">
+      <SheetContent
+        side={'top'}
+        className="top-[75px] flex w-[250px] items-center justify-center bg-blueprint text-2xl"
+      >
         <SheetHeader className="h-4/5">
           <div className="flex h-3/6 flex-col justify-between">
             {data.map(page => (
