@@ -65,7 +65,7 @@ The official website for Carleton Blueprint - a student-led organization that bu
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Please check out our [Contributing Guidelines](CONTRIBUTING.md)fix!!!!! for details on how to get started.
+We welcome contributions from the community! Please check out our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
 
 ### Development Workflow
 
