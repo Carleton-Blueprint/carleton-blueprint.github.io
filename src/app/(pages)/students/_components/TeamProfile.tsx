@@ -10,7 +10,7 @@ function TeamProfileBase({ student, hover = false }: { student: StudentDataType;
         hover && 'transition duration-200 ease-in-out hover:scale-110 hover:bg-blueprint-50'
       }`}
     >
-      <div className="mb-2 flex h-32 w-32 items-center overflow-hidden rounded-full border-2 border-white">
+      <div className="mb-2 flex h-28 w-28 items-center overflow-hidden rounded-full border-2 border-white md:h-32 md:w-32">
         <Image
           src={student.imageUrl}
           width={128}
