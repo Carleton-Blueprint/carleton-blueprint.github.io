@@ -53,3 +53,109 @@ export const getStudents = cache(async () => {
 
   return studentsArray;
 });
+
+export const getCurrentStudents = cache(async () => {
+  const res = await notion.databases.query({
+    database_id: STUDENTS_DATABASE_ID,
+    filter: {
+      and: [
+        {
+          property: 'Visibility',
+          checkbox: {
+            equals: true,
+          },
+        },
+        {
+          property: 'Status',
+          status: {
+            equals: 'Current',
+          },
+        },
+      ],
+    },
+    sorts: [
+      {
+        property: 'Team',
+        direction: 'ascending',
+      },
+      {
+        property: 'Roles',
+        direction: 'ascending',
+      },
+    ],
+  });
+
+  const studentsArray: StudentDataType[] = [];
+
+  for (const student of res.results as PageObjectResponse[]) {
+    if (student.properties.Visibility.type !== 'checkbox') continue;
+    if (!student.properties.Visibility.checkbox) {
+      continue;
+    }
+
+    if (student.properties.Name.type !== 'title') continue;
+    if (student.properties.Team.type !== 'select') continue;
+    if (student.properties.Roles.type !== 'select') continue;
+    if (student.properties.Link.type !== 'url') continue;
+    if (student.properties.Image.type !== 'files') continue;
+
+    if (student.properties.Image.files[0] && !('file' in student.properties.Image.files[0])) continue;
+
+    const name = student.properties.Name.title[0]?.plain_text || 'Name';
+    const team = student.properties.Team.select?.name || 'Executive';
+    const role = student.properties.Roles.select?.name || 'Role';
+    const imageUrl = student.properties['Image'].files[0]?.file.url || '/default.png';
+    const personalUrl = student.properties.Link.url !== null ? student.properties.Link.url : 'No URL';
+    studentsArray.push({ name, team, role, imageUrl, personalUrl });
+  }
+
+  return studentsArray;
+});
+
+export const getPastStudents = cache(async () => {
+  const res = await notion.databases.query({
+    database_id: STUDENTS_DATABASE_ID,
+    filter: {
+      property: 'Status',
+      status: {
+        equals: 'Past',
+      },
+    },
+    sorts: [
+      {
+        property: 'Team',
+        direction: 'ascending',
+      },
+      {
+        property: 'Roles',
+        direction: 'ascending',
+      },
+    ],
+  });
+
+  const studentsArray: StudentDataType[] = [];
+
+  for (const student of res.results as PageObjectResponse[]) {
+    if (student.properties.Visibility.type !== 'checkbox') continue;
+    // if (!student.properties.Visibility.checkbox) {
+    //   continue;
+    // }
+
+    if (student.properties.Name.type !== 'title') continue;
+    if (student.properties.Team.type !== 'select') continue;
+    if (student.properties.Roles.type !== 'select') continue;
+    if (student.properties.Link.type !== 'url') continue;
+    if (student.properties.Image.type !== 'files') continue;
+
+    if (student.properties.Image.files[0] && !('file' in student.properties.Image.files[0])) continue;
+
+    const name = student.properties.Name.title[0]?.plain_text || 'Name';
+    const team = student.properties.Team.select?.name || 'Executive';
+    const role = student.properties.Roles.select?.name || 'Role';
+    const imageUrl = student.properties['Image'].files[0]?.file.url || '/default.png';
+    const personalUrl = student.properties.Link.url !== null ? student.properties.Link.url : 'No URL';
+    studentsArray.push({ name, team, role, imageUrl, personalUrl });
+  }
+
+  return studentsArray;
+});
