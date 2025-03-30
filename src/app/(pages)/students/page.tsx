@@ -1,26 +1,12 @@
-import Section, { TeamDataType } from './_components/Section';
-import { getStudents } from '@/lib/notion/students';
-import { v4 as uuidv4 } from 'uuid';
 import bluePeople from './_assets/blue_people.svg';
 import Image from 'next/image';
+import Student from './_components/student';
+import { Suspense } from 'react';
+import Loading from './_components/loading';
 
 export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
 
 export default async function Students() {
-  const students = await getStudents();
-
-  let teamNamesSet = new Set<string>();
-  for (const student of students) {
-    teamNamesSet.add(student.team);
-  }
-
-  const teamNamesArray = Array.from(teamNamesSet);
-  const teams: TeamDataType[] = [];
-  for (const teamName of teamNamesArray) {
-    const teamMembers = students.filter(student => student.team == teamName);
-    teams.push({ teamName, teamMembers });
-  }
-
   return (
     <div className="min-h-screen overflow-x-hidden bg-blueprint-50">
       <div className="content container relative flex flex-col space-y-24 pb-24">
@@ -32,9 +18,9 @@ export default async function Students() {
             <Image src={bluePeople} width={188.5} alt="Image of blue figures" className="hidden md:block" />
           </div>
           <div className="flex flex-col space-y-12 text-center md:space-y-24">
-            {teams.map(team => (
-              <Section team={team} key={uuidv4()} />
-            ))}
+            <Suspense fallback={<Loading />}>
+              <Student />
+            </Suspense>
           </div>
         </div>
       </div>
