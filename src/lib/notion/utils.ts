@@ -40,16 +40,15 @@ export async function getTitleByPageId(page_id: string) {
   const res = await notion.pages.retrieve({ page_id });
   const typedRes = res as PageObjectResponse;
 
-  if ("Name" in typedRes.properties) {
+  if ('Name' in typedRes.properties) {
     if (typedRes.properties.Name.type !== 'title')
       throw new Error('Found a page that has a non-title typed property called "Name"!');
     return typedRes.properties.Name.title[0].plain_text ?? 'Untitled';
   }
 
-  // TODO: fix this if we decide not to move to PayloadCMS 
+  // TODO: fix this if we decide not to move to PayloadCMS
   // @ts-ignore
   return typedRes.properties.title.title[0].plain_text;
-
 }
 
 export async function getPageBySlug(database_id: string, slug: string) {
