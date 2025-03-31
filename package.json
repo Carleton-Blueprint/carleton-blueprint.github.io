@@ -9,6 +9,7 @@
     "quality": "npm run format-check && npm run lint",
     "dev": "next dev",
     "build": "npm run quality && next build",
+    "test-build": "rm -rf .next && build && start",
     "start": "next start"
   },
   "dependencies": {
