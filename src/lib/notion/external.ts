@@ -1,42 +1,42 @@
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import notion from '.';
-import { getPageIds } from './utils';
+import { getRecordMap } from './utils';
+import { ExtendedRecordMap } from 'notion-types';
+import { cache } from 'react';
 
 export const EXTERNAL_DATABASE_ID = '71d87c840be547e28a6711d5cae70863';
 
-export async function getExternalPageIds() {
-  return await getPageIds(EXTERNAL_DATABASE_ID);
-}
+export type ExternalPage = {
+  slug: string;
+  title: string;
+  pageId: string;
+  recordMap: ExtendedRecordMap;
+};
 
-export async function getExternalPageSlugs(): Promise<string[]> {
-  const res = await notion.databases.query({
-    database_id: EXTERNAL_DATABASE_ID,
-  });
+/**
+ * Check out how caching works:
+ * - https://react.dev/reference/react/cache
+ * - https://nextjs.org/docs/app/building-your-application/caching#react-cache-function
+ */
+export const getExternalPages = cache(async () => {
+  const res = await notion.databases.query({ database_id: EXTERNAL_DATABASE_ID });
+  const results = res.results as PageObjectResponse[];
 
-  const results = res.results.map(result => {
-    const typedResult = result as PageObjectResponse;
-    if (typedResult.properties.Slug.type !== 'url' || !typedResult.properties.Slug.url) return '';
-    const slug = typedResult.properties.Slug.url;
-    return slug;
-  });
+  const externalPages: ExternalPage[] = [];
 
-  return results;
-}
+  for (let item of results) {
+    if (item.properties.Slug.type !== 'url')
+      throw new Error('Found an "External" page that has a non-URL typed property called "Slug"!');
+    if (item.properties.Name.type !== 'title')
+      throw new Error('Found an "External" page that has a non-title typed property called "Name"!');
 
-export async function getExternalPageIdBySlug(slug: string): Promise<string> {
-  const res = await notion.databases.query({
-    database_id: EXTERNAL_DATABASE_ID,
-    filter: {
-      property: 'Slug',
-      url: {
-        equals: slug,
-      },
-    },
-  });
+    const slug = item.properties.Slug.url ?? '';
+    const title = item.properties.Name.title[0].plain_text;
+    const pageId = item.id;
+    const recordMap = await getRecordMap(pageId);
 
-  if (res.results.length === 0) {
-    return '';
+    externalPages.push({ slug, title, pageId, recordMap });
   }
 
-  return res.results[0].id;
-}
+  return externalPages;
+});
