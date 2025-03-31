@@ -10,12 +10,9 @@ export async function generateStaticParams() {
   }));
 }
 
-type PropsType = {
-  params: { slug: string };
-};
-
-export default async function EventPage({ params }: PropsType) {
-  const newsPage = await getNewsPageBySlug(params.slug);
+export default async function EventPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const newsPage = await getNewsPageBySlug(slug);
 
   if (!newsPage) notFound();
 

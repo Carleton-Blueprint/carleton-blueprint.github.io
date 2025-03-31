@@ -5,17 +5,12 @@ import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const projects = await getProjects();
-  return projects.map(project => ({
-    slug: project.slug,
-  }));
+  return projects.map(project => ({ slug: project.slug }));
 }
 
-type PropsType = {
-  params: { slug: string };
-};
-
-export default async function ProjectPage({ params }: PropsType) {
-  const project = await getProjectPageBySlug(params.slug);
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = await getProjectPageBySlug(slug);
 
   if (!project) notFound();
 

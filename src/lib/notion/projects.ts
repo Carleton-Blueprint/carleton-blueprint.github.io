@@ -31,7 +31,7 @@ export async function getFeaturedProjects() {
 }
 
 export async function getProjects(options?: { featuredOnly: boolean }) {
-  const featuredOnly = options?.featuredOnly ?? false;
+  const featuredOnly = !!options?.featuredOnly;
 
   const projectPageIds = await getProjectPageIds();
   const projects: ProjectDataType[] = [];

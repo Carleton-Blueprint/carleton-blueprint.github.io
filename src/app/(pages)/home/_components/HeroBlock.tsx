@@ -7,7 +7,7 @@ import button from '../_assets/button.svg';
 import { getLatestCallout } from '@/lib/notion/announcements';
 import CallOutWrapper from './CallOutWrapper';
 
-export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
+export const revalidate = 3600;
 
 export default async function HeroBlock() {
   const text = await getLatestCallout();
