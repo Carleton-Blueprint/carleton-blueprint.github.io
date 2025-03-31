@@ -10,7 +10,7 @@ const nextConfig = {
       },
     ],
   },
-  output: 'standalone',
+  // output: 'standalone', // NOTE: Check the Dockerfile for why we might need this
 };
 
 export default nextConfig;
