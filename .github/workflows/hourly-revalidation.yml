@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger on demand revalidation site wide
-        run: curl -X POST -d '{}' "carletonblueprint.org/api/revalidate/home"
+        run: curl -X POST -d '{}' "carletonblueprint.org/api/revalidate"
       - name: Visit the site
         run: curl -X GET "https://carletonblueprint.org"
