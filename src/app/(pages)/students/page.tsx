@@ -4,8 +4,6 @@ import Student from './_components/student';
 import { Suspense } from 'react';
 import Loading from './_components/loading';
 
-export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
-
 export default async function Students() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-blueprint-50">

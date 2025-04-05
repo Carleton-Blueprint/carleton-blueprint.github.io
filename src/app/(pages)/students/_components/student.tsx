@@ -13,7 +13,7 @@ export default async function Student() {
   const teamNamesArray = Array.from(teamNamesSet);
   const teams: TeamDataType[] = [];
   for (const teamName of teamNamesArray) {
-    const teamMembers = students.filter(student => student.team == teamName);
+    const teamMembers = students.filter(stu => stu.team == teamName);
     teams.push({ teamName, teamMembers });
   }
 

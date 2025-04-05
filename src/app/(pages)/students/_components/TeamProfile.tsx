@@ -15,7 +15,7 @@ function TeamProfileBase({ student, hover = false }: { student: StudentDataType;
           src={student.imageUrl}
           width={128}
           height={128}
-          alt={'Picture of ' + (hover ? student.name : 'blueprint logo')}
+          alt={'picture of' + (hover ? student.name : 'blueprint logo')}
         />
       </div>
       <p className="text-md font-bold md:text-lg">{student.name}</p>

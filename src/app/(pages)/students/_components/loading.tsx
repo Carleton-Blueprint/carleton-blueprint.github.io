@@ -7,16 +7,16 @@ export default function Loading() {
       <BlockContainer shadow roundedCorners={true} padding="less" gap="less" titleSize="sm">
         <Skeleton className="h-[50px] w-[400px]" />
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
-          {new Array(12).fill('').map(index => (
-            <TeamProfileLoading key={index} />
+          {new Array(12).fill('').map(id => (
+            <TeamProfileLoading key={id} />
           ))}
         </div>
       </BlockContainer>
       <BlockContainer shadow roundedCorners={true} padding="less" gap="less" titleSize="sm">
         <Skeleton className="h-[50px] w-[400px]" />
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
-          {new Array(12).fill('').map(index => (
-            <TeamProfileLoading key={index} />
+          {new Array(12).fill('').map(id => (
+            <TeamProfileLoading key={id} />
           ))}
         </div>
       </BlockContainer>

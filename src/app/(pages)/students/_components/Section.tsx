@@ -19,8 +19,8 @@ export default function Section({ team }: { team: TeamDataType }) {
       titleSize="sm"
     >
       <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
-        {team.teamMembers.map(person => (
-          <TeamProfile student={person} key={uuidv4()} />
+        {team.teamMembers.map(member => (
+          <TeamProfile student={member} key={uuidv4()} />
         ))}
       </div>
     </BlockContainer>
