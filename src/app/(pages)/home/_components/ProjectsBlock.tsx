@@ -5,7 +5,7 @@ import { MdDoubleArrow } from 'react-icons/md';
 import { getFeaturedProjects } from '@/lib/notion/projects';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
-export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
+export const revalidate = 3600;
 
 export default async function ProjectsBlock() {
   const featuredProjects = await getFeaturedProjects();

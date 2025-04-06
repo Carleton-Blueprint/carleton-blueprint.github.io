@@ -27,7 +27,7 @@ export async function getFeaturedEvents() {
 }
 
 export async function getEvents(options?: { featuredOnly: boolean }) {
-  const featuredOnly = options?.featuredOnly ?? false;
+  const featuredOnly = !!options?.featuredOnly;
 
   const eventPageIds = await getEventPageIds();
   const events: EventDataType[] = [];

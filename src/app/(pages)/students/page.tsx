@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import bluePeople from './_assets/blue_people.svg';
 import Image from 'next/image';
 
-export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
+export const revalidate = 3600;
 
 export default async function Students() {
   const students = await getStudents();

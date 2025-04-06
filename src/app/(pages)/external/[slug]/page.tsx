@@ -1,22 +1,18 @@
 import NotionPage from '@/components/NotionPage';
-import { getExternalPageIdBySlug, getExternalPageSlugs } from '@/lib/notion/external';
-import { getRecordMap, getTitleByPageId } from '@/lib/notion/utils';
+import { getExternalPages } from '@/lib/notion/external';
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
-  const slugs = await getExternalPageSlugs();
-  return slugs.map((slug: string) => ({ slug }));
+  const externalPages = await getExternalPages();
+  return externalPages.map(externalPage => ({ slug: externalPage.slug }));
 }
 
-type PropsType = {
-  params: { slug: string };
-};
+export default async function ExternalPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
 
-export default async function ArbitraryNotionPage({ params }: PropsType) {
-  const slug = params.slug;
+  const externalPages = await getExternalPages();
+  const data = externalPages.find(page => page.slug === slug);
+  if (data === undefined) return notFound();
 
-  const pageId = await getExternalPageIdBySlug(slug);
-  const title = await getTitleByPageId(pageId);
-  const recordMap = await getRecordMap(pageId);
-
-  return <NotionPage recordMap={recordMap} title={title} />;
+  return <NotionPage recordMap={data.recordMap} title={data.title} />;
 }

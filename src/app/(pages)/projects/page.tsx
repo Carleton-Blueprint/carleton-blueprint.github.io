@@ -3,7 +3,7 @@ import CurrentProjects from './_components/CurrentProjects';
 import PastProjects from './_components/PastProjects';
 import { getProjects, isCurrentProject } from '@/lib/notion/projects';
 
-export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
+export const revalidate = 3600;
 
 export default async function Projects() {
   const res = await getProjects();
