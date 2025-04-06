@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import EventCard from './_components/EventCard';
 import { getEvents } from '@/lib/notion/events';
 import BlockContainer from '@/components/BlockContainer';
-import EventCardLoading from './_components/loading';
+import EventCardLoading from './_components/EventsLoading';
 
 export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
 

@@ -3,9 +3,9 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Loading() {
   return (
-    <>
+    <div className="flex flex-col space-y-12 text-center md:space-y-24">
       <BlockContainer shadow roundedCorners={true} padding="less" gap="less" titleSize="sm">
-        <Skeleton className="h-[50px] w-[400px]" />
+        <Skeleton className="h-[40px] w-[250px] md:h-[50px] md:w-[400px]" />
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
           {new Array(12).fill('').map(id => (
             <TeamProfileLoading key={id} />
@@ -20,7 +20,7 @@ export default function Loading() {
           ))}
         </div>
       </BlockContainer>
-    </>
+    </div>
   );
 }
 

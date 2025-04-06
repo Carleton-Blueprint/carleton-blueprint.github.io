@@ -22,11 +22,13 @@ export default function PastProjectCard({ data }: { data: ProjectDataType }) {
               />
             </div>
           )}
-          <div className="flex flex-col items-center gap-4 text-center">
-            <CardTitle className="flex text-4xl text-white md:h-[80px] md:items-center">{data.companyName}</CardTitle>
-            <CardContent className="text-2xl text-white md:text-base">
-              <p className="hidden h-[100px] md:line-clamp-4">{data.description}</p>
-              <p className="block md:hidden">{data.productName}</p>
+          <div className="flex flex-col items-center text-center text-white">
+            <div className="flex h-[110px] flex-col items-center justify-center text-center">
+              <CardTitle className="-mx-2 flex text-4xl md:items-center">{data.companyName}</CardTitle>
+              <p className="font-semibold">{data.productName}</p>
+            </div>
+            <CardContent className="hidden text-2xl text-white md:block md:text-base">
+              <p className="h-[100px] md:line-clamp-4">{data.description}</p>
             </CardContent>
           </div>
         </div>

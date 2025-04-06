@@ -1,8 +1,8 @@
 import bluePeople from './_assets/blue_people.svg';
 import Image from 'next/image';
-import Student from './_components/student';
+import Student from './_components/Students';
 import { Suspense } from 'react';
-import Loading from './_components/loading';
+import Loading from './_components/StudentsLoading';
 
 export default async function Students() {
   return (
@@ -15,11 +15,11 @@ export default async function Students() {
             </h1>
             <Image src={bluePeople} width={188.5} alt="Image of blue figures" className="hidden md:block" />
           </div>
-          <div className="flex flex-col space-y-12 text-center md:space-y-24">
-            <Suspense fallback={<Loading />}>
+          <Suspense fallback={<Loading />}>
+            <div className="flex flex-col space-y-12 text-center md:space-y-24">
               <Student />
-            </Suspense>
-          </div>
+            </div>
+          </Suspense>
         </div>
       </div>
     </div>

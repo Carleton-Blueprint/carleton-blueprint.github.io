@@ -4,11 +4,12 @@ import Link from 'next/link';
 import { MdDoubleArrow } from 'react-icons/md';
 import { getFeaturedProjects } from '@/lib/notion/projects';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Suspense } from 'react';
+import { HomeProjectLoading, HomeProjectLoadingMobile } from './HomePageLoading';
 
 export const revalidate = Number(process.env.REVALIDATION_INTERVAL) || 3600;
 
 export default async function ProjectsBlock() {
-  const featuredProjects = await getFeaturedProjects();
   return (
     <BlockContainer title="Projects" padding="less">
       <div className="-mx-8 px-4 md:mx-auto">
@@ -19,20 +20,16 @@ export default async function ProjectsBlock() {
           }}
           className="hidden md:block"
         >
-          <CarouselContent>
-            {featuredProjects.map(project => (
-              <CarouselItem key={project.pageId} className="md:basis-1/2 lg:basis-1/3">
-                <ProjectCard data={project} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+          <Suspense fallback={<HomeProjectLoading />}>
+            <ProjectCards />
+          </Suspense>
           <CarouselPrevious className="hidden md:inline-flex" />
           <CarouselNext className="hidden md:inline-flex" />
         </Carousel>
         <div className="space-y-8 md:hidden">
-          {featuredProjects.map(project => (
-            <ProjectCard key={project.pageId} data={project} mobile />
-          ))}
+          <Suspense fallback={<HomeProjectLoadingMobile />}>
+            <ProjectCardsMobile />
+          </Suspense>
         </div>
       </div>
       <div className="flex text-2xl">
@@ -48,4 +45,23 @@ export default async function ProjectsBlock() {
       </div>
     </BlockContainer>
   );
+}
+
+async function ProjectCards() {
+  const featuredProjects = await getFeaturedProjects();
+  return (
+    <CarouselContent>
+      {featuredProjects.map(project => (
+        <CarouselItem key={project.pageId} className="md:basis-1/2 lg:basis-1/3">
+          <ProjectCard data={project} />
+        </CarouselItem>
+      ))}
+    </CarouselContent>
+  );
+}
+
+async function ProjectCardsMobile() {
+  const featuredProjects = await getFeaturedProjects();
+
+  return featuredProjects.map(project => <ProjectCard key={project.pageId} data={project} mobile />);
 }

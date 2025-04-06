@@ -1,14 +1,14 @@
 import { Skeleton } from '@/components/ui/skeleton';
 
 export default function EventCardLoading() {
-  return [...Array(6)].map((_, i) => (
+  return new Array(2).fill('').map(id => (
     <div
-      key={i}
+      key={id}
       className="relative mt-12 flex w-full max-w-md transform flex-col overflow-hidden rounded-[30px] shadow-md"
     >
       <div className="relative w-full overflow-hidden md:h-64">
         <div className="max-h-full overflow-hidden">
-          <Skeleton className="h-[400px] w-[400px] rounded-lg" />
+          <Skeleton className="h-[250px] w-[400px] rounded-lg md:h-[400px]" />
         </div>
       </div>
       <div className="flex flex-col items-center justify-center p-4 text-center md:p-6">
