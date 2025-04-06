@@ -14,3 +14,5 @@ export default async function ArbitraryNotionPage({ params }: { params: Promise<
 
   return <NotionPage recordMap={recordMap} title={title} />;
 }
+
+export const dynamicParams = false;
