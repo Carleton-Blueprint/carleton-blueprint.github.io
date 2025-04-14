@@ -8,11 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger on demand revalidation for home page
-        run: curl -X POST -d '{}' "carletonblueprint.org/api/revalidate/home"
-      - name: Trigger on demand revalidation for projects page
-        run: curl -X POST -d '{}' "carletonblueprint.org/api/revalidate/projects"
-      - name: Trigger on demand revalidation for events page
-        run: curl -X POST -d '{}' "carletonblueprint.org/api/revalidate/events"
-      - name: Trigger on demand revalidation for students page
-        run: curl -X POST -d '{}' "carletonblueprint.org/api/revalidate/students"
+      - name: Trigger on demand revalidation site wide
+        run: curl -X POST -d '{}' "https://carletonblueprint.org/api/revalidate"
+      - name: Visit the site
+        run: curl -X GET "https://carletonblueprint.org"
